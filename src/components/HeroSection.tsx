@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-studio.jpg";
 
 const WaveformVisualizer = () => (
   <div className="flex items-center gap-[2px] h-8">
