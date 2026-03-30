@@ -3,9 +3,9 @@ import { useState, useEffect, lazy, Suspense } from "react";
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
-  { href: "#about", label: "About" },
   { href: "#portfolio", label: "Work" },
   { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
 
