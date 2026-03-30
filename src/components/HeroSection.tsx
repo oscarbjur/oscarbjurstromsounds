@@ -31,13 +31,12 @@ const HeroSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-6">
             Sound Designer & Audio Engineer
           </p>
-          <h1 className="font-display text-7xl md:text-9xl leading-none tracking-wider text-foreground mb-8">
-            CRAFTING
-            <br />
-            <span className="text-primary">SONIC</span>
-            <br />
-            WORLDS
+          <h1 className="font-display text-8xl md:text-[12rem] leading-none tracking-wider text-foreground mb-2">
+            OBS
           </h1>
+          <p className="font-display text-2xl md:text-4xl tracking-[0.2em] text-muted-foreground mb-8">
+            OSCAR BJURSTRÖM SOUNDS
+          </p>
         </motion.div>
 
         <motion.div

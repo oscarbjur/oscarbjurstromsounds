@@ -37,7 +37,7 @@ const Navbar = () => {
             </Suspense>
           </div>
           <a href="#" className="font-display text-2xl text-foreground tracking-widest">
-            SOUND<span className="text-primary">.</span>
+            OBS<span className="text-primary">.</span>
           </a>
         </div>
         <div className="hidden md:flex items-center gap-8">
