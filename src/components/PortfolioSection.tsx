@@ -81,6 +81,7 @@ const PortfolioSection = () => {
                 </span>
               </div>
             </motion.div>
+            </Link>
           ))}
           <div className="border-t border-border" />
         </div>
