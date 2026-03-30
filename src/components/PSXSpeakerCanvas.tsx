@@ -89,40 +89,40 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
         </mesh>
 
         {/* ===== BIG WOOFER — exaggerated cartoony size ===== */}
-        {/* Rubber surround */}
-        <mesh material={rubberMat} position={[0, -0.35, 0.56]} rotation={[Math.PI / 2, 0, 0]}>
+        {/* Rubber surround — torus faces camera (no rotation needed, default is XY plane) */}
+        <mesh material={rubberMat} position={[0, -0.35, 0.56]}>
           <torusGeometry args={[0.55, 0.08, 8, 16]} />
         </mesh>
-        {/* Cone */}
-        <mesh position={[0, -0.35, 0.6]} rotation={[Math.PI / 2, 0, 0]}>
+        {/* Cone — points toward viewer (-Z in cone local = +Z world) */}
+        <mesh position={[0, -0.35, 0.5]} rotation={[-Math.PI / 2, 0, 0]}>
           <coneGeometry args={[0.5, 0.25, 16]} />
           <meshToonMaterial color="hsl(200, 8%, 15%)" />
         </mesh>
-        {/* Dust cap — big and obvious */}
-        <mesh position={[0, -0.35, 0.68]} rotation={[Math.PI / 2, 0, 0]}>
+        {/* Dust cap — half sphere facing forward */}
+        <mesh position={[0, -0.35, 0.55]} rotation={[-Math.PI / 2, 0, 0]}>
           <sphereGeometry args={[0.14, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
           <meshToonMaterial color="hsl(200, 15%, 12%)" />
         </mesh>
         {/* Glow ring around woofer */}
-        <mesh material={glowMat} position={[0, -0.35, 0.57]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh material={glowMat} position={[0, -0.35, 0.57]}>
           <torusGeometry args={[0.62, 0.025, 6, 16]} />
         </mesh>
 
         {/* ===== TWEETER — smaller circle on top ===== */}
-        <mesh material={rubberMat} position={[0, 0.6, 0.56]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh material={rubberMat} position={[0, 0.6, 0.56]}>
           <torusGeometry args={[0.22, 0.04, 8, 12]} />
         </mesh>
-        <mesh position={[0, 0.6, 0.59]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh position={[0, 0.6, 0.5]} rotation={[-Math.PI / 2, 0, 0]}>
           <coneGeometry args={[0.18, 0.12, 12]} />
           <meshToonMaterial color="hsl(200, 8%, 18%)" />
         </mesh>
         {/* Tweeter dome */}
-        <mesh position={[0, 0.6, 0.63]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh position={[0, 0.6, 0.58]} rotation={[-Math.PI / 2, 0, 0]}>
           <sphereGeometry args={[0.06, 6, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
           <meshStandardMaterial color="hsl(160, 60%, 50%)" emissive="hsl(160, 60%, 35%)" emissiveIntensity={1} metalness={0.5} roughness={0.3} />
         </mesh>
         {/* Glow ring around tweeter */}
-        <mesh material={glowMat} position={[0, 0.6, 0.57]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh material={glowMat} position={[0, 0.6, 0.57]}>
           <torusGeometry args={[0.25, 0.02, 6, 12]} />
         </mesh>
 
