@@ -27,13 +27,17 @@ const ShowreelSection = () => {
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="font-display text-2xl md:text-4xl text-foreground uppercase">
+          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             Oscar Bjurström Sounds<span className="text-primary">.</span>
-          </h1>
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-foreground">
+            SHOWREEL
+          </h2>
         </motion.div>
 
 
