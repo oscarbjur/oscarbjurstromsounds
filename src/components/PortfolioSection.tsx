@@ -3,52 +3,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { categories, projects, type Category } from "@/data/projects";
-  "All",
-  "UI/UX Sound Design",
-  "Game Audio Implementation & Design",
-  "Audio Logos & Identities",
-  "Commercials",
-] as const;
 
-type Category = (typeof categories)[number];
-
-interface Project {
-  title: string;
-  category: Exclude<Category, "All">;
-  role: string;
-  type: string;
-  description: string;
-  year: string;
-  link?: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "BLOOM ETERNAL",
-    category: "Game Audio Implementation & Design",
-    role: "Audio Implementer & Designer",
-    type: "Indie Game — The Game Assembly",
-    description: "Audio implemented with adaptive soundscapes for an isometric adventure inspired by Death's Door.",
-    year: "2024",
-    link: "https://www.youtube.com/watch?v=dEkKYZpwTlE",
-  },
-  {
-    title: "STREAMLINE OS",
-    category: "UI/UX Sound Design",
-    role: "UX Audio Lead",
-    type: "Operating System",
-    description: "System-wide notification, alert, and interaction sound set for a next-gen desktop OS.",
-    year: "2023",
-  },
-  {
-    title: "NORDISK BANK",
-    category: "Audio Logos & Identities",
-    role: "Composer & Sound Designer",
-    type: "Brand Identity",
-    description: "Audio logo, hold music, and branded soundscape for a Nordic financial institution.",
-    year: "2022",
-  },
-];
 
 const PortfolioSection = () => {
   const [active, setActive] = useState<Category>("All");
