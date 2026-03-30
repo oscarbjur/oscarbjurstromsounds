@@ -147,48 +147,10 @@
 }
 
 .btn-puffy-icon {
-  background: transparent;
-  color: hsl(var(--primary));
-  border: 2px solid hsl(var(--primary));
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  border: none;
-  padding: 0;
-  transition: transform 0.15s ease, filter 0.15s ease;
-}
-
-.btn-puffy-icon::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  border: 2px solid hsl(var(--primary));
-  box-sizing: border-box;
-  pointer-events: none;
-}
-
-.btn-puffy-icon::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  pointer-events: none;
-}
-
-/* Use SVG-based approach instead */
-.btn-puffy-icon {
   all: unset;
   cursor: pointer;
   width: 2rem;
   height: 2.5rem;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,20 +158,10 @@
 }
 
 .btn-puffy-icon:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
   opacity: 0.8;
 }
 
 .btn-puffy-icon:active {
   transform: scale(0.9);
-}
-
-.btn-puffy-icon-left {
-  transform: scaleX(-1);
-}
-.btn-puffy-icon-left:hover {
-  transform: scaleX(-1) scale(1.15);
-}
-.btn-puffy-icon-left:active {
-  transform: scaleX(-1) scale(0.9);
 }
