@@ -1,5 +1,7 @@
 export const categories = [
   "Game Audio Implementation & Design",
+  "UI/UX Sound Design",
+  "Audio Logos & Identities",
   "Commercials",
 ] as const;
 
