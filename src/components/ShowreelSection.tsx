@@ -64,18 +64,14 @@ const ShowreelSection = () => {
           {/* Navigation arrows */}
           <button
             onClick={prev}
-            className="btn-puffy-icon !absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 z-10"
+            className="btn-puffy-icon btn-puffy-icon-left !absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 z-10"
             aria-label="Previous showreel"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
+          />
           <button
             onClick={next}
             className="btn-puffy-icon !absolute top-1/2 -right-4 md:-right-16 -translate-y-1/2 z-10"
             aria-label="Next showreel"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+          />
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
