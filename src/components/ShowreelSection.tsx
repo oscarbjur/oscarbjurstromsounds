@@ -1,66 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-
-const FACE_COUNT = 36;
-const RADIUS = 160;
-
-const SpinningBanner = () => {
-  const [rotation, setRotation] = useState(0);
-
-  useEffect(() => {
-    let frame: number;
-    const animate = () => {
-      setRotation((r) => r + 0.25);
-      frame = requestAnimationFrame(animate);
-    };
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  const angleStep = 360 / FACE_COUNT;
-  const faceWidth = 2 * RADIUS * Math.tan(Math.PI / FACE_COUNT);
-
-  return (
-    <div className="flex justify-center items-center overflow-hidden" style={{ perspective: 900 }}>
-      <div
-        className="relative"
-        style={{
-          width: faceWidth,
-          height: 100,
-          transformStyle: "preserve-3d",
-          transform: `rotateY(${rotation}deg)`,
-        }}
-      >
-        {Array.from({ length: FACE_COUNT }).map((_, i) => {
-          const angle = i * angleStep;
-          // Only show text on 3 evenly-spaced faces
-          const showText = i % 12 === 0;
-          return (
-            <div
-              key={i}
-              className="absolute inset-0 gap-0 items-center justify-center flex flex-row"
-              style={{
-                width: faceWidth,
-                height: 100,
-                backfaceVisibility: "hidden",
-                transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
-                background: showText
-                  ? "transparent"
-                  : "transparent",
-              }}
-            >
-              {showText && (
-                <h1 className="font-display text-2xl md:text-4xl text-foreground whitespace-nowrap select-none">
-                  Oscar Bjurström Sounds<span className="text-primary">.</span>
-                </h1>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
+import { useState } from "react";
 
 const showreels = [
   {
@@ -92,11 +31,14 @@ const ShowreelSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <SpinningBanner />
+          <h1 className="font-display text-4xl md:text-6xl text-foreground">
+            Oscar Bjurström Sounds<span className="text-primary">.</span>
+          </h1>
           <p className="font-body text-base tracking-[0.15em] text-muted-foreground mt-4">
             OSCAR BJURSTRÖM SOUNDS
           </p>
         </motion.div>
+
 
         <div className="max-w-5xl mx-auto relative flex items-center gap-4">
           {/* Left arrow */}
