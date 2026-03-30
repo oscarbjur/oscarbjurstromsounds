@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import oscarPhoto from "@/assets/oscar-photo.jpg";
 
 const AboutSection = () => {
   return (
@@ -39,24 +40,13 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="grid grid-cols-2 gap-6"
+            className="flex justify-center"
           >
-            {[
-              { number: "150+", label: "Projects" },
-              { number: "10+", label: "Years" },
-              { number: "40+", label: "Clients" },
-              { number: "12", label: "Awards" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-card border border-border p-8 text-center"
-              >
-                <p className="font-display text-2xl text-primary mb-2">{stat.number}</p>
-                <p className="text-muted-foreground font-body text-sm tracking-widest uppercase">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            <img
+              src={oscarPhoto}
+              alt="Oscar Bjurström"
+              className="w-full max-w-md rounded-lg object-cover aspect-[3/4] border border-border"
+            />
           </motion.div>
         </div>
       </div>
