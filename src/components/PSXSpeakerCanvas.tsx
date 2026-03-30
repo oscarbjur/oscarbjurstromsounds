@@ -14,7 +14,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const bodyMat = useMemo(
     () =>
       new THREE.MeshToonMaterial({
-        color: new THREE.Color("hsl(200, 15%, 35%)"),
+        color: new THREE.Color("hsl(200, 50%, 55%)"),
       }),
     []
   );
@@ -22,7 +22,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const darkMat = useMemo(
     () =>
       new THREE.MeshToonMaterial({
-        color: new THREE.Color("hsl(200, 20%, 10%)"),
+        color: new THREE.Color("hsl(210, 40%, 20%)"),
       }),
     []
   );
@@ -30,7 +30,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const coneMat = useMemo(
     () =>
       new THREE.MeshToonMaterial({
-        color: new THREE.Color("hsl(200, 10%, 20%)"),
+        color: new THREE.Color("hsl(210, 30%, 30%)"),
       }),
     []
   );
@@ -38,9 +38,9 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const glowMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(160, 80%, 50%)"),
-        emissive: new THREE.Color("hsl(160, 80%, 40%)"),
-        emissiveIntensity: 2,
+        color: new THREE.Color("hsl(160, 80%, 55%)"),
+        emissive: new THREE.Color("hsl(160, 80%, 45%)"),
+        emissiveIntensity: 2.5,
         roughness: 0.2,
         metalness: 0.5,
       }),
@@ -50,7 +50,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const rubberMat = useMemo(
     () =>
       new THREE.MeshToonMaterial({
-        color: new THREE.Color("hsl(0, 0%, 6%)"),
+        color: new THREE.Color("hsl(210, 25%, 12%)"),
       }),
     []
   );
@@ -58,7 +58,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const silverMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(200, 5%, 60%)"),
+        color: new THREE.Color("hsl(200, 30%, 70%)"),
         metalness: 0.8,
         roughness: 0.3,
       }),
