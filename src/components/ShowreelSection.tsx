@@ -63,20 +63,22 @@ const ShowreelSection = () => {
           {/* Navigation arrows */}
           <button
             onClick={prev}
-            className="btn-puffy-icon btn-puffy-icon-left !absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 z-10"
+            className="btn-puffy-icon btn-puffy-icon-left !absolute top-1/2 -left-6 md:-left-16 z-10"
+            style={{ marginTop: '-15px' }}
             aria-label="Previous showreel"
           >
-            <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 2L22 15L2 28" stroke="hsl(210, 90%, 58%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 15L22 2V28Z" fill="hsl(210, 90%, 58%)" />
             </svg>
           </button>
           <button
             onClick={next}
-            className="btn-puffy-icon !absolute top-1/2 -right-4 md:-right-16 -translate-y-1/2 z-10"
+            className="btn-puffy-icon !absolute top-1/2 -right-6 md:-right-16 z-10"
+            style={{ marginTop: '-15px' }}
             aria-label="Next showreel"
           >
-            <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 2L22 15L2 28" stroke="hsl(210, 90%, 58%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 2L22 15L2 28Z" fill="hsl(210, 90%, 58%)" />
             </svg>
           </button>
 
