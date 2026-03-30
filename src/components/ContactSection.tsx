@@ -39,18 +39,18 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <p className="text-muted-foreground font-body leading-relaxed">
-              Have a project in mind? I'd love to hear about it. Whether it's a
-              feature film, indie game, or commercial campaign — let's create
-              something extraordinary together.
+              I love hearing about awesome creative projects — big or small, weird or wonderful.
+              Whether you're working on a game, a film, a commercial, or something completely
+              different, I'd love to be part of it. Drop me a message and let's make something cool together!
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground font-body text-sm">hello@yourdomain.com</span>
+                <span className="text-foreground font-body text-sm">oscarbjurstromsounds@gmail.com</span>
               </div>
               <div className="flex items-center gap-4">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-foreground font-body text-sm">Los Angeles, CA</span>
+                <span className="text-foreground font-body text-sm">Malmö, Sweden</span>
               </div>
             </div>
           </motion.div>
