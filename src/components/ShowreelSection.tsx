@@ -64,14 +64,14 @@ const ShowreelSection = () => {
           {/* Navigation arrows */}
           <button
             onClick={prev}
-            className="absolute top-1/2 -left-4 md:-left-14 -translate-y-1/2 z-10 p-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+            className="btn-puffy-icon absolute top-1/2 -left-4 md:-left-14 -translate-y-1/2 z-10"
             aria-label="Previous showreel"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={next}
-            className="absolute top-1/2 -right-4 md:-right-14 -translate-y-1/2 z-10 p-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+            className="btn-puffy-icon absolute top-1/2 -right-4 md:-right-14 -translate-y-1/2 z-10"
             aria-label="Next showreel"
           >
             <ChevronRight className="h-5 w-5" />

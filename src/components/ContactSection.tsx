@@ -89,7 +89,7 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="bg-primary text-primary-foreground px-8 py-3 font-body text-sm tracking-widest uppercase hover:opacity-90 transition-opacity flex items-center gap-2"
+              className="btn-puffy flex items-center gap-2"
             >
               <Send className="w-4 h-4" />
               Send Message

@@ -117,10 +117,10 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`font-body text-xs tracking-[0.15em] uppercase px-4 py-2 border transition-colors ${
+              className={`font-body text-xs tracking-[0.15em] uppercase px-4 py-2 rounded-xl transition-all ${
                 active === cat
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border text-muted-foreground hover:border-primary hover:text-primary"
+                  ? "btn-puffy"
+                  : "bg-secondary text-muted-foreground border-none rounded-xl shadow-[0_4px_0_hsl(0_0%_8%),inset_0_1px_2px_hsl(0_0%_20%/0.3)] hover:text-foreground"
               }`}
             >
               {cat}
