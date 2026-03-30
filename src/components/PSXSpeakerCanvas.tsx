@@ -14,7 +14,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const bodyMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(38, 90%, 55%)"),
+        color: new THREE.Color("hsl(160, 60%, 45%)"),
         flatShading: true,
         roughness: 0.6,
         metalness: 0.4,
