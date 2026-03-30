@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Play } from "lucide-react";
-
-const categories = [
+import { Link } from "react-router-dom";
+import { categories, projects, type Category } from "@/data/projects";
   "All",
   "UI/UX Sound Design",
   "Game Audio Implementation & Design",
