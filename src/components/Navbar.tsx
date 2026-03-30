@@ -41,9 +41,9 @@ const Navbar = () => {
             <PSXSpeakerCanvas scrollProgress={scrollProgress} />
           </Suspense>
         </div>
-        {/* Centered OBS logo */}
-        <Link to="/" className="font-display text-2xl text-foreground tracking-widest">
-          OBS<span className="text-primary">.</span>
+        {/* Centered OBS spinning banner */}
+        <Link to="/" className="block" style={{ perspective: 600 }}>
+          <SpinningLogo />
         </Link>
         {/* Centered nav links below */}
         <div className="hidden md:flex items-center gap-8 mt-2">
