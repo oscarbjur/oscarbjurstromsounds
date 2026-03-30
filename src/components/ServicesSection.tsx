@@ -1,13 +1,27 @@
 import { motion } from "framer-motion";
-import { Headphones, Film, Gamepad2, Mic, Radio, Music } from "lucide-react";
+import { Gamepad2, MousePointerClick, Music, Tv } from "lucide-react";
 
 const services = [
-  { icon: Film, title: "FILM & TV", description: "Complete sound design, Foley, and post-production audio for film and television." },
-  { icon: Gamepad2, title: "GAME AUDIO", description: "Interactive audio systems, procedural sound, and adaptive music for video games." },
-  { icon: Mic, title: "FOLEY ART", description: "Custom Foley recording and performance to bring every scene to life." },
-  { icon: Headphones, title: "MIXING", description: "Surround and spatial audio mixing for cinema, VR, and immersive installations." },
-  { icon: Radio, title: "FIELD RECORDING", description: "On-location recording and custom sound library creation worldwide." },
-  { icon: Music, title: "SONIC BRANDING", description: "Audio logos, brand sounds, and sonic identities for commercial brands." },
+  {
+    icon: MousePointerClick,
+    title: "UI/UX SOUND DESIGN",
+    description: "Crafting intuitive sonic feedback for apps, products, and digital interfaces — from micro-interactions to full system soundscapes.",
+  },
+  {
+    icon: Gamepad2,
+    title: "GAME AUDIO IMPLEMENTATION & DESIGN",
+    description: "End-to-end game audio: sound design, adaptive music, procedural systems, and implementation in Wwise & FMOD.",
+  },
+  {
+    icon: Music,
+    title: "AUDIO LOGOS & IDENTITIES",
+    description: "Memorable sonic branding — audio logos, brand sounds, and cohesive audio identities that define how a brand is heard.",
+  },
+  {
+    icon: Tv,
+    title: "COMMERCIALS",
+    description: "Sound design and mixing for TV spots, digital ads, and campaign films — punchy, polished, and on-brand.",
+  },
 ];
 
 const ServicesSection = () => {
@@ -24,12 +38,12 @@ const ServicesSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             What I Do
           </p>
-          <h2 className="font-display text-3xl md:text-5xl text-foreground">
+          <h2 className="font-display text-3xl md:text-4xl text-foreground">
             SERVICES
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -40,7 +54,7 @@ const ServicesSection = () => {
               className="group bg-card border border-border p-8 hover:border-primary/50 transition-colors"
             >
               <service.icon className="w-8 h-8 text-primary mb-6" />
-              <h3 className="font-display text-base text-foreground mb-3">
+              <h3 className="font-display text-sm text-foreground mb-3">
                 {service.title}
               </h3>
               <p className="text-muted-foreground font-body text-sm leading-relaxed">
