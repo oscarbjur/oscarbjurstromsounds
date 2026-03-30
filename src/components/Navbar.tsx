@@ -1,15 +1,19 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
-  { href: "#portfolio", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "portfolio", label: "Work" },
+  { href: "services", label: "Services" },
+  { href: "about", label: "About" },
+  { href: "contact", label: "Contact" },
 ];
 
 const Navbar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -36,20 +40,30 @@ const Navbar = () => {
               <PSXSpeakerCanvas scrollProgress={scrollProgress} />
             </Suspense>
           </div>
-          <a href="#" className="font-display text-2xl text-foreground tracking-widest">
+          <Link to="/" className="font-display text-2xl text-foreground tracking-widest">
             OBS<span className="text-primary">.</span>
-          </a>
+          </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) =>
+            isHome ? (
+              <a
+                key={link.href}
+                href={`#${link.href}`}
+                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={`/#${link.href}`}
+                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
       </div>
     </nav>
