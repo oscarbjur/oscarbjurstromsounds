@@ -31,7 +31,7 @@ const ShowreelSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <h1 className="font-display text-2xl md:text-4xl text-foreground">
+          <h1 className="font-display text-2xl md:text-4xl text-foreground uppercase">
             Oscar Bjurström Sounds<span className="text-primary">.</span>
           </h1>
           <p className="font-body text-base tracking-[0.15em] text-muted-foreground mt-4">
