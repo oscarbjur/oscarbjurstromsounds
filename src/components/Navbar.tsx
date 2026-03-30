@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+
+const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
   { href: "#about", label: "About" },
@@ -9,10 +11,15 @@ const links = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(maxScroll > 0 ? window.scrollY / maxScroll : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -23,9 +30,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#" className="font-display text-2xl text-foreground tracking-widest">
-          SOUND<span className="text-primary">.</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10">
+            <Suspense fallback={null}>
+              <PSXSpeakerCanvas scrollProgress={scrollProgress} />
+            </Suspense>
+          </div>
+          <a href="#" className="font-display text-2xl text-foreground tracking-widest">
+            SOUND<span className="text-primary">.</span>
+          </a>
+        </div>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
