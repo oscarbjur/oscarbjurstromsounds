@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
@@ -9,6 +9,66 @@ const links = [
   { href: "about", label: "About" },
   { href: "contact", label: "Contact" },
 ];
+
+const FACE_COUNT = 36;
+const RADIUS = 50;
+
+const SpinningLogo = () => {
+  const rotationRef = useRef(0);
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let frame: number;
+    const animate = () => {
+      rotationRef.current += 0.25;
+      if (divRef.current) {
+        divRef.current.style.transform = `rotateY(${rotationRef.current}deg)`;
+      }
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const angleStep = 360 / FACE_COUNT;
+  const faceWidth = 2 * RADIUS * Math.tan(Math.PI / FACE_COUNT);
+
+  return (
+    <div
+      ref={divRef}
+      className="relative"
+      style={{
+        width: faceWidth,
+        height: 32,
+        transformStyle: "preserve-3d",
+        margin: "0 auto",
+      }}
+    >
+      {Array.from({ length: FACE_COUNT }).map((_, i) => {
+        const angle = i * angleStep;
+        const showText = i % 12 === 0;
+        return (
+          <div
+            key={i}
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              width: faceWidth,
+              height: 32,
+              backfaceVisibility: "hidden",
+              transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
+            }}
+          >
+            {showText && (
+              <span className="font-display text-2xl text-foreground whitespace-nowrap select-none tracking-widest">
+                OBS<span className="text-primary">.</span>
+              </span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,9 +101,9 @@ const Navbar = () => {
             <PSXSpeakerCanvas scrollProgress={scrollProgress} />
           </Suspense>
         </div>
-        {/* Centered OBS logo */}
-        <Link to="/" className="font-display text-2xl text-foreground tracking-widest">
-          OBS<span className="text-primary">.</span>
+        {/* Centered OBS spinning banner */}
+        <Link to="/" className="block" style={{ perspective: 600 }}>
+          <SpinningLogo />
         </Link>
         {/* Centered nav links below */}
         <div className="hidden md:flex items-center gap-8 mt-2">
