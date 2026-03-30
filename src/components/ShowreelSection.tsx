@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+
 const FACE_COUNT = 16;
 const RADIUS = 120; // px — cylinder radius
 
