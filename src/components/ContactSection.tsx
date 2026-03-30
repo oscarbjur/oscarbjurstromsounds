@@ -25,7 +25,7 @@ const ContactSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             Let's Work Together
           </p>
-          <h2 className="font-display text-5xl md:text-7xl text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl text-foreground">
             GET IN TOUCH
           </h2>
         </motion.div>

@@ -24,7 +24,7 @@ const ServicesSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             What I Do
           </p>
-          <h2 className="font-display text-5xl md:text-7xl text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl text-foreground">
             SERVICES
           </h2>
         </motion.div>
@@ -40,7 +40,7 @@ const ServicesSection = () => {
               className="group bg-card border border-border p-8 hover:border-primary/50 transition-colors"
             >
               <service.icon className="w-8 h-8 text-primary mb-6" />
-              <h3 className="font-display text-xl text-foreground mb-3">
+              <h3 className="font-display text-base text-foreground mb-3">
                 {service.title}
               </h3>
               <p className="text-muted-foreground font-body text-sm leading-relaxed">

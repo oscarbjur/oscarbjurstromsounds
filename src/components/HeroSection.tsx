@@ -18,10 +18,8 @@ const WaveformVisualizer = () => (
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -31,10 +29,10 @@ const HeroSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-6">
             Sound Designer & Audio Engineer
           </p>
-          <h1 className="font-display text-8xl md:text-[12rem] leading-none tracking-wider text-foreground mb-2">
+          <h1 className="font-display text-6xl md:text-8xl leading-none tracking-wide text-foreground mb-2">
             OBS
           </h1>
-          <p className="font-display text-2xl md:text-4xl tracking-[0.2em] text-muted-foreground mb-8">
+          <p className="font-display text-lg md:text-2xl tracking-[0.15em] text-muted-foreground mb-8">
             OSCAR BJURSTRÖM SOUNDS
           </p>
         </motion.div>

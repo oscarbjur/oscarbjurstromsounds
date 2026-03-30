@@ -4,8 +4,8 @@ const Footer = () => (
       <p className="text-muted-foreground font-body text-xs tracking-widest">
         © 2025 — ALL RIGHTS RESERVED
       </p>
-      <a href="#" className="font-display text-lg text-foreground tracking-widest">
-        SOUND<span className="text-primary">.</span>
+      <a href="#" className="font-display text-base text-foreground tracking-widest">
+        OBS<span className="text-primary">.</span>
       </a>
     </div>
   </footer>
