@@ -26,8 +26,8 @@ const Index = () => {
       <Navbar />
 
       {/* Floating PSX Speaker — fixed in center, spins on scroll */}
-      <div className="fixed inset-0 z-20 pointer-events-none flex items-center justify-center">
-        <div className="w-48 h-48 md:w-64 md:h-64 opacity-70">
+      <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center">
+        <div className="w-48 h-48 md:w-64 md:h-64 opacity-50">
           <Suspense fallback={null}>
             <PSXSpeakerCanvas scrollProgress={scrollProgress} />
           </Suspense>
