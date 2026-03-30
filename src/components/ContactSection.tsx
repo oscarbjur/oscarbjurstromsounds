@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Youtube, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactSection = () => {
@@ -52,6 +52,14 @@ const ContactSection = () => {
                 <MapPin className="w-5 h-5 text-primary" />
                 <span className="text-foreground font-body text-sm">Malmö, Sweden</span>
               </div>
+              <a href="https://www.youtube.com/@oscarbjurstrom" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <Youtube className="w-5 h-5 text-primary" />
+                <span className="text-foreground font-body text-sm">Oscar Bjurström</span>
+              </a>
+              <a href="https://www.instagram.com/oscarbjurstromsound" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <Instagram className="w-5 h-5 text-primary" />
+                <span className="text-foreground font-body text-sm">@oscarbjurstromsound</span>
+              </a>
             </div>
           </motion.div>
 
