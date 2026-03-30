@@ -88,9 +88,9 @@ export const projects: Project[] = [
     slug: "betano-easter",
     title: "BETANO EASTER CAMPAIGN",
     category: "Commercials",
-    role: "Sound Designer",
+    role: "Voice Mix, Sound Design & Mastering",
     type: "Radio Commercial",
-    description: "Radio commercial produced for Betano's Easter campaign.",
+    description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2025",
   },
   {
