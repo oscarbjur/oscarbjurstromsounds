@@ -29,7 +29,7 @@ function SmileyBalloon({ scrollProgress }: { scrollProgress: number }) {
 
   return (
     <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-      <group ref={groupRef} scale={1.1}>
+      <group ref={groupRef} scale={1.5}>
         {/* Balloon body */}
         <mesh material={balloonMat} position={[0, 0.3, 0]}>
           <sphereGeometry args={[0.8, 16, 16]} />
