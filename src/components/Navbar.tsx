@@ -1,12 +1,13 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
-  { href: "#portfolio", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "portfolio", label: "Work" },
+  { href: "services", label: "Services" },
+  { href: "about", label: "About" },
+  { href: "contact", label: "Contact" },
 ];
 
 const Navbar = () => {
