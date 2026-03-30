@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import myEpicNightmareImg from "@/assets/my-epic-nightmare.png";
 import bubbleBurstImg from "@/assets/bubble-burst.png";
