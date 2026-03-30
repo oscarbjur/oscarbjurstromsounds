@@ -92,6 +92,6 @@ export const projects: Project[] = [
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2026",
-    imageUrl: "/src/assets/betano-easter.png",
+    imageUrl: "/images/betano-easter.png",
   },
 ];
