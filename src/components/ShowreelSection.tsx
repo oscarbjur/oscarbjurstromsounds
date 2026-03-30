@@ -42,43 +42,49 @@ const ShowreelSection = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto relative">
-          {/* Video title */}
-          <p className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4">
-            {showreels[current].title}
-          </p>
+        <div className="max-w-5xl mx-auto relative flex items-center gap-4">
+          {/* Left arrow */}
+          <button
+            onClick={prev}
+            className="btn-puffy-icon shrink-0"
+            aria-label="Previous showreel"
+          >
+            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L2 15L22 28Z" fill="hsl(210, 90%, 58%)" />
+            </svg>
+          </button>
 
-          {/* Video embed */}
-          <div className="relative w-full aspect-video bg-card border border-border overflow-hidden">
-            <iframe
-              key={current}
-              src={showreels[current].embedUrl}
-              title={showreels[current].title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
+          {/* Video column */}
+          <div className="flex-1 min-w-0">
+            {/* Video title */}
+            <p className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4">
+              {showreels[current].title}
+            </p>
 
-            {/* Navigation arrows */}
-            <button
-              onClick={prev}
-              className="btn-puffy-icon absolute top-1/2 -translate-y-1/2 left-3 z-10"
-              aria-label="Previous showreel"
-            >
-              <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 2L2 15L22 28Z" fill="hsl(210, 90%, 58%)" />
-              </svg>
-            </button>
-            <button
-              onClick={next}
-              className="btn-puffy-icon absolute top-1/2 -translate-y-1/2 right-3 z-10"
-              aria-label="Next showreel"
-            >
-              <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 2L22 15L2 28Z" fill="hsl(210, 90%, 58%)" />
-              </svg>
-            </button>
+            {/* Video embed */}
+            <div className="relative w-full aspect-video bg-card border border-border overflow-hidden">
+              <iframe
+                key={current}
+                src={showreels[current].embedUrl}
+                title={showreels[current].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
           </div>
+
+          {/* Right arrow */}
+          <button
+            onClick={next}
+            className="btn-puffy-icon shrink-0"
+            aria-label="Next showreel"
+          >
+            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 2L22 15L2 28Z" fill="hsl(210, 90%, 58%)" />
+            </svg>
+          </button>
+        </div>
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
