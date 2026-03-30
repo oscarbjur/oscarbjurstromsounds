@@ -10,36 +10,27 @@ import * as THREE from "three";
 function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const groupRef = useRef<THREE.Group>(null);
 
-  // PS1 material — flat shading, no smoothing, slight metallic sheen
+  // Cartoony materials — bright, saturated, cel-shaded feel
   const bodyMat = useMemo(
     () =>
-      new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(160, 60%, 45%)"),
-        flatShading: true,
-        roughness: 0.6,
-        metalness: 0.4,
+      new THREE.MeshToonMaterial({
+        color: new THREE.Color("hsl(200, 15%, 35%)"),
       }),
     []
   );
 
   const darkMat = useMemo(
     () =>
-      new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(0, 0%, 8%)"),
-        flatShading: true,
-        roughness: 0.9,
-        metalness: 0.2,
+      new THREE.MeshToonMaterial({
+        color: new THREE.Color("hsl(200, 20%, 10%)"),
       }),
     []
   );
 
   const coneMat = useMemo(
     () =>
-      new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(0, 0%, 18%)"),
-        flatShading: true,
-        roughness: 0.7,
-        metalness: 0.3,
+      new THREE.MeshToonMaterial({
+        color: new THREE.Color("hsl(200, 10%, 20%)"),
       }),
     []
   );
@@ -47,12 +38,29 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const glowMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(200, 70%, 55%)"),
-        emissive: new THREE.Color("hsl(200, 80%, 40%)"),
-        emissiveIntensity: 1.5,
-        flatShading: true,
+        color: new THREE.Color("hsl(160, 80%, 50%)"),
+        emissive: new THREE.Color("hsl(160, 80%, 40%)"),
+        emissiveIntensity: 2,
+        roughness: 0.2,
+        metalness: 0.5,
+      }),
+    []
+  );
+
+  const rubberMat = useMemo(
+    () =>
+      new THREE.MeshToonMaterial({
+        color: new THREE.Color("hsl(0, 0%, 6%)"),
+      }),
+    []
+  );
+
+  const silverMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color("hsl(200, 5%, 60%)"),
+        metalness: 0.8,
         roughness: 0.3,
-        metalness: 0.6,
       }),
     []
   );
