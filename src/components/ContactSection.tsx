@@ -39,9 +39,7 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <p className="text-muted-foreground font-body leading-relaxed">
-              I love hearing about awesome creative projects — big or small, weird or wonderful.
-              Whether you're working on a game, a film, a commercial, or something completely
-              different, I'd love to be part of it. Drop me a message and let's make something cool together!
+              Got a cool project? I'd love to hear about it — let's make something awesome together.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
