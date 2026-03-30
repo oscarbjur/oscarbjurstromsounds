@@ -14,7 +14,7 @@ const AboutSection = () => {
             <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
               About
             </p>
-            <h2 className="font-display text-5xl md:text-6xl text-foreground mb-6">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
               THE STORY
             </h2>
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
@@ -51,7 +51,7 @@ const AboutSection = () => {
                 key={stat.label}
                 className="bg-card border border-border p-8 text-center"
               >
-                <p className="font-display text-4xl text-primary mb-2">{stat.number}</p>
+                <p className="font-display text-2xl text-primary mb-2">{stat.number}</p>
                 <p className="text-muted-foreground font-body text-sm tracking-widest uppercase">
                   {stat.label}
                 </p>

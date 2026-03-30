@@ -2,30 +2,10 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
 const projects = [
-  {
-    title: "ECHOES OF MARS",
-    category: "Feature Film",
-    description: "Full sound design and Foley for a sci-fi thriller set on a terraformed Mars colony.",
-    year: "2025",
-  },
-  {
-    title: "HOLLOW DEPTHS",
-    category: "Video Game",
-    description: "Procedural audio systems and ambient soundscapes for an underwater survival horror game.",
-    year: "2024",
-  },
-  {
-    title: "NEON PULSE",
-    category: "Commercial",
-    description: "Sonic branding and sound effects for a luxury automotive brand campaign.",
-    year: "2024",
-  },
-  {
-    title: "THE LAST FREQUENCY",
-    category: "Documentary",
-    description: "Field recording and sound design for an award-winning nature documentary series.",
-    year: "2023",
-  },
+  { title: "ECHOES OF MARS", category: "Feature Film", description: "Full sound design and Foley for a sci-fi thriller set on a terraformed Mars colony.", year: "2025" },
+  { title: "HOLLOW DEPTHS", category: "Video Game", description: "Procedural audio systems and ambient soundscapes for an underwater survival horror game.", year: "2024" },
+  { title: "NEON PULSE", category: "Commercial", description: "Sonic branding and sound effects for a luxury automotive brand campaign.", year: "2024" },
+  { title: "THE LAST FREQUENCY", category: "Documentary", description: "Field recording and sound design for an award-winning nature documentary series.", year: "2023" },
 ];
 
 const PortfolioSection = () => {
@@ -42,7 +22,7 @@ const PortfolioSection = () => {
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             Selected Work
           </p>
-          <h2 className="font-display text-5xl md:text-7xl text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl text-foreground">
             PORTFOLIO
           </h2>
         </motion.div>
@@ -62,7 +42,7 @@ const PortfolioSection = () => {
                   <Play className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-xl md:text-2xl text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground font-body text-sm mt-1">
