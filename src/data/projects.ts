@@ -91,7 +91,7 @@ export const projects: Project[] = [
     role: "Voice Mix, Sound Design & Mastering",
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
-    year: "2025",
+    year: "2026",
   },
   {
     slug: "streamline-os",
