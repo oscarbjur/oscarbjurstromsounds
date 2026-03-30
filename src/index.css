@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@font-face {
+  font-family: 'Horizon';
+  src: url('./assets/fonts/horizon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -36,7 +44,7 @@
 
     --radius: 0.25rem;
 
-    --font-display: 'Climate Crisis', sans-serif;
+    --font-display: 'Horizon', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
     --sidebar-background: 0 0% 5%;
