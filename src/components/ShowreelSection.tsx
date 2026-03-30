@@ -43,7 +43,7 @@ const SpinningBanner = () => {
                 width: faceWidth,
                 height: 100,
                 backfaceVisibility: "hidden",
-                transform: `rotateX(${angle}deg) translateZ(${RADIUS}px)`,
+                transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
                 background: showText
                   ? "transparent"
                   : "transparent",
