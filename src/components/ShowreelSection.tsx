@@ -28,7 +28,7 @@ const SpinningBanner = () => {
           width: faceWidth,
           height: 100,
           transformStyle: "preserve-3d",
-          transform: `rotateX(${rotation}deg)`,
+          transform: `rotateY(${rotation}deg)`,
         }}
       >
         {Array.from({ length: FACE_COUNT }).map((_, i) => {
@@ -43,7 +43,7 @@ const SpinningBanner = () => {
                 width: faceWidth,
                 height: 100,
                 backfaceVisibility: "hidden",
-                transform: `rotateX(${angle}deg) translateZ(${RADIUS}px)`,
+                transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
                 background: showText
                   ? "transparent"
                   : "transparent",
