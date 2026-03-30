@@ -85,6 +85,15 @@ export const projects: Project[] = [
     gameLink: "https://rfusade.itch.io/bubbleburst",
   },
   {
+    slug: "betano-easter",
+    title: "BETANO EASTER CAMPAIGN",
+    category: "Commercials",
+    role: "Sound Designer",
+    type: "Radio Commercial",
+    description: "Radio commercial produced for Betano's Easter campaign.",
+    year: "2025",
+  },
+  {
     slug: "streamline-os",
     title: "STREAMLINE OS",
     category: "UI/UX Sound Design",
