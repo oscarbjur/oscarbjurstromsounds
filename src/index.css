@@ -156,9 +156,9 @@
   );
   color: hsl(var(--primary-foreground));
   border: none;
-  border-radius: 50%;
+  border-radius: 8px;
   width: 3rem;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,16 +179,16 @@
 .btn-puffy-icon::before {
   content: '';
   position: absolute;
-  top: 12%;
-  left: 18%;
-  width: 40%;
-  height: 35%;
+  top: 10%;
+  left: 15%;
+  width: 50%;
+  height: 30%;
   background: linear-gradient(
     180deg,
     hsl(200 100% 92% / 0.6) 0%,
     hsl(200 100% 92% / 0) 100%
   );
-  border-radius: 50%;
+  border-radius: 4px;
   pointer-events: none;
 }
 
