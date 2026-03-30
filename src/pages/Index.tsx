@@ -14,6 +14,7 @@ const Index = () => {
   const [introComplete, setIntroComplete] = useState(hasPlayed);
 
   const handleIntroComplete = useCallback(() => {
+    sessionStorage.setItem("intro-played", "true");
     setIntroComplete(true);
   }, []);
 
