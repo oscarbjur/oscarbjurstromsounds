@@ -95,7 +95,7 @@ const ShowreelSection = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={springTransition}
                   className="absolute inset-0"
                 >
                   <iframe
