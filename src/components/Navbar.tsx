@@ -39,9 +39,9 @@ const links = [
               <PSXSpeakerCanvas scrollProgress={scrollProgress} />
             </Suspense>
           </div>
-          <a href="#" className="font-display text-2xl text-foreground tracking-widest">
+          <Link to="/" className="font-display text-2xl text-foreground tracking-widest">
             OBS<span className="text-primary">.</span>
-          </a>
+          </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
