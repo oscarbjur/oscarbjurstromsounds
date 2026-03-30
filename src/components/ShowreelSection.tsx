@@ -32,7 +32,7 @@ const ShowreelSection = () => {
           className="text-center mb-10"
         >
           <h1 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-            OBS
+            OBS<span className="text-primary">.</span>
           </h1>
           <p className="font-body text-base tracking-[0.15em] text-muted-foreground">
             OSCAR BJURSTRÖM SOUNDS
