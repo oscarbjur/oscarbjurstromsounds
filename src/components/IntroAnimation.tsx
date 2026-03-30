@@ -157,7 +157,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-64 h-80">
+          <div className="w-full h-full absolute inset-0">
             <Canvas
               camera={{ position: [0, 0, 4], fov: 45 }}
               style={{ background: "transparent" }}
