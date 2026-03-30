@@ -17,6 +17,8 @@ export interface Project {
   description: string;
   year: string;
   videoUrl?: string;
+  imageUrl?: string;
+  gameLink?: string;
 }
 
 export const projects: Project[] = [
