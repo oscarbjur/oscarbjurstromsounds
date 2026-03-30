@@ -21,6 +21,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "warlock-activities",
+    title: "WARLOCK ACTIVITIES",
+    category: "Game Audio Implementation & Design",
+    role: "Audio Implementer & Designer",
+    type: "Indie Game — The Game Assembly",
+    description: "Audio implemented with adaptive soundscapes for an isometric adventure inspired by Death's Door.",
+    year: "2024",
+    videoUrl: "https://www.youtube.com/watch?v=Ogm5dDrMZnM",
+  },
+  {
     slug: "bloom-eternal",
     title: "BLOOM ETERNAL",
     category: "Game Audio Implementation & Design",
