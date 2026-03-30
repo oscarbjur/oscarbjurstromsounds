@@ -86,19 +86,18 @@ const ShowreelSection = () => {
           </button>
         </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {showreels.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  i === current ? "bg-primary" : "bg-border"
-                }`}
-                aria-label={`Go to showreel ${i + 1}`}
-              />
-            ))}
-          </div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {showreels.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                i === current ? "bg-primary" : "bg-border"
+              }`}
+              aria-label={`Go to showreel ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
