@@ -86,11 +86,12 @@ export const projects: Project[] = [
   },
   {
     slug: "betano-easter",
-    title: "BETANO EASTER CAMPAIGN",
+    title: "BETANO (KAIZEN GAMING) EASTER CAMPAIGN",
     category: "Commercials",
     role: "Voice Mix, Sound Design & Mastering",
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2026",
+    imageUrl: "/src/assets/betano-easter.png",
   },
 ];
