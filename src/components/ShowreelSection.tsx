@@ -58,27 +58,27 @@ const ShowreelSection = () => {
               allowFullScreen
               className="absolute inset-0 w-full h-full"
             />
-          </div>
 
-          {/* Navigation arrows */}
-          <button
-            onClick={prev}
-            className="btn-puffy-icon !absolute top-1/2 -translate-y-1/2 -left-4 md:-left-14 z-10"
-            aria-label="Previous showreel"
-          >
-            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 2L2 15L22 28Z" fill="hsl(210, 90%, 58%)" />
-            </svg>
-          </button>
-          <button
-            onClick={next}
-            className="btn-puffy-icon !absolute top-1/2 -translate-y-1/2 -right-4 md:-right-14 z-10"
-            aria-label="Next showreel"
-          >
-            <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 2L22 15L2 28Z" fill="hsl(210, 90%, 58%)" />
-            </svg>
-          </button>
+            {/* Navigation arrows */}
+            <button
+              onClick={prev}
+              className="btn-puffy-icon absolute top-1/2 -translate-y-1/2 left-3 z-10"
+              aria-label="Previous showreel"
+            >
+              <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 2L2 15L22 28Z" fill="hsl(210, 90%, 58%)" />
+              </svg>
+            </button>
+            <button
+              onClick={next}
+              className="btn-puffy-icon absolute top-1/2 -translate-y-1/2 right-3 z-10"
+              aria-label="Next showreel"
+            >
+              <svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2L22 15L2 28Z" fill="hsl(210, 90%, 58%)" />
+              </svg>
+            </button>
+          </div>
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
