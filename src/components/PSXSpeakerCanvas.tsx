@@ -47,8 +47,8 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const glowMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(38, 100%, 65%)"),
-        emissive: new THREE.Color("hsl(38, 100%, 45%)"),
+        color: new THREE.Color("hsl(200, 70%, 55%)"),
+        emissive: new THREE.Color("hsl(200, 80%, 40%)"),
         emissiveIntensity: 1.5,
         flatShading: true,
         roughness: 0.3,
