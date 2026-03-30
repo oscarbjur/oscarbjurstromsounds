@@ -6,9 +6,9 @@ import { categories, projects, type Category } from "@/data/projects";
 
 
 const PortfolioSection = () => {
-  const [active, setActive] = useState<Category>("All");
+  const [active, setActive] = useState<Category>("Game Audio Implementation & Design");
 
-  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const filtered = projects.filter((p) => p.category === active);
 
   return (
     <section id="portfolio" className="py-32 bg-card">
