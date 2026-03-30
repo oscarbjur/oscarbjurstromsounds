@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -18,6 +18,7 @@ const imageMap: Record<string, string> = {
 
 const ProjectPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -40,13 +41,13 @@ const ProjectPage = () => {
       <Navbar />
       <div className="container mx-auto px-6 pt-28 pb-12">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <Link
-            to="/#portfolio"
+          <button
+            onClick={() => navigate(-1)}
             className="btn-puffy inline-flex items-center gap-2 px-5 py-2.5 font-body text-xs tracking-[0.15em] uppercase rounded-xl mb-10"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
-          </Link>
+          </button>
 
           {project.videoUrl && (
             <div className="aspect-video w-full max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-border">
