@@ -3,6 +3,7 @@ export const categories = [
   "UI/UX Sound Design",
   "Audio Logos & Identities",
   "Commercials",
+  "Movies and Shows",
 ] as const;
 
 export type Category = (typeof categories)[number];
