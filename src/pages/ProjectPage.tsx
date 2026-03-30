@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
