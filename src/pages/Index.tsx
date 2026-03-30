@@ -10,8 +10,9 @@ import Footer from "@/components/Footer";
 const IntroAnimation = lazy(() => import("@/components/IntroAnimation"));
 
 const Index = () => {
-  const hasPlayed = sessionStorage.getItem("intro-played") === "true";
-  const [introComplete, setIntroComplete] = useState(hasPlayed);
+  const [introComplete, setIntroComplete] = useState(
+    () => sessionStorage.getItem("intro-played") === "true"
+  );
 
   const handleIntroComplete = useCallback(() => {
     sessionStorage.setItem("intro-played", "true");
@@ -20,9 +21,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Suspense fallback={null}>
-        <IntroAnimation onComplete={handleIntroComplete} />
-      </Suspense>
+      {!introComplete && (
+        <Suspense fallback={null}>
+          <IntroAnimation onComplete={handleIntroComplete} />
+        </Suspense>
+      )}
       <Navbar />
       <ShowreelSection />
       <PortfolioSection />
