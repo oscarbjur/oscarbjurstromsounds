@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const FACE_COUNT = 12;
+const FACE_COUNT = 36;
 const RADIUS = 160;
 
 const SpinningBanner = () => {
