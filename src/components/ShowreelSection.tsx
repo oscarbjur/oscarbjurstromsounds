@@ -31,9 +31,6 @@ const ShowreelSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
-            Showreels
-          </p>
           <h1 className="font-display text-4xl md:text-6xl text-foreground mb-4">
             OBS
           </h1>
