@@ -18,11 +18,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {!introComplete && (
-        <Suspense fallback={null}>
-          <IntroAnimation onComplete={handleIntroComplete} />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <IntroAnimation onComplete={handleIntroComplete} />
+      </Suspense>
       <Navbar />
       <ShowreelSection />
       <PortfolioSection />
