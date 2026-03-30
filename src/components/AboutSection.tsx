@@ -7,6 +7,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
+            className="flex flex-col items-center text-center"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
