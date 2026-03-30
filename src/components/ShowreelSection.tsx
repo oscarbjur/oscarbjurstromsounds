@@ -50,8 +50,8 @@ const SpinningBanner = () => {
               }}
             >
               {showText && (
-                <h1 className="font-display text-4xl md:text-6xl text-foreground whitespace-nowrap select-none">
-                  OBS<span className="text-primary">.</span>
+                <h1 className="font-display text-2xl md:text-4xl text-foreground whitespace-nowrap select-none">
+                  Oscar Bjurström Sounds<span className="text-primary">.</span>
                 </h1>
               )}
             </div>
