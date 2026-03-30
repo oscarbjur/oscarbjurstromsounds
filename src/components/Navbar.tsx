@@ -10,7 +10,9 @@ const links = [
   { href: "contact", label: "Contact" },
 ];
 
-const Navbar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
