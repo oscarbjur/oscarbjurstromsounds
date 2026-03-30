@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <div className="w-10 h-10">
             <Suspense fallback={null}>
-              <PSXSpeakerCanvas scrollProgress={0} />
+              <PSXSpeakerCanvas scrollProgress={scrollProgress} />
             </Suspense>
           </div>
           <a href="#" className="font-display text-2xl text-foreground tracking-widest">
