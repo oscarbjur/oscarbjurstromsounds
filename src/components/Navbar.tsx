@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
