@@ -80,7 +80,7 @@ export const projects: Project[] = [
     category: "Game Audio Implementation & Design",
     role: "Audio Designer & Composer",
     type: "Game Jam — Global Game Jam 2025",
-    description: "Audio design and music composition in Unity. Combined different genres and styles of gameplay and art to create this Wario Ware inspired game.",
+    description: "Audio design and music composition for this game created in Unity. Combined different genres and styles of gameplay and art to create this Wario Ware inspired game.",
     year: "2025",
     imageUrl: "/src/assets/bubble-burst.png",
     gameLink: "https://rfusade.itch.io/bubbleburst",
