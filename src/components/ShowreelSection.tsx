@@ -1,6 +1,70 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+const FACE_COUNT = 16;
+const RADIUS = 120; // px — cylinder radius
+
+const SpinningBanner = () => {
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    let frame: number;
+    const animate = () => {
+      setRotation((r) => r + 0.15);
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const text = "OBS.";
+  const faces = Array.from({ length: FACE_COUNT });
+  const angleStep = 360 / FACE_COUNT;
+
+  return (
+    <div className="flex justify-center items-center" style={{ perspective: 800 }}>
+      <div
+        className="relative"
+        style={{
+          width: 280,
+          height: 90,
+          transformStyle: "preserve-3d",
+          transform: `rotateY(${rotation}deg)`,
+        }}
+      >
+        {faces.map((_, i) => {
+          const angle = i * angleStep;
+          // Width of each face so they tile seamlessly around the cylinder
+          const faceWidth = 2 * RADIUS * Math.tan((Math.PI / FACE_COUNT));
+          return (
+            <div
+              key={i}
+              className="absolute inset-0 flex items-center justify-center backface-hidden"
+              style={{
+                width: faceWidth,
+                left: `calc(50% - ${faceWidth / 2}px)`,
+                transformStyle: "preserve-3d",
+                transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
+                backfaceVisibility: "hidden",
+              }}
+            >
+              <h1 className="font-display text-4xl md:text-6xl text-foreground whitespace-nowrap select-none">
+                {text.split("").map((char, ci) =>
+                  char === "." ? (
+                    <span key={ci} className="text-primary">.</span>
+                  ) : (
+                    <span key={ci}>{char}</span>
+                  )
+                )}
+              </h1>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const showreels = [
   {
     title: "AAA Showreel",
