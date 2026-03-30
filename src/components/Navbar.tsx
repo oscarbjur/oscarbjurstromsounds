@@ -10,6 +10,7 @@ const links = [
   { href: "contact", label: "Contact" },
 ];
 
+const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
