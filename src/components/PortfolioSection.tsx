@@ -47,13 +47,14 @@ const PortfolioSection = () => {
 
         <div className="space-y-0">
           {filtered.map((project, i) => (
+            <Link key={project.slug} to={`/project/${project.slug}`}>
             <motion.div
-              key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               className="group border-t border-border py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer hover:bg-secondary/30 px-4 -mx-4 transition-colors"
+            >
             >
               <div className="flex items-center gap-6">
                 <div className="w-11 h-11 border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors shrink-0">
