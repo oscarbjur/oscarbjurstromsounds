@@ -7,7 +7,7 @@ function SmileyBalloon({ scrollProgress }: { scrollProgress: number }) {
   const groupRef = useRef<THREE.Group>(null);
 
   const balloonMat = useMemo(
-    () => new THREE.MeshToonMaterial({ color: new THREE.Color("hsl(210, 90%, 55%)") }),
+    () => new THREE.MeshToonMaterial({ color: new THREE.Color("hsl(210, 90%, 58%)") }),
     []
   );
 
