@@ -14,7 +14,7 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const bodyMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(38, 90%, 55%)"),
+        color: new THREE.Color("hsl(160, 60%, 45%)"),
         flatShading: true,
         roughness: 0.6,
         metalness: 0.4,
@@ -47,8 +47,8 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
   const glowMat = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color("hsl(38, 100%, 65%)"),
-        emissive: new THREE.Color("hsl(38, 100%, 45%)"),
+        color: new THREE.Color("hsl(200, 70%, 55%)"),
+        emissive: new THREE.Color("hsl(200, 80%, 40%)"),
         emissiveIntensity: 1.5,
         flatShading: true,
         roughness: 0.3,
@@ -158,8 +158,8 @@ const PSXSpeakerCanvas = ({ scrollProgress }: PSXSpeakerCanvasProps) => {
       dpr={1} // low DPR for that crunchy PSX look
     >
       <ambientLight intensity={0.3} />
-      <directionalLight position={[3, 5, 4]} intensity={1.2} color="hsl(38, 80%, 70%)" />
-      <pointLight position={[-3, -2, 2]} intensity={0.5} color="hsl(38, 90%, 55%)" />
+      <directionalLight position={[3, 5, 4]} intensity={1.2} color="hsl(160, 50%, 60%)" />
+      <pointLight position={[-3, -2, 2]} intensity={0.5} color="hsl(200, 70%, 50%)" />
       <PSXSpeaker scrollProgress={scrollProgress} />
     </Canvas>
   );
