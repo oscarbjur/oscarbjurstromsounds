@@ -78,7 +78,7 @@ const ShowreelSection = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3 }}
+                transition={springTransition}
                 className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4"
               >
                 {showreels[current].title}
