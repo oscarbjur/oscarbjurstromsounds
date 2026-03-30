@@ -42,8 +42,8 @@ const Navbar = () => {
           </Suspense>
         </div>
         {/* Centered OBS logo */}
-        <Link to="/" className="font-display text-2xl text-foreground tracking-widest inline-flex items-baseline">
-          OBS<span className="inline-block w-2 h-2 rounded-full bg-primary ml-1 relative -top-0.5"></span>
+        <Link to="/" className="font-display text-2xl text-foreground tracking-widest">
+          OBS<span className="text-primary">.</span>
         </Link>
         {/* Centered nav links below */}
         <div className="hidden md:flex items-center gap-8 mt-2">
