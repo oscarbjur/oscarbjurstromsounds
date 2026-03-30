@@ -30,10 +30,12 @@ const ShowreelSection = () => {
   };
 
   const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+    enter: (dir: number) => ({ x: dir > 0 ? "40%" : "-40%", opacity: 0, scale: 0.95 }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? "-40%" : "40%", opacity: 0, scale: 0.95 }),
   };
+
+  const springTransition = { type: "spring", stiffness: 200, damping: 28, mass: 0.8 };
 
   return (
     <section id="showreel" className="relative pt-32 pb-20 bg-background">
@@ -76,7 +78,7 @@ const ShowreelSection = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3 }}
+                transition={springTransition}
                 className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4"
               >
                 {showreels[current].title}
@@ -93,7 +95,7 @@ const ShowreelSection = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={springTransition}
                   className="absolute inset-0"
                 >
                   <iframe
