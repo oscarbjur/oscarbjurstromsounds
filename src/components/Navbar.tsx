@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+
+const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
   { href: "#about", label: "About" },
