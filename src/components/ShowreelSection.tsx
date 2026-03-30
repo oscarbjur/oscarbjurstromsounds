@@ -34,9 +34,6 @@ const ShowreelSection = () => {
           <h1 className="font-display text-2xl md:text-4xl text-foreground uppercase">
             Oscar Bjurström Sounds<span className="text-primary">.</span>
           </h1>
-          <p className="font-body text-base tracking-[0.15em] text-muted-foreground mt-4">
-            OSCAR BJURSTRÖM SOUNDS
-          </p>
         </motion.div>
 
 
