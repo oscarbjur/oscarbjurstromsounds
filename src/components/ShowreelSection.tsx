@@ -34,7 +34,7 @@ const SpinningBanner = () => {
         {Array.from({ length: FACE_COUNT }).map((_, i) => {
           const angle = i * angleStep;
           // Only show text on 3 evenly-spaced faces
-          const showText = i % 4 === 0;
+          const showText = i % 12 === 0;
           return (
             <div
               key={i}
