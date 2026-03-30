@@ -48,7 +48,7 @@ const ShowreelSection = () => {
           className="text-center mb-10"
         >
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
-            Oscar Bjurström Sounds<span className="text-primary">.</span>
+            OSCAR BJURSTRÖM SOUNDS
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
             SHOWREEL
