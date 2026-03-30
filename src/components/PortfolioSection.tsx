@@ -6,7 +6,15 @@ import { categories, projects, type Category } from "@/data/projects";
 
 
 const PortfolioSection = () => {
-  const [active, setActive] = useState<Category>("Game Audio Implementation & Design");
+  const [active, setActive] = useState<Category>(() => {
+    const saved = sessionStorage.getItem("portfolioCategory");
+    return (saved as Category) || "Game Audio Implementation & Design";
+  });
+
+  const handleCategoryChange = (cat: Category) => {
+    setActive(cat);
+    sessionStorage.setItem("portfolioCategory", cat);
+  };
 
   const filtered = projects.filter((p) => p.category === active);
 
@@ -33,7 +41,7 @@ const PortfolioSection = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActive(cat)}
+              onClick={() => handleCategoryChange(cat)}
               className={`font-body text-xs tracking-[0.15em] uppercase px-4 py-2 rounded-xl transition-all ${
                 active === cat
                   ? "btn-puffy"
