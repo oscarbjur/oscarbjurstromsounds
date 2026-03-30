@@ -50,7 +50,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={`#${link.href}`}
-                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
+                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
