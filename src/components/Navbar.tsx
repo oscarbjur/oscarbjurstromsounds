@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
@@ -11,6 +11,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -55,13 +56,20 @@ const Navbar = () => {
                 {link.label}
               </a>
             ) : (
-              <Link
+              <a
                 key={link.href}
-                to={`/#${link.href}`}
+                href={`/#${link.href}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                  setTimeout(() => {
+                    document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  }, 100);
+                }}
                 className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors"
               >
                 {link.label}
-              </Link>
+              </a>
             )
           )}
         </div>
