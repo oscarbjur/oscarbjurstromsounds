@@ -81,7 +81,7 @@ export const projects: Project[] = [
     type: "Game Jam — Global Game Jam 2025",
     description: "Audio design and music composition for this game created in Unity. Combined different genres and styles of gameplay and art to create this Wario Ware inspired game.",
     year: "2025",
-    imageUrl: "/src/assets/bubble-burst.png",
+    imageUrl: "/images/bubble-burst.png",
     gameLink: "https://rfusade.itch.io/bubbleburst",
   },
   {
