@@ -33,6 +33,7 @@ const ShowreelSection = () => {
         >
           <h1 className="font-display text-2xl md:text-4xl text-foreground uppercase">
             Oscar Bjurström Sounds<span className="text-primary">.</span>
+          </h1>
         </motion.div>
 
 
