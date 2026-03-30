@@ -18,6 +18,7 @@ const imageMap: Record<string, string> = {
 
 const ProjectPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
