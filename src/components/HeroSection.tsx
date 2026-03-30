@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-studio.jpg";
 
 const WaveformVisualizer = () => (
   <div className="flex items-center gap-[2px] h-8">
@@ -19,17 +18,8 @@ const WaveformVisualizer = () => (
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Sound design studio"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-      </div>
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
