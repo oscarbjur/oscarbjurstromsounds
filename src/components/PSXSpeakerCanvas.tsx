@@ -66,79 +66,102 @@ function PSXSpeaker({ scrollProgress }: { scrollProgress: number }) {
 
   return (
     <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
-      <group ref={groupRef} scale={1.6}>
-        {/* Main body — chunky octagonal cylinder (PSX style low segments) */}
+      <group ref={groupRef} scale={1.1}>
+        {/* ===== CABINET — tall rectangular box ===== */}
+        {/* Main body */}
         <mesh material={bodyMat} position={[0, 0, 0]}>
-          <cylinderGeometry args={[1.1, 1.3, 1.8, 8, 1]} />
+          <boxGeometry args={[1.6, 2.8, 1.0]} />
+        </mesh>
+        {/* Front face plate (slightly recessed look) */}
+        <mesh material={coneMat} position={[0, 0, 0.48]}>
+          <boxGeometry args={[1.4, 2.6, 0.08]} />
         </mesh>
 
-        {/* Top cap */}
-        <mesh material={bodyMat} position={[0, 1.0, 0]}>
-          <cylinderGeometry args={[0.9, 1.1, 0.2, 8, 1]} />
+        {/* ===== WOOFER — large cone, lower section ===== */}
+        {/* Woofer surround ring */}
+        <mesh material={darkMat} position={[0, -0.45, 0.53]} rotation={[0, 0, 0]}>
+          <cylinderGeometry args={[0.58, 0.58, 0.06, 8, 1]} />
+          <meshStandardMaterial color="hsl(0,0%,5%)" flatShading roughness={0.95} />
+        </mesh>
+        {/* Woofer cone */}
+        <mesh position={[0, -0.45, 0.58]} rotation={[Math.PI / 2, 0, 0]}>
+          <coneGeometry args={[0.5, 0.2, 8]} />
+          <meshStandardMaterial color="hsl(0,0%,12%)" flatShading roughness={0.8} />
+        </mesh>
+        {/* Woofer dust cap */}
+        <mesh position={[0, -0.45, 0.62]} rotation={[Math.PI / 2, 0, 0]}>
+          <sphereGeometry args={[0.1, 6, 4, 0, Math.PI * 2, 0, Math.PI / 2]} />
+          <meshStandardMaterial color="hsl(0,0%,8%)" flatShading roughness={0.9} />
+        </mesh>
+        {/* Woofer glow ring */}
+        <mesh material={glowMat} position={[0, -0.45, 0.54]} rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[0.56, 0.02, 4, 8]} />
         </mesh>
 
-        {/* Bottom cap */}
-        <mesh material={bodyMat} position={[0, -1.0, 0]}>
-          <cylinderGeometry args={[1.3, 1.1, 0.2, 8, 1]} />
-        </mesh>
-
-        {/* Main speaker cone — front face */}
-        <mesh material={darkMat} position={[0, 0.15, 0.85]}>
-          <cylinderGeometry args={[0.7, 0.8, 0.15, 8, 1]} />
-          <mesh rotation={[Math.PI / 2, 0, 0]} />
-        </mesh>
-        <mesh material={coneMat} position={[0, 0.15, 0.95]} rotation={[Math.PI / 2, 0, 0]}>
-          <coneGeometry args={[0.55, 0.3, 8]} />
-        </mesh>
-
-        {/* Speaker ring glow */}
-        <mesh material={glowMat} position={[0, 0.15, 0.9]} rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[0.7, 0.03, 4, 8]} />
-        </mesh>
-
-        {/* Tweeter — small top speaker */}
-        <mesh material={darkMat} position={[0, 0.7, 0.82]} rotation={[Math.PI / 2, 0, 0]}>
-          <cylinderGeometry args={[0.2, 0.25, 0.1, 6, 1]} />
-        </mesh>
-        <mesh material={coneMat} position={[0, 0.7, 0.88]} rotation={[Math.PI / 2, 0, 0]}>
-          <coneGeometry args={[0.15, 0.15, 6]} />
-        </mesh>
-
-        {/* Futuristic antenna spike on top */}
-        <mesh material={glowMat} position={[0, 1.4, 0]}>
-          <coneGeometry args={[0.08, 0.6, 4]} />
-        </mesh>
-        <mesh material={bodyMat} position={[0, 1.15, 0]}>
-          <sphereGeometry args={[0.1, 4, 4]} />
-        </mesh>
-
-        {/* Legs / feet — 4 chunky stilts */}
-        {[0, 1, 2, 3].map((i) => {
-          const angle = (i / 4) * Math.PI * 2;
-          const x = Math.cos(angle) * 0.9;
-          const z = Math.sin(angle) * 0.9;
-          return (
-            <mesh key={i} material={darkMat} position={[x, -1.4, z]}>
-              <boxGeometry args={[0.2, 0.6, 0.2]} />
+        {/* ===== HORN TWEETERS — top section, two horns ===== */}
+        {[-0.22, 0.22].map((xOff) => (
+          <group key={xOff} position={[xOff, 0.7, 0.45]}>
+            {/* Horn body — flared shape using scaled box */}
+            <mesh material={bodyMat}>
+              <boxGeometry args={[0.5, 0.22, 0.2]} />
             </mesh>
-          );
-        })}
-
-        {/* Side vents — PSX-style geometric panels */}
-        {[1, -1].map((side) => (
-          <group key={side}>
-            {[0.3, 0, -0.3].map((y) => (
-              <mesh
-                key={y}
-                material={darkMat}
-                position={[side * 1.15, y, 0]}
-                rotation={[0, 0, 0]}
-                scale={[0.05, 0.12, 0.5]}
-              >
-                <boxGeometry args={[1, 1, 1]} />
-              </mesh>
-            ))}
+            {/* Horn flare wings */}
+            <mesh material={bodyMat} position={[0, 0.06, 0.05]} rotation={[0.3, 0, 0]}>
+              <boxGeometry args={[0.45, 0.04, 0.22]} />
+            </mesh>
+            <mesh material={bodyMat} position={[0, -0.06, 0.05]} rotation={[-0.3, 0, 0]}>
+              <boxGeometry args={[0.45, 0.04, 0.22]} />
+            </mesh>
+            {/* Horn center bar */}
+            <mesh material={darkMat} position={[0, 0, 0.1]}>
+              <boxGeometry args={[0.35, 0.015, 0.08]} />
+            </mesh>
           </group>
+        ))}
+
+        {/* ===== LABEL PANEL — "PB70" style between horns and woofer ===== */}
+        <mesh position={[0, 0.2, 0.53]}>
+          <boxGeometry args={[1.0, 0.25, 0.02]} />
+          <meshStandardMaterial color="hsl(200,10%,25%)" flatShading roughness={0.5} />
+        </mesh>
+        {/* Frequency graph panel */}
+        <mesh position={[0.25, 0.2, 0.545]}>
+          <boxGeometry args={[0.35, 0.15, 0.01]} />
+          <meshStandardMaterial color="hsl(0,0%,85%)" flatShading roughness={0.3} />
+        </mesh>
+
+        {/* ===== BOTTOM LABEL AREA — "CUBE" style ===== */}
+        <mesh position={[0, -1.1, 0.53]}>
+          <boxGeometry args={[1.2, 0.3, 0.02]} />
+          <meshStandardMaterial color="hsl(200,10%,20%)" flatShading roughness={0.6} />
+        </mesh>
+        {/* Small spec label */}
+        <mesh position={[0.2, -1.1, 0.545]}>
+          <boxGeometry args={[0.5, 0.14, 0.01]} />
+          <meshStandardMaterial color="hsl(0,0%,85%)" flatShading roughness={0.3} />
+        </mesh>
+
+        {/* ===== CORNER SCREWS — 4 screws on front face ===== */}
+        {[
+          [-0.6, 0.15],
+          [0.6, 0.15],
+          [-0.6, -0.95],
+          [0.6, -0.95],
+        ].map(([x, y], i) => (
+          <mesh key={i} position={[x, y, 0.54]}>
+            <cylinderGeometry args={[0.025, 0.025, 0.04, 6]} />
+            <meshStandardMaterial color="hsl(0,0%,30%)" flatShading metalness={0.7} roughness={0.4} />
+          </mesh>
+        ))}
+
+        {/* ===== CORNER BEVELS — cabinet edge detail ===== */}
+        {[
+          [-0.8, 0, 0],
+          [0.8, 0, 0],
+        ].map(([x, y, z], i) => (
+          <mesh key={i} material={bodyMat} position={[x, y, z]}>
+            <boxGeometry args={[0.04, 2.8, 1.0]} />
+          </mesh>
         ))}
       </group>
     </Float>
