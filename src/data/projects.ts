@@ -1,7 +1,6 @@
 export const categories = [
-  "All",
-  "UI/UX Sound Design",
   "Game Audio Implementation & Design",
+  "UI/UX Sound Design",
   "Audio Logos & Identities",
   "Commercials",
 ] as const;
@@ -11,7 +10,7 @@ export type Category = (typeof categories)[number];
 export interface Project {
   slug: string;
   title: string;
-  category: Exclude<Category, "All">;
+  category: Category;
   role: string;
   type: string;
   description: string;
