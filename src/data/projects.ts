@@ -10,7 +10,7 @@ export type Category = (typeof categories)[number];
 export interface Project {
   slug: string;
   title: string;
-  category: Exclude<Category, "All">;
+  category: Category;
   role: string;
   type: string;
   description: string;
