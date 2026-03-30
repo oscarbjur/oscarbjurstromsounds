@@ -44,15 +44,25 @@ const links = [
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) =>
+            isHome ? (
+              <a
+                key={link.href}
+                href={`#${link.href}`}
+                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={`/#${link.href}`}
+                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
       </div>
     </nav>
