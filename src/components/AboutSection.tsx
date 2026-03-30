@@ -7,7 +7,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
-            className="flex flex-col items-center text-center"
+            className="flex flex-col items-center text-center px-[56px]"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -20,16 +20,16 @@ const AboutSection = () => {
               Oscar Bjurström
             </h2>
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
-              <p>
+              <p className="text-left">
                 With over a decade of experience in sound design, I specialize in creating
                 immersive audio experiences for film, video games, and interactive media.
               </p>
-              <p>
+              <p className="text-left">
                 From the subtle ambiance of a quiet forest to the explosive chaos of a
                 sci-fi battle sequence, every sound is meticulously crafted to serve the
                 narrative and elevate the emotional impact.
               </p>
-              <p>
+              <p className="text-left">
                 I believe that great sound design is invisible — it pulls you deeper into the
                 story without you ever noticing. That's the craft I pursue every day.
               </p>
