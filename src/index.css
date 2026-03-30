@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,7 +36,7 @@
 
     --radius: 0.25rem;
 
-    --font-display: 'Bebas Neue', sans-serif;
+    --font-display: 'Climate Crisis', sans-serif;
     --font-body: 'Space Grotesk', sans-serif;
 
     --sidebar-background: 200 15% 5%;
