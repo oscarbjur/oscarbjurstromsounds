@@ -158,8 +158,8 @@ const PSXSpeakerCanvas = ({ scrollProgress }: PSXSpeakerCanvasProps) => {
       dpr={1} // low DPR for that crunchy PSX look
     >
       <ambientLight intensity={0.3} />
-      <directionalLight position={[3, 5, 4]} intensity={1.2} color="hsl(38, 80%, 70%)" />
-      <pointLight position={[-3, -2, 2]} intensity={0.5} color="hsl(38, 90%, 55%)" />
+      <directionalLight position={[3, 5, 4]} intensity={1.2} color="hsl(160, 50%, 60%)" />
+      <pointLight position={[-3, -2, 2]} intensity={0.5} color="hsl(200, 70%, 50%)" />
       <PSXSpeaker scrollProgress={scrollProgress} />
     </Canvas>
   );
