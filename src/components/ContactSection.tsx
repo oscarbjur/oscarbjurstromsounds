@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Youtube, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactSection = () => {
