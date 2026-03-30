@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const showreels = [
@@ -18,9 +18,22 @@ const showreels = [
 
 const ShowreelSection = () => {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const prev = () => setCurrent((c) => (c === 0 ? showreels.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === showreels.length - 1 ? 0 : c + 1));
+  const prev = () => {
+    setDirection(-1);
+    setCurrent((c) => (c === 0 ? showreels.length - 1 : c - 1));
+  };
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c === showreels.length - 1 ? 0 : c + 1));
+  };
+
+  const variants = {
+    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
 
   return (
     <section id="showreel" className="relative pt-32 pb-20 bg-background">
@@ -40,7 +53,6 @@ const ShowreelSection = () => {
           </h2>
         </motion.div>
 
-
         <div className="max-w-5xl mx-auto relative flex items-center gap-4">
           {/* Left arrow */}
           <button
@@ -56,20 +68,43 @@ const ShowreelSection = () => {
           {/* Video column */}
           <div className="flex-1 min-w-0">
             {/* Video title */}
-            <p className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4">
-              {showreels[current].title}
-            </p>
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.p
+                key={`title-${current}`}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.3 }}
+                className="text-center text-muted-foreground font-body text-sm tracking-[0.2em] uppercase mb-4"
+              >
+                {showreels[current].title}
+              </motion.p>
+            </AnimatePresence>
 
             {/* Video embed */}
             <div className="relative w-full aspect-video bg-card border border-border overflow-hidden">
-              <iframe
-                key={current}
-                src={showreels[current].embedUrl}
-                title={showreels[current].title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={current}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <iframe
+                    src={showreels[current].embedUrl}
+                    title={showreels[current].title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 
@@ -90,7 +125,10 @@ const ShowreelSection = () => {
           {showreels.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
+              onClick={() => {
+                setDirection(i > current ? 1 : -1);
+                setCurrent(i);
+              }}
               className={`w-2 h-2 rounded-full transition-colors ${
                 i === current ? "bg-primary" : "bg-border"
               }`}
