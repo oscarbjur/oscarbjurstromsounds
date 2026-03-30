@@ -147,71 +147,69 @@
 }
 
 .btn-puffy-icon {
-  background: linear-gradient(
-    160deg,
-    hsl(195 100% 78%) 0%,
-    hsl(200 95% 68%) 30%,
-    hsl(210 90% 58%) 60%,
-    hsl(210 85% 48%) 100%
-  );
-  color: hsl(var(--primary-foreground));
-  border: none;
-  background-color: transparent;
-  width: 3.5rem;
-  height: 3.5rem;
+  background: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   position: relative;
-  clip-path: polygon(
-    0% 30%,
-    40% 30%,
-    40% 8%,
-    92% 50%,
-    40% 92%,
-    40% 70%,
-    0% 70%
-  );
-  border-radius: 6px;
-  filter: drop-shadow(0 4px 6px hsl(210 90% 20% / 0.5));
-  transform: translateY(0);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  border: none;
+  padding: 0;
   transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .btn-puffy-icon::before {
   content: '';
   position: absolute;
-  top: 8%;
-  left: 20%;
-  width: 45%;
-  height: 30%;
-  background: linear-gradient(
-    180deg,
-    hsl(195 100% 92% / 0.7) 0%,
-    hsl(195 100% 92% / 0) 100%
-  );
-  border-radius: 50%;
+  inset: 0;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  border: 2px solid hsl(var(--primary));
+  box-sizing: border-box;
   pointer-events: none;
 }
 
+.btn-puffy-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  pointer-events: none;
+}
+
+/* Use SVG-based approach instead */
+.btn-puffy-icon {
+  all: unset;
+  cursor: pointer;
+  width: 2rem;
+  height: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
 .btn-puffy-icon:hover {
-  transform: translateY(-2px) scale(1.1);
-  filter: drop-shadow(0 8px 12px hsl(210 90% 20% / 0.6));
+  transform: scale(1.15);
+  opacity: 0.8;
 }
 
 .btn-puffy-icon:active {
-  transform: translateY(2px) scale(0.95);
-  filter: drop-shadow(0 1px 3px hsl(210 90% 20% / 0.3));
+  transform: scale(0.9);
 }
 
-/* Left arrow: flip horizontally */
 .btn-puffy-icon-left {
   transform: scaleX(-1);
 }
 .btn-puffy-icon-left:hover {
-  transform: scaleX(-1) translateY(-2px) scale(1.1);
+  transform: scaleX(-1) scale(1.15);
 }
 .btn-puffy-icon-left:active {
-  transform: scaleX(-1) translateY(2px) scale(0.95);
+  transform: scaleX(-1) scale(0.9);
 }
