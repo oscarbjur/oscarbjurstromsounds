@@ -50,7 +50,7 @@ const SpinningLogo = () => {
         return (
           <div
             key={i}
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0 items-center justify-center flex flex-col"
             style={{
               width: faceWidth,
               height: 32,

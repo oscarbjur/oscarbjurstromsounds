@@ -38,7 +38,7 @@ const SpinningBanner = () => {
           return (
             <div
               key={i}
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 gap-0 items-center justify-center flex flex-row"
               style={{
                 width: faceWidth,
                 height: 100,
