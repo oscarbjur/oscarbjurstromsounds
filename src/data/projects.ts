@@ -1,7 +1,5 @@
 export const categories = [
   "Game Audio Implementation & Design",
-  "UI/UX Sound Design",
-  "Audio Logos & Identities",
   "Commercials",
 ] as const;
 
@@ -92,23 +90,5 @@ export const projects: Project[] = [
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2026",
-  },
-  {
-    slug: "streamline-os",
-    title: "STREAMLINE OS",
-    category: "UI/UX Sound Design",
-    role: "UX Audio Lead",
-    type: "Operating System",
-    description: "System-wide notification, alert, and interaction sound set for a next-gen desktop OS.",
-    year: "2023",
-  },
-  {
-    slug: "nordisk-bank",
-    title: "NORDISK BANK",
-    category: "Audio Logos & Identities",
-    role: "Composer & Sound Designer",
-    type: "Brand Identity",
-    description: "Audio logo, hold music, and branded soundscape for a Nordic financial institution.",
-    year: "2022",
   },
 ];
