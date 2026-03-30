@@ -15,7 +15,7 @@ const AboutSection = () => {
             <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
               About
             </p>
-            <h2 className="text-3xl md:text-4xl text-foreground mb-6 italic" style={{ fontFamily: "'Molle', cursive" }}>
+            <h2 className="text-3xl md:text-4xl text-foreground mb-6" style={{ fontFamily: "'Sarina', cursive" }}>
               Oscar Bjurström
             </h2>
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
