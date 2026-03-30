@@ -10,9 +10,11 @@ import Footer from "@/components/Footer";
 const IntroAnimation = lazy(() => import("@/components/IntroAnimation"));
 
 const Index = () => {
-  const [introComplete, setIntroComplete] = useState(false);
+  const hasPlayed = sessionStorage.getItem("intro-played") === "true";
+  const [introComplete, setIntroComplete] = useState(hasPlayed);
 
   const handleIntroComplete = useCallback(() => {
+    sessionStorage.setItem("intro-played", "true");
     setIntroComplete(true);
   }, []);
 
