@@ -25,9 +25,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#" className="font-display text-2xl text-foreground tracking-widest">
-          SOUND<span className="text-primary">.</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10">
+            <Suspense fallback={null}>
+              <PSXSpeakerCanvas scrollProgress={0} />
+            </Suspense>
+          </div>
+          <a href="#" className="font-display text-2xl text-foreground tracking-widest">
+            SOUND<span className="text-primary">.</span>
+          </a>
+        </div>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
