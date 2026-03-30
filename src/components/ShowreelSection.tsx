@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+const FACE_COUNT = 12;
+const RADIUS = 160;
 
 const SpinningBanner = () => {
   const [rotation, setRotation] = useState(0);
@@ -8,24 +10,53 @@ const SpinningBanner = () => {
   useEffect(() => {
     let frame: number;
     const animate = () => {
-      setRotation((r) => r + 0.3);
+      setRotation((r) => r + 0.25);
       frame = requestAnimationFrame(animate);
     };
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
   }, []);
 
+  const angleStep = 360 / FACE_COUNT;
+  const faceWidth = 2 * RADIUS * Math.tan(Math.PI / FACE_COUNT);
+
   return (
-    <div className="flex justify-center items-center" style={{ perspective: 800 }}>
+    <div className="flex justify-center items-center overflow-hidden" style={{ perspective: 900 }}>
       <div
+        className="relative"
         style={{
+          width: faceWidth,
+          height: 100,
           transformStyle: "preserve-3d",
-          transform: `rotateY(${rotation}deg)`,
+          transform: `rotateX(${rotation}deg)`,
         }}
       >
-        <h1 className="font-display text-4xl md:text-6xl text-foreground whitespace-nowrap select-none">
-          OBS<span className="text-primary">.</span>
-        </h1>
+        {Array.from({ length: FACE_COUNT }).map((_, i) => {
+          const angle = i * angleStep;
+          // Only show text on 3 evenly-spaced faces
+          const showText = i % 4 === 0;
+          return (
+            <div
+              key={i}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                width: faceWidth,
+                height: 100,
+                backfaceVisibility: "hidden",
+                transform: `rotateX(${angle}deg) translateZ(${RADIUS}px)`,
+                background: showText
+                  ? "transparent"
+                  : "transparent",
+              }}
+            >
+              {showText && (
+                <h1 className="font-display text-4xl md:text-6xl text-foreground whitespace-nowrap select-none">
+                  OBS<span className="text-primary">.</span>
+                </h1>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
