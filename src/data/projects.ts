@@ -95,4 +95,14 @@ export const projects: Project[] = [
     year: "2026",
     imageUrl: "/images/betano-easter.png",
   },
+  {
+    slug: "svt-familjefighten",
+    title: "SVT FAMILJEFIGHTEN",
+    category: "Movies and Shows",
+    role: "Composer & Sound Designer",
+    type: "TV Show — SVT",
+    description: "Created sound design and music for the section in the show called \"Läskiga Natten\".",
+    year: "2025",
+    imageUrl: "/images/svt-familjefighten.avif",
+  },
 ];
