@@ -19,6 +19,7 @@ interface Project {
   type: string;
   description: string;
   year: string;
+  link?: string;
 }
 
 const projects: Project[] = [
