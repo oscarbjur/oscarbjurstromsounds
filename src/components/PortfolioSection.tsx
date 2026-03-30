@@ -1,9 +1,27 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { categories, projects, type Category } from "@/data/projects";
 
+function getThumb(project: typeof projects[number]): string | null {
+  if (project.imageUrl) return project.imageUrl;
+  if (project.videoUrl) {
+    const match = project.videoUrl.match(/(?:v=|youtu\.be\/)([^&]+)/);
+    if (match) return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+  }
+  return null;
+}
+
+// Varying spans for a collage feel
+const spanPatterns = [
+  "col-span-2 row-span-2",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-2",
+  "col-span-2 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+];
 
 const PortfolioSection = () => {
   const [active, setActive] = useState<Category>(() => {
@@ -53,44 +71,48 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="space-y-0">
-          {filtered.map((project, i) => (
-            <Link key={project.slug} to={`/project/${project.slug}`}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group border-t border-border py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer hover:bg-secondary/30 px-4 -mx-4 transition-colors"
-            >
-              <div className="flex items-center gap-6">
-                <div className="w-11 h-11 border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors shrink-0">
-                  <Play className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg md:text-xl text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground font-body text-sm mt-1 max-w-lg">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 md:text-right shrink-0">
-                <span className="text-foreground font-body text-xs tracking-wide border border-border px-3 py-1">
-                  {project.role}
-                </span>
-                <span className="text-primary font-body text-xs tracking-[0.15em] uppercase border border-primary/30 px-3 py-1">
-                  {project.type}
-                </span>
-                <span className="text-muted-foreground font-body text-sm">
-                  {project.year}
-                </span>
-              </div>
-            </motion.div>
-            </Link>
-          ))}
-          <div className="border-t border-border" />
+        {/* Collage grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] gap-3">
+          {filtered.map((project, i) => {
+            const thumb = getThumb(project);
+            const span = spanPatterns[i % spanPatterns.length];
+
+            return (
+              <Link key={project.slug} to={`/project/${project.slug}`}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className={`${span} group relative overflow-hidden rounded-lg cursor-pointer`}
+                >
+                  {thumb ? (
+                    <img
+                      src={thumb}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-secondary flex items-center justify-center">
+                      <span className="text-muted-foreground font-body text-sm">
+                        {project.title}
+                      </span>
+                    </div>
+                  )}
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
+                    <h3 className="font-display text-base md:text-lg text-foreground mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-primary font-body text-xs tracking-wider uppercase">
+                      {project.type}
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
