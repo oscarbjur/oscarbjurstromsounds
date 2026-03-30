@@ -70,7 +70,7 @@ export const projects: Project[] = [
     type: "Game Jam — Nordic Game Jam 2025",
     description: "Audio implemented with FMOD to create a groovy underground sound for this game created at the Nordic Game Jam 2025 in Copenhagen.",
     year: "2025",
-    imageUrl: "/src/assets/my-epic-nightmare.png",
+    imageUrl: "/images/my-epic-nightmare.png",
     gameLink: "https://lalkami.itch.io/my-epic-nightmare",
   },
   {
