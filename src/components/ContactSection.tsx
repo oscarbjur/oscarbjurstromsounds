@@ -44,7 +44,7 @@ const ContactSection = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground font-body text-sm">oscarbjurstromsounds@gmail.com</span>
+                <span className="text-foreground font-body text-sm"><span className="text-foreground font-body text-sm">oscarbjurstromsound@gmail.com</span></span>
               </div>
               <div className="flex items-center gap-4">
                 <MapPin className="w-5 h-5 text-primary" />
