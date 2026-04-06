@@ -105,4 +105,13 @@ export const projects: Project[] = [
     year: "2025",
     imageUrl: "/images/svt-familjefighten.avif",
   },
+  {
+    slug: "device-ux-sound-design",
+    title: "DEVICE UX SOUND DESIGN PROJECT",
+    category: "UI/UX Sound Design",
+    role: "Sound Designer",
+    type: "UX Sound Design",
+    description: "Coming soon.",
+    year: "2025",
+  },
 ];
