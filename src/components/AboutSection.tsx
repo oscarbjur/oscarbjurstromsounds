@@ -21,17 +21,13 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
               <p className="text-left">
-                With over a decade of experience in sound design, I specialize in creating
-                immersive audio experiences for film, video games, and interactive media.
+                With experience creating sound design for multiple projects ranging from released indie games to physical smart devices  I specialize in creating immersive and functional audio with a purpose.
               </p>
               <p className="text-left">
-                From the subtle ambiance of a quiet forest to the explosive chaos of a
-                sci-fi battle sequence, every sound is meticulously crafted to serve the
-                narrative and elevate the emotional impact.
+                I’m a sound designer with a passion for visual coding and game audio implementation, constantly chasing ways to elevate "perfect" sounds even further.
               </p>
               <p className="text-left">
-                I believe that great sound design is invisible — it pulls you deeper into the
-                story without you ever noticing. That's the craft I pursue every day.
+                I believe that great sound design is invisible, it should only be noticed when we want it to.
               </p>
             </div>
           </motion.div>
