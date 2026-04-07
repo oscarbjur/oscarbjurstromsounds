@@ -21,6 +21,8 @@ export interface Project {
   gameLink?: string;
 }
 
+const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
+
 export const projects: Project[] = [
   {
     slug: "warlock-activities",
@@ -71,7 +73,7 @@ export const projects: Project[] = [
     type: "Game Jam — Nordic Game Jam 2025",
     description: "Audio implemented with FMOD to create a groovy underground sound for this game created at the Nordic Game Jam 2025 in Copenhagen.",
     year: "2025",
-    imageUrl: "/images/my-epic-nightmare.png",
+    imageUrl: projectImage("my-epic-nightmare.png"),
     gameLink: "https://lalkami.itch.io/my-epic-nightmare",
   },
   {
@@ -82,7 +84,7 @@ export const projects: Project[] = [
     type: "Game Jam — Global Game Jam 2025",
     description: "Audio design and music composition for this game created in Unity. Combined different genres and styles of gameplay and art to create this Wario Ware inspired game.",
     year: "2025",
-    imageUrl: "/images/bubble-burst.png",
+    imageUrl: projectImage("bubble-burst.png"),
     gameLink: "https://rfusade.itch.io/bubbleburst",
   },
   {
@@ -93,7 +95,7 @@ export const projects: Project[] = [
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2026",
-    imageUrl: "/images/betano-easter.png",
+    imageUrl: projectImage("betano-easter.png"),
   },
   {
     slug: "svt-familjefighten",
@@ -103,7 +105,7 @@ export const projects: Project[] = [
     type: "TV Show — SVT",
     description: "Created sound design and music for the section in the show called \"Läskiga Natten\".",
     year: "2025",
-    imageUrl: "/images/svt-familjefighten.avif",
+    imageUrl: projectImage("svt-familjefighten.avif"),
   },
   {
     slug: "device-ux-sound-design",

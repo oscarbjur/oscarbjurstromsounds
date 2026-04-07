@@ -3,17 +3,10 @@ import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
-import myEpicNightmareImg from "@/assets/my-epic-nightmare.png";
-import bubbleBurstImg from "@/assets/bubble-burst.png";
 
 const getYouTubeEmbedUrl = (url: string) => {
   const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return match ? `https://www.youtube.com/embed/${match[1]}` : url;
-};
-
-const imageMap: Record<string, string> = {
-  "/src/assets/my-epic-nightmare.png": myEpicNightmareImg,
-  "/src/assets/bubble-burst.png": bubbleBurstImg,
 };
 
 const ProjectPage = () => {
@@ -34,7 +27,7 @@ const ProjectPage = () => {
     );
   }
 
-  const resolvedImage = project.imageUrl ? imageMap[project.imageUrl] || project.imageUrl : null;
+  const resolvedImage = project.imageUrl ?? null;
 
   return (
     <div className="min-h-screen bg-background">
