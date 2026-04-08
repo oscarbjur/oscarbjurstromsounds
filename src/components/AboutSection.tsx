@@ -24,7 +24,7 @@ const AboutSection = () => {
                 I’m a sound designer with a passion for designing and implementing audio, constantly chasing ways to elevate "perfect" sounds even further.
               </p>
               <p className="text-left">
-                With experience creating sound design for multiple projects ranging from released indie games to physical smart devices I specialize in creating immersive and functional audio with a purpose.
+                With experience creating sound design for multiple projects ranging from releasing indie games to smart devices I specialize in creating immersive and functional audio with a purpose.
               </p>
               <p className="text-left">
                 I believe that great sound design is invisible, it should only be noticed when we want it to.
