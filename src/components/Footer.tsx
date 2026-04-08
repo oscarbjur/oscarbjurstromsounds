@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="py-10 bg-background border-t border-border">
     <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
       <p className="text-muted-foreground font-body text-xs tracking-widest">
-        © 2025 — ALL RIGHTS RESERVED
+        © 2026 — ALL RIGHTS RESERVED
       </p>
       <div className="flex items-center gap-5">
         <a href="https://www.youtube.com/@oscarbjurstrom" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
