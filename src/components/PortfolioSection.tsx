@@ -78,13 +78,13 @@ const PortfolioSection = () => {
             const span = spanPatterns[i % spanPatterns.length];
 
             return (
-              <Link key={project.slug} to={`/project/${project.slug}`}>
+              <Link key={project.slug} to={`/project/${project.slug}`} className={`${span} block`}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.92 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className={`${span} group relative overflow-hidden rounded-lg cursor-pointer`}
+                  className="group relative overflow-hidden rounded-2xl cursor-pointer w-full h-full"
                 >
                   {thumb ? (
                     <img
