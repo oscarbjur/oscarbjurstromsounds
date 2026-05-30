@@ -68,10 +68,9 @@ const PortfolioSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => {
             const thumb = getThumb(project);
-            const span = spanPatterns[i % spanPatterns.length];
 
             return (
-              <Link key={project.slug} to={`/project/${project.slug}`} className={`${span} block`}>
+              <Link key={project.slug} to={`/project/${project.slug}`} className="block">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.92 }}
                   whileInView={{ opacity: 1, scale: 1 }}
