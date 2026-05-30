@@ -19,6 +19,8 @@ export interface Project {
   videoUrl?: string;
   imageUrl?: string;
   gameLink?: string;
+  steamLink?: string;
+  websiteLink?: string;
 }
 
 const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
