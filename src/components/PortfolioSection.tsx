@@ -24,7 +24,10 @@ const PortfolioSection = () => {
     sessionStorage.setItem("portfolioCategory", cat);
   };
 
-  const filtered = projects.filter((p) => p.category === active);
+  const filtered = projects
+    .filter((p) => p.category === active)
+    .slice()
+    .sort((a, b) => parseInt(b.year, 10) - parseInt(a.year, 10));
 
   return (
     <section id="portfolio" className="py-32 bg-card">
