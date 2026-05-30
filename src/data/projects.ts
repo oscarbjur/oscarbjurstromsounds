@@ -90,6 +90,17 @@ export const projects: Project[] = [
     gameLink: "https://rfusade.itch.io/bubbleburst",
   },
   {
+    slug: "4am",
+    title: "4AM",
+    category: "Game Audio Implementation & Design",
+    role: "Sound Designer",
+    type: "Indie Game — Dark Zone Studios",
+    description: "Producing sound design and planning out the sounds needed for the game. Currently in development.",
+    year: "2026",
+    steamLink: "https://store.steampowered.com/",
+    websiteLink: "https://darkzonestudios.com/",
+  },
+  {
     slug: "betano-easter",
     title: "BETANO (KAIZEN GAMING) EASTER CAMPAIGN",
     category: "Commercials",
