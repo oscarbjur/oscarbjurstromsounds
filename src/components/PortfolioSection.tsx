@@ -12,16 +12,6 @@ function getThumb(project: typeof projects[number]): string | null {
   return null;
 }
 
-// Varying spans for a collage feel
-const spanPatterns = [
-  "col-span-2 row-span-2",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-2",
-  "col-span-2 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-];
 
 const PortfolioSection = () => {
   const [active, setActive] = useState<Category>(() => {
