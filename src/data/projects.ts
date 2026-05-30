@@ -97,7 +97,7 @@ export const projects: Project[] = [
     type: "Indie Game — Dark Zone Studios",
     description: "Producing sound design and planning out the sounds needed for the game. Currently in development.",
     year: "2026",
-    steamLink: "https://store.steampowered.com/",
+    steamLink: "https://store.steampowered.com/app/2537270/4AM/",
     websiteLink: "https://darkzonestudios.com/",
   },
   {
