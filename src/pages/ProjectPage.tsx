@@ -83,17 +83,41 @@ const ProjectPage = () => {
               </span>
             </div>
 
-            {project.gameLink && (
-              <a
-                href={project.gameLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-puffy inline-flex items-center gap-2 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase rounded-xl"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Play the Game
-              </a>
-            )}
+            <div className="flex flex-wrap gap-3">
+              {project.gameLink && (
+                <a
+                  href={project.gameLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-puffy inline-flex items-center gap-2 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase rounded-xl"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Play the Game
+                </a>
+              )}
+              {project.steamLink && (
+                <a
+                  href={project.steamLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-puffy inline-flex items-center gap-2 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase rounded-xl"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View on Steam
+                </a>
+              )}
+              {project.websiteLink && (
+                <a
+                  href={project.websiteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-puffy inline-flex items-center gap-2 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase rounded-xl"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Visit Website
+                </a>
+              )}
+            </div>
           </div>
         </motion.div>
       </div>

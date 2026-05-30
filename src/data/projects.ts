@@ -19,6 +19,8 @@ export interface Project {
   videoUrl?: string;
   imageUrl?: string;
   gameLink?: string;
+  steamLink?: string;
+  websiteLink?: string;
 }
 
 const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
@@ -86,6 +88,17 @@ export const projects: Project[] = [
     year: "2025",
     imageUrl: projectImage("bubble-burst.png"),
     gameLink: "https://rfusade.itch.io/bubbleburst",
+  },
+  {
+    slug: "4am",
+    title: "4AM",
+    category: "Game Audio Implementation & Design",
+    role: "Sound Designer",
+    type: "Indie Game — Dark Zone Studios",
+    description: "Producing sound design and planning out the sounds needed for the game. Currently in development.",
+    year: "2026",
+    steamLink: "https://store.steampowered.com/app/2537270/4AM/",
+    websiteLink: "https://darkzonestudios.com/",
   },
   {
     slug: "betano-easter",
