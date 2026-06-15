@@ -63,7 +63,7 @@ export const projects: Project[] = [
     category: "Game Audio Implementation & Design",
     role: "Programmer, Graphics, Audio & Composer",
     type: "Game Jam — b3agz Jam 2024",
-    description: "Audio implemented with Wwise to create a satisfying gameplay loop in this short game inspired by Tomb of the Necrodancer.",
+    description: "Handled game programming, graphics, and audio implementation with Wwise in Unity — including original SFX design — to create a satisfying gameplay loop for a short game inspired by Crypt of the NecroDancer. Made for the B3AGZ JAM 2024 in a team of two.",
     year: "2024",
     videoUrl: "https://www.youtube.com/watch?v=hvkuYqcY6NI",
     gameLink: "https://embh.itch.io/pyro-survivor",
