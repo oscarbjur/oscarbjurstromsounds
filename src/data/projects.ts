@@ -21,6 +21,7 @@ export interface Project {
   gameLink?: string;
   steamLink?: string;
   websiteLink?: string;
+  episodeLink?: string;
 }
 
 const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
@@ -120,6 +121,7 @@ export const projects: Project[] = [
     description: "Created sound design and music for the section in the show called \"Läskiga Natten\".",
     year: "2025",
     imageUrl: projectImage("svt-familjefighten.avif"),
+    episodeLink: "https://www.svtplay.se/video/8y2opPJ/familjefighten/6-skuggornas-dal-och-laskiga-natten?video=visa",
   },
   {
     slug: "device-ux-sound-design",
