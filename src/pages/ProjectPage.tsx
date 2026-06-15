@@ -117,6 +117,17 @@ const ProjectPage = () => {
                   Visit Website
                 </a>
               )}
+              {project.episodeLink && (
+                <a
+                  href={project.episodeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-puffy inline-flex items-center gap-2 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase rounded-xl"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Watch Episode
+                </a>
+              )}
             </div>
           </div>
         </motion.div>
