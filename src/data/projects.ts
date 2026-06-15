@@ -120,6 +120,7 @@ export const projects: Project[] = [
     description: "Created sound design and music for the section in the show called \"Läskiga Natten\".",
     year: "2025",
     imageUrl: projectImage("svt-familjefighten.avif"),
+    websiteLink: "https://www.svtplay.se/video/8y2opPJ/familjefighten/6-skuggornas-dal-och-laskiga-natten?video=visa",
   },
   {
     slug: "device-ux-sound-design",
