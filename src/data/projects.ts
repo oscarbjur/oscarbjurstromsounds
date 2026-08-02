@@ -109,7 +109,7 @@ export const projects: Project[] = [
     role: "Audio Designer & Implementer",
     type: "First Person Zombie Shooter",
     description: "Created the audio and sound implementation through FMOD for this first person zombie shooter inspired by Call of Duty Zombies.",
-    year: "2025",
+    year: "2026",
     gameLink: "https://oliverriemvis.itch.io/tilberinn",
   },
   {
