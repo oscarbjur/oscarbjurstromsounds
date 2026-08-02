@@ -112,6 +112,7 @@ export const projects: Project[] = [
     type: "First Person Zombie Shooter",
     description: "Created the audio and sound implementation through FMOD for this first person zombie shooter inspired by Call of Duty Zombies.",
     year: "2026",
+    imageUrl: tilberinnAsset.url,
     gameLink: "https://oliverriemvis.itch.io/tilberinn",
   },
   {
