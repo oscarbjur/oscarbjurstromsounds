@@ -55,7 +55,7 @@ export const projects: Project[] = [
     category: "Game Audio Implementation & Design",
     role: "Audio Implementer & Designer",
     type: "Indie Game — The Game Assembly",
-    description: "Audio implemented with adaptive soundscapes in FMOD for an action RPG inspired by Diablo III.",
+    description: "Audio implemented with adaptive soundscapes in FMOD for an action RPG inspired by Diablo III. Made with a group from The Game Assembly in a team of 23, including developers across a plethora of disciplines.",
     year: "2024",
     videoUrl: "https://www.youtube.com/watch?v=7QUu7-tfD9Y",
   },
