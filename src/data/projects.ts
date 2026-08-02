@@ -36,7 +36,7 @@ export const projects: Project[] = [
     role: "Audio Implementer & Designer",
     type: "Indie Game — The Game Assembly",
     description: "Designed original SFX and implemented adaptive soundscapes using FMOD for an isometric adventure inspired by Death's Door. Created in collaboration with a team of 13 across disciplines at The Game Assembly.",
-    year: "2024",
+    year: "2025",
     videoUrl: "https://www.youtube.com/watch?v=Ogm5dDrMZnM",
   },
   {
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     role: "Audio Implementer & Designer",
     type: "Indie Game — The Game Assembly",
     description: "Designed original SFX and implemented adaptive soundscapes using FMOD for an isometric adventure inspired by Death's Door. Created in collaboration with a team of 13 across disciplines at The Game Assembly.",
-    year: "2024",
+    year: "2025",
     videoUrl: "https://www.youtube.com/watch?v=dEkKYZpwTlE",
   },
   {
