@@ -1,5 +1,3 @@
-import tilberinnAsset from "@/assets/tilberinn.png.asset.json";
-
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",
@@ -113,7 +111,7 @@ export const projects: Project[] = [
     type: "First Person Zombie Shooter",
     description: "Created the audio and sound implementation through FMOD for this first person zombie shooter inspired by Call of Duty Zombies. Made with a group from The Game Assembly in a team of 23, including developers across a plethora of disciplines.",
     year: "2026",
-    imageUrl: tilberinnAsset.url,
+    imageUrl: projectImage("tilberinn.png"),
     gameLink: "https://oliverriemvis.itch.io/tilberinn",
   },
   {
