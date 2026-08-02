@@ -58,6 +58,7 @@ export const projects: Project[] = [
     description: "Audio implemented with adaptive soundscapes in FMOD for an action RPG inspired by Diablo III. Made with a group from The Game Assembly in a team of 23, including developers across a plethora of disciplines.",
     year: "2025",
     videoUrl: "https://www.youtube.com/watch?v=7QUu7-tfD9Y",
+    gameLink: "https://oliverriemvis.itch.io/spite",
   },
   {
     slug: "pyro-survivor",
