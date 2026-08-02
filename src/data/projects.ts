@@ -1,3 +1,5 @@
+import tilberinnAsset from "@/assets/tilberinn.png.asset.json";
+
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",
