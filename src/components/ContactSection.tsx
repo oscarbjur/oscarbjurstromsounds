@@ -39,7 +39,7 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <p className="text-muted-foreground font-body leading-relaxed">
-              Got a cool project? I'd love to hear about it — let's make something awesome together.
+              Got a cool project? I'd love to hear about it. Let's make something awesome together.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">

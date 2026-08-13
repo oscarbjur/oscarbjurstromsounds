@@ -11,7 +11,7 @@ const showreels = [
     embedUrl: "https://www.youtube.com/embed/qTXknLtPP94?rel=0&modestbranding=1",
   },
   {
-    title: "Subnautica Below Zero — Fan Cinematic",
+    title: "Subnautica Below Zero - Fan Cinematic",
     embedUrl: "https://www.youtube.com/embed/wMJDjlocg3M?rel=0&modestbranding=1",
   },
 ];
