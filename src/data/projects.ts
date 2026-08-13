@@ -112,6 +112,7 @@ export const projects: Project[] = [
     description: "Created the audio and sound implementation through FMOD for this first person zombie shooter inspired by Call of Duty Zombies. Made with a group from The Game Assembly in a team of 23, including developers across a plethora of disciplines.",
     year: "2026",
     imageUrl: projectImage("tilberinn.png"),
+    videoUrl: "https://www.youtube.com/watch?v=TsoN5X8pBcw",
     gameLink: "https://oliverriemvis.itch.io/tilberinn",
   },
   {
