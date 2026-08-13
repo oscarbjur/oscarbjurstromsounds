@@ -5,7 +5,7 @@ const services = [
   {
     icon: MousePointerClick,
     title: "UI/UX SOUND DESIGN",
-    description: "Crafting intuitive sonic feedback for apps, products, and digital interfaces — from micro-interactions to full system soundscapes.",
+    description: "Crafting intuitive sonic feedback for apps, products, and digital interfaces, from micro-interactions to full system soundscapes.",
   },
   {
     icon: Gamepad2,
@@ -15,12 +15,12 @@ const services = [
   {
     icon: Music,
     title: "AUDIO LOGOS & IDENTITIES",
-    description: "Memorable sonic branding — audio logos, brand sounds, and cohesive audio identities that define how a brand is heard.",
+    description: "Memorable sonic branding through audio logos, brand sounds, and cohesive audio identities that define how a brand is heard.",
   },
   {
     icon: Tv,
     title: "COMMERCIALS",
-    description: "Sound design and mixing for TV spots, digital ads, and campaign films — punchy, polished, and on-brand.",
+    description: "Sound design and mixing for TV spots, digital ads, and campaign films that are punchy, polished, and on-brand.",
   },
 ];
 

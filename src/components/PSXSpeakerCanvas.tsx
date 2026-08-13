@@ -50,7 +50,7 @@ function SmileyBalloon({ scrollProgress }: { scrollProgress: number }) {
           <sphereGeometry args={[0.1, 8, 8]} />
         </mesh>
 
-        {/* Smile — torus arc, flipped to smile upward */}
+        {/* Smile - torus arc, flipped to smile upward */}
         <mesh material={blackMat} position={[0, 0.18, 0.75]} rotation={[Math.PI, 0, 0]}>
           <torusGeometry args={[0.25, 0.035, 8, 16, Math.PI]} />
         </mesh>

@@ -36,7 +36,7 @@ function IntroBalloon({ onPop }: { onPop: () => void }) {
     groupRef.current.rotation.y = elapsed * 0.8;
     groupRef.current.rotation.z = Math.sin(elapsed * 2) * 0.05;
 
-    // Pop at ~2s — inflate then disappear
+    // Pop at ~2s - inflate then disappear
     if (elapsed > 2 && !popped.current) {
       popped.current = true;
       onPop();
@@ -141,7 +141,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   };
 
   useEffect(() => {
-    // Safety timeout — always dismiss after 4s
+    // Safety timeout - always dismiss after 4s
     const timer = setTimeout(() => {
       setPhase("done");
       onComplete();
