@@ -115,6 +115,17 @@ export const projects: Project[] = [
     gameLink: "https://oliverriemvis.itch.io/tilberinn",
   },
   {
+    slug: "moon-doom",
+    title: "MOON DOOM",
+    category: "Game Audio Implementation & Design",
+    role: "Sound Designer & Audio Direction",
+    type: "Indie Game — Neckbolt",
+    description: "Collaborated with Neckbolt on a DOOM and Metroid Prime inspired shooter, creating the sound design and helping shape the direction of the soundscape. The audio leans on old school sound, blending retro character with new gen production. Currently in development.",
+    year: "2026",
+    imageUrl: projectImage("moon-doom.jpg"),
+    steamLink: "https://store.steampowered.com/app/4861420/MOON_DOOM/",
+  },
+  {
     slug: "betano-easter",
     title: "BETANO (KAIZEN GAMING) EASTER CAMPAIGN",
     category: "Commercials",
