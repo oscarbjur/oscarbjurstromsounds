@@ -55,7 +55,7 @@ const ProjectPage = () => {
           )}
 
           {!project.videoUrl && resolvedImage && (
-            <div className="w-full max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-border">
+            <div className="w-full max-w-md mx-auto mb-12 rounded-2xl overflow-hidden border border-border">
               <img src={resolvedImage} alt={project.title} className="w-full h-auto" />
             </div>
           )}
