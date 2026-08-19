@@ -3,13 +3,19 @@ import { useState, FormEvent } from "react";
 import { Mail, MapPin, Send, Youtube, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
+const CONTACT_EMAIL = "oscarbjurstromsound@gmail.com";
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    const subject = `Project inquiry from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    toast.success("Opening your email app to send the message.");
   };
 
   return (
