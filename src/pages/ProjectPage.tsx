@@ -3,6 +3,9 @@ import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
+const SITE_URL = "https://oscarbjurstromsound.com";
 
 const getYouTubeEmbedUrl = (url: string) => {
   const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -28,9 +31,31 @@ const ProjectPage = () => {
   }
 
   const resolvedImage = project.imageUrl ?? null;
+  const pageTitle = `${project.title} | Oscar Bjurström Sound`;
+  const pageDescription = project.description.slice(0, 155);
+  const pageUrl = `${SITE_URL}/#/project/${project.slug}`;
+  const ogImage = resolvedImage?.startsWith("http")
+    ? resolvedImage
+    : resolvedImage
+      ? `${SITE_URL}${resolvedImage.replace(/^\.?\//, "/")}`
+      : null;
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        {ogImage && <meta property="og:image" content={ogImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        {ogImage && <meta name="twitter:image" content={ogImage} />}
+      </Helmet>
       <Navbar />
       <div className="container mx-auto px-6 pt-28 pb-12">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
