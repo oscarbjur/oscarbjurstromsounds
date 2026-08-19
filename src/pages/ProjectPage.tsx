@@ -3,6 +3,9 @@ import { projects } from "@/data/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
+const SITE_URL = "https://oscarbjurstromsound.com";
 
 const getYouTubeEmbedUrl = (url: string) => {
   const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
