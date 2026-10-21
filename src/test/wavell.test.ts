@@ -10,8 +10,8 @@ describe("Wavell portfolio entry", () => {
     expect(projects.find((project) => project.slug === "wavell")?.websiteLink).toBe("https://sonicmindsagency.com/work/wavell/");
   });
 
-  it("uses a hosted image that also resolves outside Lovable", () => {
+  it("shows the brand logo card served from the site itself", () => {
     const project = projects.find((entry) => entry.slug === "wavell");
-    expect(project?.imageUrl).toMatch(/^https:\/\/oscarbjurstromsounds\.lovable\.app\/__l5e\/assets-v1\//);
+    expect(project?.imageUrl).toMatch(/images\/wavell-logo\.png$/);
   });
 });
