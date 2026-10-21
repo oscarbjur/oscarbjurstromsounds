@@ -12,6 +12,6 @@ describe("Wavell portfolio entry", () => {
 
   it("shows the brand logo card served from the site itself", () => {
     const project = projects.find((entry) => entry.slug === "wavell");
-    expect(project?.imageUrl).toMatch(/images\/wavell-logo\.png$/);
+    expect(project?.imageUrl).toMatch(/images\/wavell-logo\.webp$/);
   });
 });
