@@ -1,5 +1,3 @@
-import wavellImage from "@/assets/wavell-headphones.webp.asset.json";
-
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",
@@ -37,7 +35,7 @@ export const projects: Project[] = [
     type: "Headphones - Sonic Minds",
     description: "Created several of the UI sounds for Wavell headphones as part of Sonic Minds' work on the Danish brand's audio identity. Inspired by Wavell's Arctic aesthetic, the sound world combines wind-like textures, open chords and warm, resonant tones. The wider UI sound system covers everyday interactions such as power, pairing, connection and noise cancellation, bringing a distinct character to the listening experience. Hear the sounds and explore the full case on Sonic Minds' website.",
     year: "2026",
-    imageUrl: new URL(wavellImage.url, "https://oscarbjurstromsounds.lovable.app").href,
+    imageUrl: projectImage("wavell-logo.webp"),
     websiteLink: "https://sonicmindsagency.com/work/wavell/",
   },
   {
