@@ -191,4 +191,16 @@ export const projects: Project[] = [
     imageUrl: projectImage("dsb-logo.webp"),
     websiteLink: "https://sonicmindsagency.com/work/dsb/",
   },
+  {
+    slug: "xellia",
+    title: "XELLIA",
+    category: "Audio Logos & Identities",
+    role: "Composer & Sound Designer - Audio Logo",
+    type: "Pharmaceuticals - Audio Logo",
+    description: "Created the audio logo for Xellia Pharmaceuticals, a global leader in fermentation-based anti-infectives. Bubbles and classical instruments sit together in the piece, giving the brand a human and approachable character while the chords and melody carry the pondus its science demands. The bubbles are a nod to the fermentation process behind Xellia's medicines, rooting the sound in both the brand and what they actually make.",
+    year: "2026",
+    imageUrl: projectImage("xellia-logo.webp"),
+    websiteLink: "https://www.xellia.com/",
+  },
 ];
+
