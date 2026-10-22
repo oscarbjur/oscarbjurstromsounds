@@ -180,4 +180,15 @@ export const projects: Project[] = [
     imageUrl: projectImage("dividandy-logo.webp"),
     websiteLink: "https://sonicmindsagency.com/work/dividandy/",
   },
+  {
+    slug: "dsb",
+    title: "DSB",
+    category: "Audio Logos & Identities",
+    role: "Sound Designer - Audio Story",
+    type: "Danish State Railways - Sonic Minds",
+    description: "Collaborated with Sonic Minds to support DSB, the Danish State Railways, with some of their music and audio logo endeavors. My contribution was an audio story built around the brand's sound world. The final file isn't available to me, so I'm unable to share the piece here, but you can explore Sonic Minds' wider, award-winning work with DSB on their website.",
+    year: "2026",
+    imageUrl: projectImage("dsb-logo.webp"),
+    websiteLink: "https://sonicmindsagency.com/work/dsb/",
+  },
 ];
