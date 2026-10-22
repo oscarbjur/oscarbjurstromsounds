@@ -169,4 +169,15 @@ export const projects: Project[] = [
     imageUrl: projectImage("tiimo.png"),
     websiteLink: "https://sonicmindsagency.com/work/tiimo/",
   },
+  {
+    slug: "dividandy",
+    title: "DIVIDANDY",
+    category: "UI/UX Sound Design",
+    role: "UX Sound Designer",
+    type: "Investment Game App - Sonic Minds",
+    description: "Created several of the UX sounds for Dividandy, an entertainment-focused investment app where players compete with simulated money in real market conditions through tournaments, leaderboards and challenges. As part of Sonic Minds' work on the brand's sonic identity, the sounds balance the energy and playfulness of a game with the credibility of real financial markets. The UX sound suite carries the personality of Dividandy's fox mascot into every tap, transition and notification, sometimes literally sharp, agile and clever, sometimes more in attitude and texture. Hear the sounds and explore the full case on Sonic Minds' website.",
+    year: "2026",
+    imageUrl: projectImage("dividandy-logo.webp"),
+    websiteLink: "https://sonicmindsagency.com/work/dividandy/",
+  },
 ];
