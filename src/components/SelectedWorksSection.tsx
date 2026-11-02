@@ -56,25 +56,27 @@ const SelectedWorksSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
-          {selected.map((project, i) => {
+      </div>
+
+      <div className="selected-reel" aria-label="Selected works">
+        <div className="selected-reel-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="selected-reel-group" aria-hidden={copy === 1 ? true : undefined}>
+          {selected.map((project) => {
             const thumb = getThumb(project);
 
             return (
-              <motion.div
+              <div
                 key={project.slug}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="selected-reel-item"
               >
-                <Link to={`/project/${project.slug}`} className="group block">
+                <Link to={`/project/${project.slug}`} className="selected-reel-link group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" tabIndex={copy === 1 ? -1 : undefined}>
                   <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary">
                     {thumb ? (
                       <img
                         src={thumb}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        className="w-full h-full object-cover"
                         loading="lazy"
                       />
                     ) : (
@@ -94,9 +96,12 @@ const SelectedWorksSection = () => {
                     </p>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </section>
