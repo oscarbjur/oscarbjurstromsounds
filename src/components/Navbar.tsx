@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { useServicesDrawer } from "@/components/ServicesDrawerProvider";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
@@ -80,6 +81,7 @@ const Navbar = () => {
 
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -90,6 +92,44 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const wide = window.matchMedia("(min-width: 768px)");
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false);
+    };
+    wide.addEventListener("change", onChange);
+    return () => wide.removeEventListener("change", onChange);
+  }, []);
+
+  const goTo = (link: { href: string; drawer?: boolean }) => {
+    setMenuOpen(false);
+    if (link.drawer) {
+      openServices();
+      return;
+    }
+    if (!isHome) {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
@@ -104,6 +144,16 @@ const Navbar = () => {
             <PSXSpeakerCanvas scrollProgress={scrollProgress} />
           </Suspense>
         </div>
+        {/* Menu button, phones and small tablets only */}
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+          className="md:hidden absolute right-6 top-5 z-10 p-1 text-foreground bg-transparent border-none cursor-pointer"
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
         {/* Centered OBS spinning banner */}
         <Link to="/" className="block" style={{ perspective: 600 }}>
           <SpinningLogo />
@@ -113,20 +163,7 @@ const Navbar = () => {
           {links.map((link) => (
             <button
               key={link.href}
-              onClick={() => {
-                if (link.drawer) {
-                  openServices();
-                  return;
-                }
-                if (!isHome) {
-                  navigate("/");
-                  setTimeout(() => {
-                    document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
-                  }, 300);
-                } else {
-                  document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() => goTo(link)}
               className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
             >
               {link.label}
@@ -134,6 +171,21 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+      {menuOpen && (
+        <div className="md:hidden absolute left-0 right-0 top-full border-b border-border bg-background/95 backdrop-blur-md">
+          <div className="container mx-auto px-6 py-5 flex flex-col items-start gap-4">
+            {links.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => goTo(link)}
+                className="text-foreground/85 font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors bg-transparent border-none cursor-pointer text-left p-0"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
