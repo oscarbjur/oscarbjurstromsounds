@@ -56,7 +56,7 @@ const PortfolioSection = () => {
               className={`font-body text-xs tracking-[0.15em] uppercase px-4 py-2 rounded-xl transition-all ${
                 active === cat
                   ? "btn-puffy"
-                  : "bg-secondary text-muted-foreground border-none rounded-xl shadow-[0_4px_0_hsl(0_0%_8%),inset_0_1px_2px_hsl(0_0%_20%/0.3)] hover:text-foreground"
+                  : "bg-transparent text-muted-foreground border border-border rounded-[10px] hover:text-foreground hover:border-foreground/40"
               }`}
             >
               {cat}
