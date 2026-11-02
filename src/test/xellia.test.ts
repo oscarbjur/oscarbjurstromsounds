@@ -4,8 +4,8 @@ import { projects } from "@/data/projects";
 const xellia = () => projects.find((project) => project.slug === "xellia");
 
 describe("Xellia portfolio entry", () => {
-  it("appears under Audio Logos & Identities", () => {
-    expect(xellia()?.category).toBe("Audio Logos & Identities");
+  it("appears under Sonic Branding", () => {
+    expect(xellia()?.category).toBe("Sonic Branding");
   });
 
   it("credits only the audio logo", () => {

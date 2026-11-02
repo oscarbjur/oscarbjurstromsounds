@@ -1,9 +1,8 @@
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",
-  "Audio Logos & Identities",
-  "Commercials",
-  "Movies and Shows",
+  "Sonic Branding",
+  "Audio Post",
 ] as const;
 
 export type Category = (typeof categories)[number];
@@ -141,7 +140,7 @@ export const projects: Project[] = [
   {
     slug: "betano-easter",
     title: "BETANO (KAIZEN GAMING) EASTER CAMPAIGN",
-    category: "Commercials",
+    category: "Audio Post",
     role: "Voice Mix, Sound Design & Mastering",
     type: "RADIO COMMERCIAL - RADIO COMMERCIAL",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign, delivered through Sonic Minds.",
@@ -151,7 +150,7 @@ export const projects: Project[] = [
   {
     slug: "svt-familjefighten",
     title: "SVT FAMILJEFIGHTEN",
-    category: "Movies and Shows",
+    category: "Audio Post",
     role: "Composer & Sound Designer",
     type: "TV Show - SVT",
     description: "Created sound design and music for the section in the show called \"Läskiga Natten\".",
@@ -184,7 +183,7 @@ export const projects: Project[] = [
   {
     slug: "dsb",
     title: "DSB",
-    category: "Audio Logos & Identities",
+    category: "Sonic Branding",
     role: "Sound Designer - Audio Story",
     type: "Danish State Railways - Sonic Minds",
     description: "Collaborated with Sonic Minds to support DSB, the Danish State Railways, with some of their music and audio logo endeavors. My contribution was an audio story built around the brand's sound world. You can explore Sonic Minds' wider, award-winning work with DSB on their website.",
@@ -195,7 +194,7 @@ export const projects: Project[] = [
   {
     slug: "xellia",
     title: "XELLIA",
-    category: "Audio Logos & Identities",
+    category: "Sonic Branding",
     role: "Composer & Sound Designer - Audio Logo",
     type: "Pharmaceuticals - Audio Logo",
     description: "Created the audio logo for Xellia Pharmaceuticals through Sonic Minds. Xellia is a global leader in fermentation-based anti-infectives, and bubbles and classical instruments sit together in the piece, giving the brand a human and approachable character while the chords and melody carry the pondus its science demands. The bubbles are a nod to the fermentation process behind Xellia's medicines, rooting the sound in both the brand and what they actually make.",
