@@ -94,7 +94,7 @@ const ServicesDrawer = () => {
             aria-orientation="vertical"
             aria-label="Services"
             onKeyDown={onTabListKeyDown}
-            className="shrink-0 md:w-72 lg:w-80 border-b md:border-b-0 md:border-r border-border p-3 md:p-4 flex md:flex-col gap-1 overflow-x-auto md:overflow-y-auto"
+            className="shrink-0 md:w-72 lg:w-80 border-b md:border-b-0 md:border-r border-border p-3 md:p-4 flex flex-col gap-1"
           >
             {services.map((service, index) => {
               const Icon = serviceIcons[service.icon];
@@ -111,7 +111,7 @@ const ServicesDrawer = () => {
                   aria-controls="service-panel"
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => setActiveSlug(service.slug)}
-                  className={`flex items-center gap-3 text-left px-3 py-3 border-l-2 transition-colors cursor-pointer bg-transparent ${
+                  className={`flex items-center gap-3 text-left px-3 py-2.5 md:py-3 border-l-2 transition-colors cursor-pointer bg-transparent ${
                     isActive
                       ? "border-primary text-foreground"
                       : "border-transparent text-muted-foreground hover:text-foreground"
@@ -121,7 +121,7 @@ const ServicesDrawer = () => {
                     0{index + 1}
                   </span>
                   <Icon className="w-4 h-4 shrink-0" />
-                  <span className="font-body text-xs tracking-[0.14em] uppercase whitespace-nowrap md:whitespace-normal">
+                  <span className="font-body text-xs tracking-[0.14em] uppercase">
                     {service.tab}
                   </span>
                 </button>
