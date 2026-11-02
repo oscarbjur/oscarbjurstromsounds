@@ -20,7 +20,7 @@ describe("Partner brand artwork", () => {
     const officialFiles: Record<string, string> = {
       "4am": "/images/4am.jpg",
       "evil-moon-unspoken": "/images/evil-moon-capsule.jpg",
-      tiimo: "/images/tiimo-icon.png",
+      tiimo: "/images/tiimo-sm.webp",
       wavell: "/images/wavell-wordmark.png",
       "betano-easter": "/images/betano-wordmark.svg",
       dsb: "/images/dsb-logo-official.png",
