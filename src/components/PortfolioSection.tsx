@@ -2,8 +2,30 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { categories, projects, type Category } from "@/data/projects";
+import evilMoonImage from "@/assets/evil-moon-selected.jpg";
+import betanoImage from "@/assets/betano-selected.jpg";
+import tiimoImage from "@/assets/tiimo-selected.jpg";
+
+const tile = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
+
+// Full-bleed artwork for the work grid: no padded canvases, no black bars.
+const workArtwork: Record<string, string> = {
+  "4am": tile("4am.jpg"),
+  "evil-moon-unspoken": evilMoonImage,
+  tiimo: tiimoImage,
+  wavell: tile("wavell-logo.webp"),
+  "betano-easter": betanoImage,
+  xellia: tile("xellia-logo.webp"),
+  "warlock-activities": tile("warlock-tile.jpg"),
+  "bloom-eternal": tile("bloom-tile.jpg"),
+  "spite-blood-and-gold": tile("spite-tile.jpg"),
+  "pyro-survivor": tile("pyro-tile.jpg"),
+  dividandy: tile("dividandy-tile.jpg"),
+  dsb: tile("dsb-tile.jpg"),
+};
 
 function getThumb(project: typeof projects[number]): string | null {
+  if (workArtwork[project.slug]) return workArtwork[project.slug];
   if (project.imageUrl) return project.imageUrl;
   if (project.videoUrl) {
     const match = project.videoUrl.match(/(?:v=|youtu\.be\/)([^&]+)/);
