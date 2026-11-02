@@ -86,7 +86,7 @@ const PortfolioSection = () => {
                     className="selected-reel-link group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     tabIndex={copy === 1 ? -1 : undefined}
                   >
-                    <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary">
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
                       <ProjectArtwork
                         slug={project.slug}
                         alt={project.title}
@@ -131,7 +131,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* Collage grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[252px] lg:auto-rows-[200px] gap-3">
+        <div className="grid grid-cols-2 auto-rows-min lg:grid-cols-4 lg:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => (
             <Link key={project.slug} to={`/project/${project.slug}`} className="block">
               <motion.div
@@ -141,7 +141,7 @@ const PortfolioSection = () => {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card"
               >
-                <div className="relative min-h-0 flex-1 overflow-hidden">
+                <div className="relative aspect-[16/10] min-h-0 overflow-hidden lg:aspect-auto lg:flex-1">
                   <ProjectArtwork
                     slug={project.slug}
                     alt={project.title}
