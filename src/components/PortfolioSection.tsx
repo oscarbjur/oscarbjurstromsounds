@@ -74,7 +74,7 @@ const PortfolioSection = () => {
           className="text-center mb-14"
         >
           <h1 className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
-            OSCAR BJURSTRÖM SOUND · SOUND DESIGN &amp; AUDIO IMPLEMENTATION
+            OSCAR BJURSTRÖM SOUND
           </h1>
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
             WORK
