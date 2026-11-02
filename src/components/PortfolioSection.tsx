@@ -30,7 +30,7 @@ const PortfolioSection = () => {
     .sort((a, b) => parseInt(b.year, 10) - parseInt(a.year, 10));
 
   return (
-    <section id="portfolio" className="py-32 bg-card">
+    <section id="portfolio" className="pt-44 pb-32 bg-card">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

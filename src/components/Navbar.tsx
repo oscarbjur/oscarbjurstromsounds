@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
 const links = [
-  { href: "showreel", label: "Showreel" },
   { href: "portfolio", label: "Work" },
+  { href: "showreel", label: "Showreel" },
   { href: "services", label: "Services" },
   { href: "about", label: "About" },
   { href: "contact", label: "Contact" },
