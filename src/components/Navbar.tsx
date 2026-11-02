@@ -1,12 +1,13 @@
 import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useServicesDrawer } from "@/components/ServicesDrawerProvider";
 
 const PSXSpeakerCanvas = lazy(() => import("@/components/PSXSpeakerCanvas"));
 
-const links = [
+const links: { href: string; label: string; drawer?: boolean }[] = [
   { href: "portfolio", label: "Work" },
   { href: "showreel", label: "Showreel" },
-  { href: "services", label: "Services" },
+  { href: "services", label: "Services", drawer: true },
   { href: "about", label: "About" },
   { href: "contact", label: "Contact" },
 ];
@@ -75,6 +76,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { openServices } = useServicesDrawer();
 
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -112,6 +114,10 @@ const Navbar = () => {
             <button
               key={link.href}
               onClick={() => {
+                if (link.drawer) {
+                  openServices();
+                  return;
+                }
                 if (!isHome) {
                   navigate("/");
                   setTimeout(() => {
