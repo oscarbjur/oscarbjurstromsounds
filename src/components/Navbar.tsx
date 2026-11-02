@@ -178,7 +178,7 @@ const Navbar = () => {
               <button
                 key={link.href}
                 onClick={() => goTo(link)}
-                className="text-muted-foreground font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors bg-transparent border-none cursor-pointer text-left p-0"
+                className="text-foreground/85 font-body text-xs tracking-[0.2em] uppercase hover:text-foreground transition-colors bg-transparent border-none cursor-pointer text-left p-0"
               >
                 {link.label}
               </button>
