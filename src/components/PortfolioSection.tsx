@@ -43,7 +43,7 @@ const PortfolioSection = () => {
             OSCAR BJURSTRÖM SOUND · SOUND DESIGN &amp; AUDIO IMPLEMENTATION
           </h1>
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
-            PROJECTS
+            WORK
           </h2>
         </motion.div>
 
