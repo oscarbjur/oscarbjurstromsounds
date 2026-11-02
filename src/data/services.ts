@@ -69,7 +69,7 @@ export const services: Service[] = [
       "A brand sound has to survive three seconds on a phone and still hold up as the anchor of a year of campaigns. I design with that lifespan in mind and write down the rules so the sound stays intact in other people's hands.",
     ],
     includes: [
-      "Audio logo and sonic mnemonic",
+      "Audio logo and signature sound",
       "Sonic identity system across products and campaigns",
       "Guidelines for consistent use across channels",
       "Edits and variations for every length and format",
