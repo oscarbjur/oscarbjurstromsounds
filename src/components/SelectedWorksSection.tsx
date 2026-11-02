@@ -56,12 +56,12 @@ const SelectedWorksSection = () => {
                 transition={{ duration: 0.45, delay: i * 0.06 }}
               >
                 <Link to={`/project/${project.slug}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary flex items-center justify-center p-6">
+                  <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary">
                     {thumb ? (
                       <img
                         src={thumb}
                         alt={project.title}
-                        className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                         loading="lazy"
                       />
                     ) : (
