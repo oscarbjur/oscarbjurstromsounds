@@ -159,7 +159,7 @@ const PortfolioSection = () => {
                 </div>
                 {/* Caption plate (touch devices, where hover never happens) */}
                 <div className="shrink-0 border-t border-border bg-card px-2.5 py-2 md:hidden">
-                  <h3 className="font-display line-clamp-3 text-[13px] leading-tight text-foreground">
+                  <h3 className="font-display line-clamp-3 break-anywhere text-[12px] leading-tight text-foreground">
                     {project.title}
                   </h3>
                   <p className="mt-1 line-clamp-4 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted-foreground">
