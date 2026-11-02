@@ -102,7 +102,6 @@ const SelectedWorksSection = () => {
             </div>
           ))}
         </div>
-        </div>
       </div>
     </section>
   );
