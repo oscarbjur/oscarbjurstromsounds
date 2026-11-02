@@ -1,30 +1,12 @@
 import { motion } from "framer-motion";
-import { Gamepad2, MousePointerClick, Music, Tv } from "lucide-react";
-
-const services = [
-  {
-    icon: MousePointerClick,
-    title: "UI/UX SOUND DESIGN",
-    description: "Crafting intuitive sonic feedback for apps, products, and digital interfaces, from micro-interactions to full system soundscapes.",
-  },
-  {
-    icon: Gamepad2,
-    title: "GAME AUDIO IMPLEMENTATION & DESIGN",
-    description: "End-to-end game audio: sound design, adaptive music, procedural systems, and implementation in Wwise & FMOD.",
-  },
-  {
-    icon: Music,
-    title: "AUDIO LOGOS & IDENTITIES",
-    description: "Memorable sonic branding through audio logos, brand sounds, and cohesive audio identities that define how a brand is heard.",
-  },
-  {
-    icon: Tv,
-    title: "COMMERCIALS",
-    description: "Sound design and mixing for TV spots, digital ads, and campaign films that are punchy, polished, and on-brand.",
-  },
-];
+import { ArrowUpRight } from "lucide-react";
+import { services } from "@/data/services";
+import { serviceIcons } from "@/components/serviceIcons";
+import { useServicesDrawer } from "@/components/ServicesDrawerProvider";
 
 const ServicesSection = () => {
+  const { openServices } = useServicesDrawer();
+
   return (
     <section id="services" className="py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -41,27 +23,42 @@ const ServicesSection = () => {
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
             SERVICES
           </h2>
+          <p className="text-muted-foreground font-body text-sm mt-5">
+            Select a service to read the full description.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group bg-card border border-border p-8 hover:border-primary/50 transition-colors"
-            >
-              <service.icon className="w-8 h-8 text-primary mb-6" />
-              <h3 className="font-display text-sm text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground font-body text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+          {services.map((service, i) => {
+            const Icon = serviceIcons[service.icon];
+            return (
+              <motion.div
+                key={service.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+              >
+                <button
+                  type="button"
+                  onClick={() => openServices(service.slug)}
+                  aria-label={`Read more about ${service.tab}`}
+                  className="group w-full text-left bg-card border border-border p-8 hover:border-primary/50 transition-colors cursor-pointer h-full"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <Icon className="w-8 h-8 text-primary mb-6" />
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </div>
+                  <h3 className="font-display text-sm text-foreground mb-3">
+                    {service.tab}
+                  </h3>
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">
+                    {service.tagline}
+                  </p>
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
