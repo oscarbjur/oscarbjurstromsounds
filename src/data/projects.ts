@@ -139,7 +139,7 @@ export const projects: Project[] = [
   },
   {
     slug: "betano-easter",
-    title: "BETANO (KAIZEN GAMING) EASTER CAMPAIGN",
+    title: "BETANO EASTER CAMPAIGN",
     category: "Audio Post",
     role: "Voice Mix, Sound Design & Mastering",
     type: "SPORTS BETTING BRAND - RADIO AD MIX, SOUND DESIGN & MASTERING",
