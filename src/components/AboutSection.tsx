@@ -21,13 +21,11 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
               <p className="text-left">
-                I’m a sound designer with a passion for designing and implementing audio, constantly chasing ways to elevate "perfect" sounds even further.
+                I’m a sound designer and composer based in Malmö, Sweden, specializing in UX/UI sound and audio identities for global brands, devices, and video games.
+                {"\n\n"}
+                I believe every sound needs a place, a meaning, and a strategy behind it, and that includes silence, which can say more than any note when it’s used deliberately. My work is immersive, functional, and always made with purpose.
               </p>
               <p className="text-left">
-                With experience creating sound design for multiple projects ranging from releasing indie games to smart devices I specialize in creating immersive and functional audio with a purpose.
-              </p>
-              <p className="text-left">
-                I believe that great sound design is invisible, it should only be noticed when we want it to.
               </p>
             </div>
           </motion.div>
