@@ -34,7 +34,7 @@ export const projects: Project[] = [
     type: "HEADPHONES - UX/UI AND AUDIO IDENTITY",
     description: "Created several of the UI sounds for Wavell headphones as part of Sonic Minds' work on the Danish brand's audio identity. Inspired by Wavell's Arctic aesthetic, the sound world combines wind-like textures, open chords and warm, resonant tones. The wider UI sound system covers everyday interactions such as power, pairing, connection and noise cancellation, bringing a distinct character to the listening experience. Hear the sounds and explore the full case on Sonic Minds' website.",
     year: "2026",
-    imageUrl: projectImage("wavell-tile.jpg"),
+    imageUrl: projectImage("wavell-wordmark.png"),
     websiteLink: "https://sonicmindsagency.com/work/wavell/",
   },
   {
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     type: "INDIE GAME - SOUND DESIGN",
     description: "Producing sound design and planning out the sounds needed for the game through Sonic Minds. Currently in development.",
     year: "2026",
-    imageUrl: projectImage("4am-tile.jpg"),
+    imageUrl: projectImage("4am.jpg"),
     videoUrl: "https://www.youtube.com/watch?v=Io60KVQI350",
     steamLink: "https://store.steampowered.com/app/2537270/4AM/",
     websiteLink: "https://darkzonestudios.com/",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     type: "INDIE GAME - SOUND DESIGN AND AUDIO DIRECTION",
     description: "Collaborated with Neckbolt on a DOOM and Metroid Prime inspired shooter, creating the sound design and helping shape the direction of the soundscape. The audio leans on old school sound, blending retro with modern sound production. Currently in development.",
     year: "2026",
-    imageUrl: projectImage("evil-moon-tile.jpg"),
+    imageUrl: projectImage("evil-moon-capsule.jpg"),
     steamLink: "https://store.steampowered.com/app/4861420/Evil_Moon_Unspoken/",
   },
   {
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     type: "RADIO COMMERCIAL - RADIO COMMERCIAL",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign, delivered through Sonic Minds.",
     year: "2026",
-    imageUrl: projectImage("betano-tile.jpg"),
+    imageUrl: projectImage("betano-easter.png"),
   },
   {
     slug: "svt-familjefighten",
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     type: "PLANNING APP - AUDIO LOGO AND UI/UX",
     description: "Created a bubbly, friendly and warm UX sound world for Tiimo, a planning app built for neurodivergent people. The audio carries a playful, almost game-like character to make everyday planning feel light and inviting.",
     year: "2026",
-    imageUrl: projectImage("tiimo-tile.jpg"),
+    imageUrl: projectImage("tiimo-icon.png"),
     websiteLink: "https://sonicmindsagency.com/work/tiimo/",
   },
   {
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     type: "Investment Game App - Sonic Minds",
     description: "Created several of the UX sounds for Dividandy, an entertainment-focused investment app where players compete with simulated money in real market conditions through tournaments, leaderboards and challenges. As part of Sonic Minds' work on the brand's sonic identity, the sounds balance the energy and playfulness of a game with the credibility of real financial markets. The UX sound suite carries the personality of Dividandy's fox mascot into every tap, transition and notification, sometimes literally sharp, agile and clever, sometimes more in attitude and texture. Hear the sounds and explore the full case on Sonic Minds' website.",
     year: "2026",
-    imageUrl: projectImage("dividandy-logo.webp"),
+    imageUrl: projectImage("dividandy-logo-official.webp"),
     websiteLink: "https://sonicmindsagency.com/work/dividandy/",
   },
   {
@@ -188,7 +188,7 @@ export const projects: Project[] = [
     type: "Danish State Railways - Sonic Minds",
     description: "Collaborated with Sonic Minds to support DSB, the Danish State Railways, with some of their music and audio logo endeavors. My contribution was an audio story built around the brand's sound world. You can explore Sonic Minds' wider, award-winning work with DSB on their website.",
     year: "2026",
-    imageUrl: projectImage("dsb-logo.webp"),
+    imageUrl: projectImage("dsb-logo-official.png"),
     websiteLink: "https://sonicmindsagency.com/work/dsb/",
   },
   {
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     type: "Pharmaceuticals - Audio Logo",
     description: "Created the audio logo for Xellia Pharmaceuticals through Sonic Minds. Xellia is a global leader in fermentation-based anti-infectives, and bubbles and classical instruments sit together in the piece, giving the brand a human and approachable character while the chords and melody carry the pondus its science demands. The bubbles are a nod to the fermentation process behind Xellia's medicines, rooting the sound in both the brand and what they actually make.",
     year: "2026",
-    imageUrl: projectImage("xellia-tile.jpg"),
+    imageUrl: projectImage("xellia-wordmark.png"),
     websiteLink: "https://www.xellia.com/",
   },
 ];
