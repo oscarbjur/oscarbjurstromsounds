@@ -24,6 +24,15 @@ const workArtwork: Record<string, string> = {
   dsb: tile("dsb-tile.jpg"),
 };
 
+const selectedSlugs = [
+  "4am",
+  "evil-moon-unspoken",
+  "tiimo",
+  "wavell",
+  "betano-easter",
+  "xellia",
+];
+
 function getThumb(project: typeof projects[number]): string | null {
   if (workArtwork[project.slug]) return workArtwork[project.slug];
   if (project.imageUrl) return project.imageUrl;
@@ -33,7 +42,6 @@ function getThumb(project: typeof projects[number]): string | null {
   }
   return null;
 }
-
 
 const PortfolioSection = () => {
   const [active, setActive] = useState<Category>(() => {
@@ -45,6 +53,10 @@ const PortfolioSection = () => {
     setActive(cat);
     sessionStorage.setItem("portfolioCategory", cat);
   };
+
+  const selected = selectedSlugs
+    .map((slug) => projects.find((p) => p.slug === slug))
+    .filter((p): p is typeof projects[number] => Boolean(p));
 
   const filtered = projects
     .filter((p) => p.category === active)
@@ -59,12 +71,68 @@ const PortfolioSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
+          <h1 className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
+            OSCAR BJURSTRÖM SOUND · SOUND DESIGN &amp; AUDIO IMPLEMENTATION
+          </h1>
           <h2 className="font-display text-3xl md:text-4xl text-foreground">
             WORK
           </h2>
         </motion.div>
+      </div>
+
+      {/* Selected work reel */}
+      <div className="selected-reel" aria-label="Selected work">
+        <div className="selected-reel-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="selected-reel-group" aria-hidden={copy === 1 ? true : undefined}>
+              {selected.map((project) => {
+                const thumb = getThumb(project);
+
+                return (
+                  <div key={project.slug} className="selected-reel-item">
+                    <Link
+                      to={`/project/${project.slug}`}
+                      className="selected-reel-link group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      tabIndex={copy === 1 ? -1 : undefined}
+                    >
+                      <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary">
+                        {thumb ? (
+                          <img
+                            src={thumb}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <span className="text-muted-foreground font-body text-sm">
+                              {project.title}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="mt-4 text-center">
+                        <h3 className="font-display text-base md:text-lg text-foreground">
+                          {project.title}
+                        </h3>
+                        <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
+                          {project.type}
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6">
+        {/* Divider between reel and full grid */}
+        <div className="max-w-xs mx-auto border-t border-border mt-24 mb-16" />
 
         {/* Category filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
