@@ -131,7 +131,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* Collage grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[196px] md:auto-rows-[200px] gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[236px] md:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => (
             <Link key={project.slug} to={`/project/${project.slug}`} className="block">
               <motion.div
@@ -159,10 +159,10 @@ const PortfolioSection = () => {
                 </div>
                 {/* Caption plate (touch devices, where hover never happens) */}
                 <div className="shrink-0 border-t border-border bg-card px-2.5 py-2 md:hidden">
-                  <h3 className="font-display line-clamp-1 text-[13px] leading-tight text-foreground">
+                  <h3 className="font-display line-clamp-2 text-[13px] leading-tight text-foreground">
                     {project.title}
                   </h3>
-                  <p className="mt-1 line-clamp-2 text-[9px] font-medium uppercase leading-snug tracking-[0.12em] text-muted-foreground">
+                  <p className="mt-1 line-clamp-3 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted-foreground">
                     {project.type}
                   </p>
                 </div>
