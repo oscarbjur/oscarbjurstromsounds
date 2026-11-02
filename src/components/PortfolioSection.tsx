@@ -141,7 +141,7 @@ const PortfolioSection = () => {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card"
               >
-                <div className="relative min-h-0 flex-1 overflow-hidden">
+                <div className="relative aspect-[16/10] min-h-0 overflow-hidden lg:aspect-auto lg:flex-1">
                   <ProjectArtwork
                     slug={project.slug}
                     alt={project.title}

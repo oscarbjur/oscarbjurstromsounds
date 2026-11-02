@@ -34,7 +34,7 @@ const ProjectArtwork = ({
           src={asset.src}
           alt={`${alt} logo`}
           loading="lazy"
-          className="h-full w-full object-contain p-[14%]"
+          className="h-full w-full object-contain p-3 sm:p-6 lg:p-[14%]"
         />
       </div>
     );
@@ -54,7 +54,11 @@ const ProjectArtwork = ({
       src={src}
       alt={alt}
       loading="lazy"
-      className={fit === "cover" ? `h-full w-full object-cover ${className}` : `h-auto max-w-full ${className}`}
+      className={
+        fit === "cover"
+          ? `h-full w-full object-cover max-lg:object-contain max-lg:p-1 ${className}`
+          : `h-auto max-w-full ${className}`
+      }
     />
   );
 };
