@@ -162,7 +162,7 @@ const PortfolioSection = () => {
                   <h3 className="font-display line-clamp-3 text-[13px] leading-tight text-foreground">
                     {project.title}
                   </h3>
-                  <p className="mt-1 line-clamp-3 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted-foreground">
+                  <p className="mt-1 line-clamp-4 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted-foreground">
                     {project.type}
                   </p>
                 </div>
