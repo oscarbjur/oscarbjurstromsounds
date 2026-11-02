@@ -139,27 +139,30 @@ const PortfolioSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer w-full h-full"
+                className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card"
               >
-                <ProjectArtwork
-                  slug={project.slug}
-                  alt={project.title}
-                  fallbackSrc={fallbackThumb(project)}
-                />
-                {/* Caption: always shown on touch screens, revealed on hover from desktop up */}
-                <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 bg-gradient-to-t from-foreground/92 via-foreground/65 to-transparent p-3 pb-3.5 md:hidden">
-                  <h3 className="font-display text-[15px] leading-tight text-background line-clamp-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-[9px] font-medium uppercase leading-snug tracking-[0.14em] text-background/80 line-clamp-2">
-                    {project.type}
-                  </p>
+                <div className="relative min-h-0 flex-1 overflow-hidden">
+                  <ProjectArtwork
+                    slug={project.slug}
+                    alt={project.title}
+                    fallbackSrc={fallbackThumb(project)}
+                  />
+                  {/* Hover reveal (pointer devices) */}
+                  <div className="absolute inset-0 hidden bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex md:flex-col md:items-center md:justify-center p-4 text-center">
+                    <h3 className="font-display text-lg text-foreground mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-primary font-body text-xs tracking-wider uppercase">
+                      {project.type}
+                    </p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 hidden md:flex bg-background/70 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-4 text-center">
-                  <h3 className="font-display text-lg text-foreground mb-1">
+                {/* Caption plate (touch devices, where hover never happens) */}
+                <div className="shrink-0 border-t border-border bg-card px-2.5 py-2 md:hidden">
+                  <h3 className="font-display line-clamp-1 text-[13px] leading-tight text-foreground">
                     {project.title}
                   </h3>
-                  <p className="text-primary font-body text-xs tracking-wider uppercase">
+                  <p className="mt-1 line-clamp-2 text-[9px] font-medium uppercase leading-snug tracking-[0.12em] text-muted-foreground">
                     {project.type}
                   </p>
                 </div>
