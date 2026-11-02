@@ -182,3 +182,180 @@
   .selected-reel-group[aria-hidden="true"] { display: none; }
   .selected-reel-link { transition: none; }
 }
+
+/* Blurred previews of the other showreels, so more videos are visible at once */
+.showreel-peek {
+  display: none;
+  width: 7rem;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.showreel-peek-right { text-align: right; }
+
+@media (min-width: 768px) {
+  .showreel-peek { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .showreel-peek { width: 10rem; }
+}
+
+.showreel-peek-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.showreel-peek-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(7px);
+  transform: scale(1.25);
+  transition: filter 400ms ease, transform 400ms ease;
+}
+
+.showreel-peek:hover .showreel-peek-frame img,
+.showreel-peek:focus-visible .showreel-peek-frame img {
+  filter: blur(2px);
+  transform: scale(1.12);
+}
+
+.showreel-dim {
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--background) / 0.55);
+  transition: background-color 400ms ease;
+}
+
+.showreel-peek:hover .showreel-dim,
+.showreel-peek:focus-visible .showreel-dim,
+.showreel-chip:hover .showreel-dim {
+  background: hsl(var(--background) / 0.25);
+}
+
+/* Fade each preview into the page on the side facing the open video */
+.showreel-fade-left {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to left, hsl(var(--background) / 0.8), transparent);
+}
+
+.showreel-fade-right {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, hsl(var(--background) / 0.8), transparent);
+}
+
+.showreel-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.showreel-play-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--foreground) / 0.45);
+  background: hsl(var(--background) / 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+}
+
+.showreel-peek:hover .showreel-play,
+.showreel-peek:focus-visible .showreel-play {
+  opacity: 0.9;
+}
+
+.showreel-peek-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.7);
+  transition: color 300ms ease;
+}
+
+.showreel-peek:hover .showreel-peek-label,
+.showreel-peek:focus-visible .showreel-peek-label {
+  color: hsl(var(--foreground));
+}
+
+.showreel-peek:focus-visible {
+  outline: 1px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
+
+/* Phones: the previews move to a row under the video */
+.showreel-chips {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .showreel-chips { display: none; }
+}
+
+.showreel-chip {
+  position: relative;
+  display: block;
+  width: 6rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  cursor: pointer;
+}
+
+.showreel-chip[data-active="true"] {
+  border-color: hsl(var(--foreground) / 0.5);
+}
+
+.showreel-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showreel-chip[data-active="false"] img {
+  filter: blur(5px);
+  transform: scale(1.2);
+}
+
+.showreel-count {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.25em;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showreel-peek-frame img,
+  .showreel-dim,
+  .showreel-peek-label { transition: none; }
+}
