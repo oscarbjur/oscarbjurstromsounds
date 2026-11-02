@@ -23,7 +23,7 @@ const SpinningLogo = () => {
   useEffect(() => {
     let frame: number;
     const animate = () => {
-      rotationRef.current += 0.25;
+      rotationRef.current -= 0.25;
       if (divRef.current) {
         divRef.current.style.transform = `rotateY(${rotationRef.current}deg)`;
       }
