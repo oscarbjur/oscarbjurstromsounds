@@ -32,7 +32,7 @@ const ContactSection = () => {
           <p className="text-muted-foreground font-body leading-relaxed">
             Got a cool project? I'd love to hear about it. Let's make something awesome together.
           </p>
-          <div className="space-y-5 inline-flex flex-col items-start">
+          <div className="space-y-5 flex flex-col items-center">
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="flex items-center gap-4 hover:opacity-80 transition-opacity"
