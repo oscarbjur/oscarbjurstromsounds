@@ -1,3 +1,4 @@
+import type React from "react";
 import {
   createContext,
   useCallback,
@@ -17,7 +18,12 @@ type ServicesDrawerValue = {
   setOpen: (open: boolean) => void;
 };
 
-const ServicesDrawerContext = createContext<ServicesDrawerValue | null>(null);
+// Keep one context instance across hot reloads (this module and ServicesDrawer import each other),
+// otherwise a reload creates a new context that the already-mounted provider doesn't supply.
+const globalKey = "__servicesDrawerContext__";
+const globalStore = globalThis as unknown as Record<string, React.Context<ServicesDrawerValue | null>>;
+const ServicesDrawerContext =
+  globalStore[globalKey] ?? (globalStore[globalKey] = createContext<ServicesDrawerValue | null>(null));
 
 export const ServicesDrawerProvider = ({ children }: { children: ReactNode }) => {
   const [open, setOpen] = useState(false);
