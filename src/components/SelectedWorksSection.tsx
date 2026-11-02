@@ -1,6 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import evilMoonImage from "@/assets/evil-moon-selected.jpg";
+import betanoImage from "@/assets/betano-selected.jpg";
+import tiimoImage from "@/assets/tiimo-selected.jpg";
+
+const selectedArtwork: Record<string, string> = {
+  "4am": `${import.meta.env.BASE_URL}images/4am.jpg`,
+  "evil-moon-unspoken": evilMoonImage,
+  tiimo: tiimoImage,
+  wavell: `${import.meta.env.BASE_URL}images/wavell-logo.webp`,
+  "betano-easter": betanoImage,
+  xellia: `${import.meta.env.BASE_URL}images/xellia-logo.webp`,
+};
 
 const selectedSlugs = [
   "4am",
@@ -12,6 +24,7 @@ const selectedSlugs = [
 ];
 
 function getThumb(project: typeof projects[number]): string | null {
+  if (selectedArtwork[project.slug]) return selectedArtwork[project.slug];
   if (project.imageUrl) return project.imageUrl;
   if (project.videoUrl) {
     const match = project.videoUrl.match(/(?:v=|youtu\.be\/)([^&]+)/);
