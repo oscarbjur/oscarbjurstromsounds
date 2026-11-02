@@ -13,7 +13,7 @@ interface ProjectArtworkProps {
 
 /**
  * Shows a project's artwork. Partner brands are always shown with their own
- * official mark, contained intact on a plain surface instead of being reframed.
+ * official mark, contained intact instead of being reframed or redrawn.
  */
 const ProjectArtwork = ({
   slug,
@@ -26,7 +26,10 @@ const ProjectArtwork = ({
 
   if (asset?.kind === "logo") {
     return (
-      <div className={`bg-secondary flex items-center justify-center overflow-hidden ${className}`}>
+      <div
+        className={`flex items-center justify-center overflow-hidden ${className}`}
+        style={{ background: asset.surface ?? "hsl(var(--secondary))" }}
+      >
         <img
           src={asset.src}
           alt={`${alt} logo`}
