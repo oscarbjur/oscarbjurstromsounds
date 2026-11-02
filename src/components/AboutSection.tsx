@@ -22,10 +22,9 @@ const AboutSection = () => {
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
               <p className="text-left">
                 I’m a sound designer and composer based in Malmö, Sweden, specializing in UX/UI sound and audio identities for global brands, devices, and video games.
-                {"\n\n"}
-                I believe every sound needs a place, a meaning, and a strategy behind it, and that includes silence, which can say more than any note when it’s used deliberately. My work is immersive, functional, and always made with purpose.
               </p>
               <p className="text-left">
+                I believe every sound needs a place, a meaning, and a strategy behind it, and that includes silence, which can say more than any note when it’s used deliberately. My work is immersive, functional, and always made with purpose.
               </p>
             </div>
           </motion.div>
