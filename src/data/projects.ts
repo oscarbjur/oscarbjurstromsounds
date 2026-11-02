@@ -35,7 +35,7 @@ export const projects: Project[] = [
     type: "Headphones - Sonic Minds",
     description: "Created several of the UI sounds for Wavell headphones as part of Sonic Minds' work on the Danish brand's audio identity. Inspired by Wavell's Arctic aesthetic, the sound world combines wind-like textures, open chords and warm, resonant tones. The wider UI sound system covers everyday interactions such as power, pairing, connection and noise cancellation, bringing a distinct character to the listening experience. Hear the sounds and explore the full case on Sonic Minds' website.",
     year: "2026",
-    imageUrl: projectImage("wavell-logo.webp"),
+    imageUrl: projectImage("wavell-tile.jpg"),
     websiteLink: "https://sonicmindsagency.com/work/wavell/",
   },
   {
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     type: "Indie Game - Dark Zone Studios",
     description: "Producing sound design and planning out the sounds needed for the game. Currently in development.",
     year: "2026",
-    imageUrl: projectImage("4am.jpg"),
+    imageUrl: projectImage("4am-tile.jpg"),
     videoUrl: "https://www.youtube.com/watch?v=Io60KVQI350",
     steamLink: "https://store.steampowered.com/app/2537270/4AM/",
     websiteLink: "https://darkzonestudios.com/",
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     type: "Indie Game - Neckbolt",
     description: "Collaborated with Neckbolt on a DOOM and Metroid Prime inspired shooter, creating the sound design and helping shape the direction of the soundscape. The audio leans on old school sound, blending retro with modern sound production. Currently in development.",
     year: "2026",
-    imageUrl: projectImage("evil-moon.jpg"),
+    imageUrl: projectImage("evil-moon-tile.jpg"),
     steamLink: "https://store.steampowered.com/app/4861420/Evil_Moon_Unspoken/",
   },
   {
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     type: "Radio Commercial",
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign.",
     year: "2026",
-    imageUrl: projectImage("betano-easter.png"),
+    imageUrl: projectImage("betano-tile.jpg"),
   },
   {
     slug: "svt-familjefighten",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     type: "Planning App - Sonic Minds",
     description: "Created a bubbly, friendly and warm UX sound world for Tiimo, a planning app built for neurodivergent people. The audio carries a playful, almost game-like character to make everyday planning feel light and inviting.",
     year: "2026",
-    imageUrl: projectImage("tiimo.png"),
+    imageUrl: projectImage("tiimo-tile.jpg"),
     websiteLink: "https://sonicmindsagency.com/work/tiimo/",
   },
   {
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     type: "Pharmaceuticals - Audio Logo",
     description: "Created the audio logo for Xellia Pharmaceuticals, a global leader in fermentation-based anti-infectives. Bubbles and classical instruments sit together in the piece, giving the brand a human and approachable character while the chords and melody carry the pondus its science demands. The bubbles are a nod to the fermentation process behind Xellia's medicines, rooting the sound in both the brand and what they actually make.",
     year: "2026",
-    imageUrl: projectImage("xellia-logo.webp"),
+    imageUrl: projectImage("xellia-tile.jpg"),
     websiteLink: "https://www.xellia.com/",
   },
 ];
