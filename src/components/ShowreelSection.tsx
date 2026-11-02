@@ -1,32 +1,69 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import {
+  showreels,
+  showreelEmbedUrl,
+  showreelThumb,
+  type Showreel,
+} from "@/data/showreels";
 
-const showreels = [
-  {
-    title: "AAA Showreel",
-    embedUrl: "https://www.youtube.com/embed/svi802Kilek?rel=0&modestbranding=1",
-  },
-  {
-    title: "Indie Showreel",
-    embedUrl: "https://www.youtube.com/embed/qTXknLtPP94?rel=0&modestbranding=1",
-  },
-  {
-    title: "Subnautica Below Zero - Fan Cinematic",
-    embedUrl: "https://www.youtube.com/embed/wMJDjlocg3M?rel=0&modestbranding=1",
-  },
-];
+const PlayGlyph = () => (
+  <span className="showreel-play" aria-hidden="true">
+    <span className="showreel-play-circle">
+      <svg width="10" height="12" viewBox="0 0 10 12">
+        <path d="M0 0L10 6L0 12Z" fill="currentColor" />
+      </svg>
+    </span>
+  </span>
+);
+
+type PeekProps = {
+  reel: Showreel;
+  side: "left" | "right";
+  onSelect: () => void;
+};
+
+const Peek = ({ reel, side, onSelect }: PeekProps) => (
+  <button
+    type="button"
+    onClick={onSelect}
+    aria-label={`Show ${reel.title}`}
+    className={side === "left" ? "showreel-peek" : "showreel-peek showreel-peek-right"}
+  >
+    <span className="showreel-peek-frame">
+      <img
+        src={showreelThumb(reel.videoId)}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <span className="showreel-dim" />
+      <span
+        className={side === "left" ? "showreel-fade-left" : "showreel-fade-right"}
+      />
+      <PlayGlyph />
+    </span>
+    <span className="showreel-peek-label">{reel.title}</span>
+  </button>
+);
 
 const ShowreelSection = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const total = showreels.length;
 
   const prev = () => {
     setDirection(-1);
-    setCurrent((c) => (c === 0 ? showreels.length - 1 : c - 1));
+    setCurrent((c) => (c === 0 ? total - 1 : c - 1));
   };
   const next = () => {
     setDirection(1);
-    setCurrent((c) => (c === showreels.length - 1 ? 0 : c + 1));
+    setCurrent((c) => (c === total - 1 ? 0 : c + 1));
+  };
+  const goTo = (i: number) => {
+    if (i === current) return;
+    setDirection(i > current ? 1 : -1);
+    setCurrent(i);
   };
 
   const variants = {
@@ -36,6 +73,9 @@ const ShowreelSection = () => {
   };
 
   const springTransition = { type: "spring", stiffness: 200, damping: 28, mass: 0.8 };
+
+  const leftReel = showreels[(current - 1 + total) % total];
+  const rightReel = showreels[(current + 1) % total];
 
   return (
     <section id="showreel" className="relative pt-32 pb-20 bg-background">
@@ -52,7 +92,7 @@ const ShowreelSection = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto relative flex items-center gap-4">
+        <div className="max-w-6xl mx-auto relative flex items-center gap-3 md:gap-5">
           {/* Left arrow */}
           <button
             onClick={prev}
@@ -63,6 +103,9 @@ const ShowreelSection = () => {
               <path d="M22 2L2 15L22 28Z" fill="hsl(210, 90%, 58%)" />
             </svg>
           </button>
+
+          {/* Blurred preview of the previous reel */}
+          {total > 1 && <Peek reel={leftReel} side="left" onSelect={prev} />}
 
           {/* Video column */}
           <div className="flex-1 min-w-0">
@@ -96,7 +139,7 @@ const ShowreelSection = () => {
                   className="absolute inset-0"
                 >
                   <iframe
-                    src={showreels[current].embedUrl}
+                    src={showreelEmbedUrl(showreels[current].videoId)}
                     title={showreels[current].title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -106,6 +149,9 @@ const ShowreelSection = () => {
               </AnimatePresence>
             </div>
           </div>
+
+          {/* Blurred preview of the next reel */}
+          {total > 1 && <Peek reel={rightReel} side="right" onSelect={next} />}
 
           {/* Right arrow */}
           <button
@@ -119,21 +165,45 @@ const ShowreelSection = () => {
           </button>
         </div>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {showreels.map((_, i) => (
+        {/* Small previews on phones, where the side peeks have no room */}
+        <div className="showreel-chips">
+          {showreels.map((reel, i) => (
             <button
-              key={i}
-              onClick={() => {
-                setDirection(i > current ? 1 : -1);
-                setCurrent(i);
-              }}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                i === current ? "bg-primary" : "bg-border"
-              }`}
-              aria-label={`Go to showreel ${i + 1}`}
-            />
+              key={reel.videoId}
+              type="button"
+              data-active={i === current}
+              onClick={() => goTo(i)}
+              aria-label={`Show ${reel.title}`}
+              className="showreel-chip"
+            >
+              <img
+                src={showreelThumb(reel.videoId)}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              {i !== current && <span className="showreel-dim" />}
+            </button>
           ))}
+        </div>
+
+        {/* Dots and count */}
+        <div className="hidden md:flex items-center justify-center gap-4 mt-6">
+          <div className="flex gap-2">
+            {showreels.map((reel, i) => (
+              <button
+                key={reel.videoId}
+                onClick={() => goTo(i)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  i === current ? "bg-primary" : "bg-border"
+                }`}
+                aria-label={`Go to showreel ${i + 1}`}
+              />
+            ))}
+          </div>
+          <span className="showreel-count">
+            {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+          </span>
         </div>
       </div>
     </section>
