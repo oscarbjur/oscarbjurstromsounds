@@ -131,7 +131,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* Collage grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[252px] lg:auto-rows-[200px] gap-3">
+        <div className="grid grid-cols-2 auto-rows-min lg:grid-cols-4 lg:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => (
             <Link key={project.slug} to={`/project/${project.slug}`} className="block">
               <motion.div
