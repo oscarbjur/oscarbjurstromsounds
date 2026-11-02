@@ -30,6 +30,7 @@ const selectedSlugs = [
   "tiimo",
   "wavell",
   "betano-easter",
+  "dsb",
   "xellia",
 ];
 

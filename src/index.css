@@ -142,7 +142,7 @@
 .selected-reel-track {
   display: flex;
   width: max-content;
-  animation: selected-reel-roll 65s linear infinite;
+  animation: selected-reel-roll 76s linear infinite;
 }
 
 .selected-reel:hover .selected-reel-track,
