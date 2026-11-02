@@ -131,7 +131,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* Collage grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[252px] md:auto-rows-[200px] gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[252px] lg:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => (
             <Link key={project.slug} to={`/project/${project.slug}`} className="block">
               <motion.div
@@ -148,7 +148,7 @@ const PortfolioSection = () => {
                     fallbackSrc={fallbackThumb(project)}
                   />
                   {/* Hover reveal (pointer devices) */}
-                  <div className="absolute inset-0 hidden bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex md:flex-col md:items-center md:justify-center p-4 text-center">
+                  <div className="absolute inset-0 hidden bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 lg:flex lg:flex-col lg:items-center lg:justify-center p-4 text-center">
                     <h3 className="font-display text-lg text-foreground mb-1">
                       {project.title}
                     </h3>
@@ -158,7 +158,7 @@ const PortfolioSection = () => {
                   </div>
                 </div>
                 {/* Caption plate (touch devices, where hover never happens) */}
-                <div className="shrink-0 border-t border-border bg-card px-2 py-2 md:hidden">
+                <div className="shrink-0 border-t border-border bg-card px-2 py-2 lg:hidden">
                   <h3 className="font-display line-clamp-3 text-[12px] leading-tight text-foreground">
                     {project.title}
                   </h3>
