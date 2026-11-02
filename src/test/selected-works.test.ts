@@ -7,11 +7,12 @@ const selectedSlugs = [
   "tiimo",
   "wavell",
   "betano-easter",
+  "dsb",
   "xellia",
 ];
 
 describe("Selected works section", () => {
-  it("includes all six selected projects", () => {
+  it("includes all seven selected projects", () => {
     const slugs = selectedSlugs.map((slug) =>
       projects.find((project) => project.slug === slug)?.slug,
     );
