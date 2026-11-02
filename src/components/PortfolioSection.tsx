@@ -146,9 +146,17 @@ const PortfolioSection = () => {
                   alt={project.title}
                   fallbackSrc={fallbackThumb(project)}
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                  <h3 className="font-display text-base md:text-lg text-foreground mb-1">
+                {/* Caption: always shown on touch screens, revealed on hover from desktop up */}
+                <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 bg-gradient-to-t from-foreground/92 via-foreground/65 to-transparent p-3 pb-3.5 md:hidden">
+                  <h3 className="font-display text-[15px] leading-tight text-background line-clamp-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-[9px] font-medium uppercase leading-snug tracking-[0.14em] text-background/80 line-clamp-2">
+                    {project.type}
+                  </p>
+                </div>
+                <div className="absolute inset-0 hidden md:flex bg-background/70 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-4 text-center">
+                  <h3 className="font-display text-lg text-foreground mb-1">
                     {project.title}
                   </h3>
                   <p className="text-primary font-body text-xs tracking-wider uppercase">
