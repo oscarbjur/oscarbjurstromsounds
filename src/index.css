@@ -76,74 +76,36 @@
   animation: waveform 1.2s ease-in-out infinite;
 }
 
-/* Puffy 3D inflatable button */
+/* Clean Scandinavian button: flat, hairline border, quiet fill */
 .btn-puffy {
-  background: linear-gradient(
-    160deg,
-    hsl(200 95% 78%) 0%,
-    hsl(210 90% 62%) 30%,
-    hsl(210 90% 52%) 60%,
-    hsl(215 85% 42%) 100%
-  );
-  color: hsl(var(--primary-foreground));
-  border: none;
-  border-radius: 2rem;
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
   padding: 0.75rem 2rem;
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
-  box-shadow:
-    0 8px 0 hsl(215 85% 32%),
-    0 10px 20px hsl(210 90% 20% / 0.5),
-    0 2px 30px hsl(210 90% 58% / 0.15),
-    inset 0 -8px 12px hsl(215 85% 35% / 0.4),
-    inset 0 4px 8px hsl(200 95% 85% / 0.6),
-    inset 4px 0 8px hsl(200 95% 80% / 0.2),
-    inset -4px 0 8px hsl(215 85% 40% / 0.15);
+  box-shadow: none;
   transform: translateY(0);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  text-shadow: 0 1px 2px hsl(215 85% 30% / 0.4);
-}
-
-.btn-puffy::before {
-  content: '';
-  position: absolute;
-  top: 15%;
-  left: 20%;
-  width: 40%;
-  height: 30%;
-  background: linear-gradient(
-    180deg,
-    hsl(200 100% 92% / 0.6) 0%,
-    hsl(200 100% 92% / 0) 100%
-  );
-  border-radius: 50%;
-  pointer-events: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-puffy:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    0 12px 0 hsl(215 85% 32%),
-    0 16px 30px hsl(210 90% 20% / 0.6),
-    0 4px 40px hsl(210 90% 58% / 0.25),
-    inset 0 -8px 12px hsl(215 85% 35% / 0.4),
-    inset 0 4px 8px hsl(200 95% 85% / 0.6),
-    inset 4px 0 8px hsl(200 95% 80% / 0.2),
-    inset -4px 0 8px hsl(215 85% 40% / 0.15);
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  border-color: hsl(var(--foreground));
+  transform: translateY(-1px);
 }
 
 .btn-puffy:active {
-  transform: translateY(4px) scale(0.97);
-  box-shadow:
-    0 2px 0 hsl(215 85% 32%),
-    0 3px 8px hsl(210 90% 20% / 0.3),
-    inset 0 -8px 12px hsl(215 85% 35% / 0.4),
-    inset 0 4px 8px hsl(200 95% 85% / 0.6);
+  transform: translateY(0);
+  background: hsl(var(--foreground) / 0.85);
+  color: hsl(var(--background));
 }
 
 .btn-puffy-icon {
