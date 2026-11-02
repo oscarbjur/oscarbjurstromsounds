@@ -20,7 +20,7 @@ describe("Xellia portfolio entry", () => {
     expect(description).toMatch(/fermentation/i);
   });
 
-  it("shows a full-bleed artwork tile served from the site itself", () => {
-    expect(xellia()?.imageUrl).toMatch(/^\/images\/xellia-tile\.jpg$/);
+  it("shows Xellia's own wordmark, served from the site itself", () => {
+    expect(xellia()?.imageUrl).toMatch(/^\/images\/xellia-wordmark\.png$/);
   });
 });

@@ -10,8 +10,8 @@ describe("Wavell portfolio entry", () => {
     expect(projects.find((project) => project.slug === "wavell")?.websiteLink).toBe("https://sonicmindsagency.com/work/wavell/");
   });
 
-  it("shows a full-bleed artwork tile served from the site itself", () => {
+  it("shows Wavell's own wordmark, served from the site itself", () => {
     const project = projects.find((entry) => entry.slug === "wavell");
-    expect(project?.imageUrl).toMatch(/^\/images\/wavell-tile\.jpg$/);
+    expect(project?.imageUrl).toMatch(/^\/images\/wavell-wordmark\.png$/);
   });
 });

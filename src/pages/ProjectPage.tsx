@@ -1,7 +1,9 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
+import { getBrandAsset } from "@/data/brandAssets";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import ProjectArtwork from "@/components/ProjectArtwork";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
@@ -80,8 +82,20 @@ const ProjectPage = () => {
           )}
 
           {!project.videoUrl && resolvedImage && (
-            <div className="w-full max-w-md mx-auto mb-12 rounded-2xl overflow-hidden border border-border">
-              <img src={resolvedImage} alt={project.title} className="w-full h-auto" />
+            <div className="w-full max-w-2xl mx-auto mb-12">
+              {getBrandAsset(project.slug)?.kind === "logo" ? (
+                <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-border">
+                  <ProjectArtwork slug={project.slug} alt={project.title} className="w-full h-full" />
+                </div>
+              ) : (
+                <ProjectArtwork
+                  slug={project.slug}
+                  alt={project.title}
+                  fallbackSrc={resolvedImage}
+                  fit="natural"
+                  className="rounded-2xl border border-border"
+                />
+              )}
             </div>
           )}
 
