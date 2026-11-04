@@ -185,7 +185,7 @@ export const projects: Project[] = [
   {
     slug: "dsb",
     title: "DSB",
-    category: "Sonic Branding",
+    category: "Audio Post",
     role: "Sound Designer - Audio Story",
     type: "DANISH STATE RAILWAYS - AUDIO STORY",
     description: "Collaborated with Sonic Minds to support DSB, the Danish State Railways, with some of their music and audio logo endeavors. My contribution was an audio story built around the brand's sound world. You can explore Sonic Minds' wider, award-winning work with DSB on their website.",

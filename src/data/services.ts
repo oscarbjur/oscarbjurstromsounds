@@ -75,7 +75,7 @@ export const services: Service[] = [
       "Edits and variations for every length and format",
       "Delivery for broadcast, digital and in-product use",
     ],
-    projectSlugs: ["xellia", "dsb", "betano-easter"],
+    projectSlugs: ["xellia", "betano-easter"],
   },
   {
     slug: "audio-post-production",
@@ -94,6 +94,6 @@ export const services: Service[] = [
       "Mixes prepared to platform loudness standards",
       "Masters and versions for broadcast, digital and social",
     ],
-    projectSlugs: ["svt-familjefighten", "betano-easter"],
+    projectSlugs: ["svt-familjefighten", "betano-easter", "dsb"],
   },
 ];
