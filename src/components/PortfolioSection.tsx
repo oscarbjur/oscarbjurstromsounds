@@ -296,7 +296,23 @@ const PortfolioSection = () => {
 
       <div className="container mx-auto px-6">
         {/* Divider between reel and full grid */}
-        <div className="max-w-xs mx-auto border-t border-border mt-24 mb-16" />
+        <div className="max-w-xs mx-auto border-t border-border mt-24 mb-12" />
+
+        {/* Small label: everything below is the complete portfolio */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <h3 className="font-display text-xl md:text-2xl text-foreground">
+            ALL WORK
+          </h3>
+          <p className="text-muted-foreground font-body text-[11px] tracking-[0.18em] uppercase mt-2">
+            The full portfolio &mdash; browse by service
+          </p>
+        </motion.div>
 
         {/* Category filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
