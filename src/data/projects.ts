@@ -205,8 +205,6 @@ export const projects: Project[] = [
     year: "2026",
     imageUrl: projectImage("xellia-wordmark.png"),
     websiteLink: "https://www.xellia.com/",
-    comingSoon: true,
-    teaserImage: projectImage("teaser-brand.jpg"),
   },
   {
     slug: "unannounced-ui",

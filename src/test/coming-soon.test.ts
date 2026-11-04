@@ -3,9 +3,10 @@ import { getBrandAsset } from "@/data/brandAssets";
 import { projects } from "@/data/projects";
 
 describe("Coming soon cases", () => {
-  it("marks Xellia as coming soon", () => {
+  it("shows Xellia again now that the case is cleared", () => {
     const xellia = projects.find((project) => project.slug === "xellia");
-    expect(xellia?.comingSoon).toBe(true);
+    expect(xellia?.comingSoon).toBeUndefined();
+    expect(xellia?.teaserImage).toBeUndefined();
   });
 
   it("teases an unannounced UI/UX sound design project", () => {
@@ -41,9 +42,9 @@ describe("Coming soon cases", () => {
     }
   });
 
-  it("keeps Xellia's name off the teaser tiles", () => {
+  it("keeps Xellia's real wordmark, not a teaser, in view", () => {
     const xellia = projects.find((project) => project.slug === "xellia");
-    expect(xellia?.comingSoon).toBe(true);
-    expect(xellia?.teaserImage).toContain("teaser-brand.jpg");
+    expect(xellia?.comingSoon).toBeUndefined();
+    expect(xellia?.imageUrl).toContain("xellia-wordmark.png");
   });
 });
