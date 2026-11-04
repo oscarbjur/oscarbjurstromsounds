@@ -168,7 +168,9 @@ const PortfolioSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card"
+                className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card ${
+                  project.comingSoon ? "cursor-default" : "cursor-pointer"
+                }`}
               >
                 <div className="relative aspect-[16/10] min-h-0 overflow-hidden lg:aspect-auto lg:flex-1">
                   <div
