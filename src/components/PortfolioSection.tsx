@@ -85,16 +85,33 @@ const PortfolioSection = () => {
                 <div key={project.slug} className="selected-reel-item">
                   <button
                     type="button"
-                    onClick={() => setOpenProject(project)}
-                    className="selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    onClick={() => {
+                      if (!project.comingSoon) setOpenProject(project);
+                    }}
+                    className={`selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                      project.comingSoon ? "cursor-default" : ""
+                    }`}
                     tabIndex={copy === 1 ? -1 : undefined}
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
-                      <ProjectArtwork
-                        slug={project.slug}
-                        alt={project.title}
-                        fallbackSrc={fallbackThumb(project)}
-                      />
+                      <div
+                        className={`absolute inset-0 ${
+                          project.comingSoon ? "scale-110 blur-lg" : ""
+                        }`}
+                      >
+                        <ProjectArtwork
+                          slug={project.slug}
+                          alt={project.title}
+                          fallbackSrc={fallbackThumb(project)}
+                        />
+                      </div>
+                      {project.comingSoon && (
+                        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20">
+                          <span className="font-display text-lg md:text-xl uppercase tracking-[0.25em] text-foreground">
+                            Coming Soon...
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-4 text-center">
                       <h3 className="font-display text-base md:text-lg text-foreground">
@@ -139,31 +156,52 @@ const PortfolioSection = () => {
             <button
               key={project.slug}
               type="button"
-              onClick={() => setOpenProject(project)}
-              className="block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              onClick={() => {
+                if (!project.comingSoon) setOpenProject(project);
+              }}
+              className={`block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                project.comingSoon ? "cursor-default" : ""
+              }`}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card"
+                className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card ${
+                  project.comingSoon ? "cursor-default" : "cursor-pointer"
+                }`}
               >
                 <div className="relative aspect-[16/10] min-h-0 overflow-hidden lg:aspect-auto lg:flex-1">
-                  <ProjectArtwork
-                    slug={project.slug}
-                    alt={project.title}
-                    fallbackSrc={fallbackThumb(project)}
-                  />
-                  {/* Hover reveal (pointer devices) */}
-                  <div className="absolute inset-0 hidden bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 lg:flex lg:flex-col lg:items-center lg:justify-center p-4 text-center">
-                    <h3 className="font-display text-lg text-foreground mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-primary font-body text-xs tracking-wider uppercase">
-                      {project.type}
-                    </p>
+                  <div
+                    className={`absolute inset-0 ${
+                      project.comingSoon ? "scale-110 blur-lg" : ""
+                    }`}
+                  >
+                    <ProjectArtwork
+                      slug={project.slug}
+                      alt={project.title}
+                      fallbackSrc={fallbackThumb(project)}
+                    />
                   </div>
+                  {project.comingSoon && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20 px-2 text-center">
+                      <span className="font-display text-sm uppercase tracking-[0.2em] text-foreground">
+                        Coming Soon...
+                      </span>
+                    </div>
+                  )}
+                  {/* Hover reveal (pointer devices) */}
+                  {!project.comingSoon && (
+                    <div className="absolute inset-0 hidden bg-background/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 lg:flex lg:flex-col lg:items-center lg:justify-center p-4 text-center">
+                      <h3 className="font-display text-lg text-foreground mb-1">
+                        {project.title}
+                      </h3>
+                      <p className="text-primary font-body text-xs tracking-wider uppercase">
+                        {project.type}
+                      </p>
+                    </div>
+                  )}
                 </div>
                 {/* Caption plate (touch devices, where hover never happens) */}
                 <div className="shrink-0 border-t border-border bg-card px-2 py-2 lg:hidden">
