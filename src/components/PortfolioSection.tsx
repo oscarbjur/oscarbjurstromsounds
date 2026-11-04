@@ -173,8 +173,8 @@ const PortfolioSection = () => {
     };
 
     viewport.addEventListener("scroll", onScroll, { passive: true });
-    viewport.addEventListener("pointerenter", onPointerEnter);
-    viewport.addEventListener("pointerleave", onPointerLeave);
+    reel.addEventListener("pointerenter", onPointerEnter);
+    reel.addEventListener("pointerleave", onPointerLeave);
     viewport.addEventListener("focusin", onFocusIn);
     viewport.addEventListener("focusout", onFocusOut);
     viewport.addEventListener("wheel", onWheel, { passive: true });
