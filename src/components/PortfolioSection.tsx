@@ -128,6 +128,9 @@ const PortfolioSection = () => {
       updateThumb();
     };
 
+    // Pause wherever the cursor sits inside the reel — the pictures or the
+    // scrollbar below them — so reaching for the bar never restarts the roll.
+    const reel = (viewport.closest(".selected-reel") as HTMLElement) ?? viewport;
     const onPointerEnter = () => {
       hovering = true;
     };
@@ -170,8 +173,8 @@ const PortfolioSection = () => {
     };
 
     viewport.addEventListener("scroll", onScroll, { passive: true });
-    viewport.addEventListener("pointerenter", onPointerEnter);
-    viewport.addEventListener("pointerleave", onPointerLeave);
+    reel.addEventListener("pointerenter", onPointerEnter);
+    reel.addEventListener("pointerleave", onPointerLeave);
     viewport.addEventListener("focusin", onFocusIn);
     viewport.addEventListener("focusout", onFocusOut);
     viewport.addEventListener("wheel", onWheel, { passive: true });
@@ -186,8 +189,8 @@ const PortfolioSection = () => {
     return () => {
       cancelAnimationFrame(raf);
       viewport.removeEventListener("scroll", onScroll);
-      viewport.removeEventListener("pointerenter", onPointerEnter);
-      viewport.removeEventListener("pointerleave", onPointerLeave);
+      reel.removeEventListener("pointerenter", onPointerEnter);
+      reel.removeEventListener("pointerleave", onPointerLeave);
       viewport.removeEventListener("focusin", onFocusIn);
       viewport.removeEventListener("focusout", onFocusOut);
       viewport.removeEventListener("wheel", onWheel);
