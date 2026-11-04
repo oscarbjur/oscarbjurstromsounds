@@ -15,6 +15,15 @@ describe("Coming soon cases", () => {
     expect(teaser?.title).toBe("UNANNOUNCED PROJECT");
   });
 
+  it("teases an unannounced game audio project", () => {
+    const teaser = projects.find(
+      (project) =>
+        project.comingSoon && project.category === "Game Audio Implementation & Design",
+    );
+    expect(teaser?.slug).toBe("unannounced-game");
+    expect(teaser?.title).toBe("UNANNOUNCED PROJECT");
+  });
+
   it("gives every coming soon project a still thumbnail and no playable video", () => {
     for (const project of projects.filter((p) => p.comingSoon)) {
       expect(project.imageUrl, project.slug).toBeDefined();

@@ -216,5 +216,16 @@ export const projects: Project[] = [
     imageUrl: projectImage("teaser-ux.jpg"),
     comingSoon: true,
   },
+  {
+    slug: "unannounced-game",
+    title: "UNANNOUNCED PROJECT",
+    category: "Game Audio Implementation & Design",
+    role: "Sound Designer",
+    type: "CLIENT PROJECT - GAME AUDIO IMPLEMENTATION",
+    description: "A game audio project currently in progress. The full case will be announced soon.",
+    year: "2026",
+    imageUrl: projectImage("teaser-game.jpg"),
+    comingSoon: true,
+  },
 ];
 
