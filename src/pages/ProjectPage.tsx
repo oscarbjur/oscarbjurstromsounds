@@ -6,13 +6,10 @@ import Navbar from "@/components/Navbar";
 import ProjectArtwork from "@/components/ProjectArtwork";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import ProjectVideo from "@/components/ProjectVideo";
 
 const SITE_URL = "https://oscarbjurstromsound.com";
 
-const getYouTubeEmbedUrl = (url: string) => {
-  const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
-};
 
 const ProjectPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -83,15 +80,7 @@ const ProjectPage = () => {
           </button>
 
           {project.videoUrl && (
-            <div className="aspect-video w-full max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-border">
-              <iframe
-                src={getYouTubeEmbedUrl(project.videoUrl)}
-                title={project.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
+            <ProjectVideo project={project} className="mx-auto mb-12 max-w-4xl" />
           )}
 
           {!project.videoUrl && resolvedImage && (

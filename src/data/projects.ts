@@ -1,3 +1,6 @@
+import xelliaAudioLogo from "@/assets/xellia-audio-logo.mp4.asset.json";
+import { streamUrl } from "@/lib/media";
+
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",
@@ -205,6 +208,7 @@ export const projects: Project[] = [
     description: "Created the audio logo for Xellia Pharmaceuticals through Sonic Minds. Xellia is a global leader in fermentation-based anti-infectives, and bubbles and classical instruments sit together in the piece, giving the brand a human and approachable character while the chords and melody carry the pondus its science demands. The bubbles are a nod to the fermentation process behind Xellia's medicines, rooting the sound in both the brand and what they actually make.",
     year: "2026",
     imageUrl: projectImage("xellia-wordmark.png"),
+    videoUrl: streamUrl(xelliaAudioLogo),
     websiteLink: "https://www.xellia.com/",
   },
   {
