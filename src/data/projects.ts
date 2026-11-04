@@ -207,6 +207,9 @@ export const projects: Project[] = [
     websiteLink: "https://www.xellia.com/",
     comingSoon: true,
     teaserImage: projectImage("teaser-brand.jpg"),
+  },
+  {
+    slug: "unannounced-ui",
     title: "UNANNOUNCED PROJECT",
     category: "UI/UX Sound Design",
     role: "Sound Designer",
