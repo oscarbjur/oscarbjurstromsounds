@@ -1,9 +1,53 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Youtube, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const CONTACT_EMAIL = "oscarbjurstromsound@gmail.com";
 
+const CONTACT_PULSE_EVENT = "obs:contact-pulse";
+
 const ContactSection = () => {
+  const headingRef = useRef<HTMLDivElement>(null);
+  const pulsePendingRef = useRef(false);
+  const [pulsing, setPulsing] = useState(false);
+
+  const pulseIfVisible = () => {
+    const target = headingRef.current;
+    if (!target) return false;
+    const rect = target.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setPulsing(true);
+      return true;
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    const onRequestPulse = () => {
+      if (!pulseIfVisible()) pulsePendingRef.current = true;
+    };
+    window.addEventListener(CONTACT_PULSE_EVENT, onRequestPulse);
+    return () => window.removeEventListener(CONTACT_PULSE_EVENT, onRequestPulse);
+  }, []);
+
+  useEffect(() => {
+    const target = headingRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && pulsePendingRef.current) {
+            pulsePendingRef.current = false;
+            setPulsing(true);
+          }
+        }
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="contact" className="py-32 bg-card">
       <div className="container mx-auto px-6">

@@ -359,3 +359,19 @@
   .showreel-dim,
   .showreel-peek-label { transition: none; }
 }
+
+/* Soft double fade that acknowledges the jump to the contact section */
+@keyframes contact-pulse {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.35; }
+  50% { opacity: 1; }
+  75% { opacity: 0.55; }
+}
+
+.contact-pulse {
+  animation: contact-pulse 1.4s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-pulse { animation: none; }
+}
