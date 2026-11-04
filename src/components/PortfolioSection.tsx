@@ -128,6 +128,9 @@ const PortfolioSection = () => {
       updateThumb();
     };
 
+    // Pause wherever the cursor sits inside the reel — the pictures or the
+    // scrollbar below them — so reaching for the bar never restarts the roll.
+    const reel = (viewport.closest(".selected-reel") as HTMLElement) ?? viewport;
     const onPointerEnter = () => {
       hovering = true;
     };
