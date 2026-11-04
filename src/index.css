@@ -226,10 +226,9 @@ html {
 
 .selected-reel-thumb {
   position: absolute;
-  top: 50%;
+  top: 7px; /* centers the 6px pill in the 20px bar; JS sets translateX */
   left: 0;
   height: 6px;
-  transform: translateY(-50%);
   border-radius: 9999px;
   background: hsl(var(--muted-foreground) / 0.45);
   cursor: grab;
