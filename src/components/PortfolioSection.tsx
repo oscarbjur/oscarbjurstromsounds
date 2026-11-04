@@ -100,9 +100,13 @@ const PortfolioSection = () => {
                         }`}
                       >
                         <ProjectArtwork
-                          slug={project.slug}
-                          alt={project.title}
-                          fallbackSrc={fallbackThumb(project)}
+                          slug={project.comingSoon ? `teaser-${project.slug}` : project.slug}
+                          alt={project.comingSoon ? "Coming soon" : project.title}
+                          fallbackSrc={
+                            project.comingSoon
+                              ? (project.teaserImage ?? fallbackThumb(project))
+                              : fallbackThumb(project)
+                          }
                         />
                       </div>
                       {project.comingSoon && (
@@ -114,12 +118,20 @@ const PortfolioSection = () => {
                       )}
                     </div>
                     <div className="mt-4 text-center">
-                      <h3 className="font-display text-base md:text-lg text-foreground">
-                        {project.title}
-                      </h3>
-                      <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
-                        {project.type}
-                      </p>
+                      {project.comingSoon ? (
+                        <h3 className="font-display text-base md:text-lg text-foreground">
+                          Coming Soon...
+                        </h3>
+                      ) : (
+                        <>
+                          <h3 className="font-display text-base md:text-lg text-foreground">
+                            {project.title}
+                          </h3>
+                          <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
+                            {project.type}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </button>
                 </div>
@@ -179,9 +191,13 @@ const PortfolioSection = () => {
                     }`}
                   >
                     <ProjectArtwork
-                      slug={project.slug}
-                      alt={project.title}
-                      fallbackSrc={fallbackThumb(project)}
+                      slug={project.comingSoon ? `teaser-${project.slug}` : project.slug}
+                      alt={project.comingSoon ? "Coming soon" : project.title}
+                      fallbackSrc={
+                        project.comingSoon
+                          ? (project.teaserImage ?? fallbackThumb(project))
+                          : fallbackThumb(project)
+                      }
                     />
                   </div>
                   {project.comingSoon && (
@@ -206,10 +222,10 @@ const PortfolioSection = () => {
                 {/* Caption plate (touch devices, where hover never happens) */}
                 <div className="shrink-0 border-t border-border bg-card px-2 py-2 lg:hidden">
                   <h3 className="font-display line-clamp-3 text-[12px] leading-tight text-foreground">
-                    {project.title}
+                    {project.comingSoon ? "Coming Soon..." : project.title}
                   </h3>
                   <p className="mt-1 line-clamp-4 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted-foreground">
-                    {project.type}
+                    {project.comingSoon ? "" : project.type}
                   </p>
                 </div>
               </motion.div>
