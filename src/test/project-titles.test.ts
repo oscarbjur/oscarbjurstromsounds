@@ -6,7 +6,7 @@ const typeOf = (slug: string) => projects.find((p) => p.slug === slug)?.type ?? 
 describe("Project titles", () => {
   it("read as what the client does, then what Oscar worked on", () => {
     for (const project of projects) {
-      const parts = project.type.split(" - ");
+      const parts = project.type.replace(/\u00a0/g, " ").split(" - ");
       expect(parts.length, project.slug).toBe(2);
       expect(parts[0].trim().length, project.slug).toBeGreaterThan(0);
       expect(parts[1].trim().length, project.slug).toBeGreaterThan(0);
