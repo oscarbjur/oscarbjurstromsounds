@@ -100,9 +100,13 @@ const PortfolioSection = () => {
                         }`}
                       >
                         <ProjectArtwork
-                          slug={project.slug}
-                          alt={project.title}
-                          fallbackSrc={fallbackThumb(project)}
+                          slug={project.comingSoon ? `teaser-${project.slug}` : project.slug}
+                          alt={project.comingSoon ? "Coming soon" : project.title}
+                          fallbackSrc={
+                            project.comingSoon
+                              ? (project.teaserImage ?? fallbackThumb(project))
+                              : fallbackThumb(project)
+                          }
                         />
                       </div>
                       {project.comingSoon && (
@@ -114,12 +118,20 @@ const PortfolioSection = () => {
                       )}
                     </div>
                     <div className="mt-4 text-center">
-                      <h3 className="font-display text-base md:text-lg text-foreground">
-                        {project.title}
-                      </h3>
-                      <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
-                        {project.type}
-                      </p>
+                      {project.comingSoon ? (
+                        <h3 className="font-display text-base md:text-lg text-foreground">
+                          Coming Soon...
+                        </h3>
+                      ) : (
+                        <>
+                          <h3 className="font-display text-base md:text-lg text-foreground">
+                            {project.title}
+                          </h3>
+                          <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
+                            {project.type}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </button>
                 </div>
