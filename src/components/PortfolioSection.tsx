@@ -82,6 +82,7 @@ const PortfolioSection = () => {
     let focusing = false;
     let dragging = false;
     let resumeAt = 0;
+    let pos = 0;
     let dragStartX = 0;
     let dragStartScroll = 0;
 
@@ -115,8 +116,12 @@ const PortfolioSection = () => {
       last = now;
       const half = groupWidth();
       if (half > 0) {
-        if (!paused()) viewport.scrollLeft += speed() * dt;
-        if (viewport.scrollLeft >= half) viewport.scrollLeft -= half;
+        // Keep a float position: browsers round scrollLeft to whole pixels,
+        // so tiny per-frame steps on fast screens would never add up.
+        if (Math.abs(viewport.scrollLeft - pos) > 2) pos = viewport.scrollLeft;
+        if (!paused()) pos += speed() * dt;
+        if (pos >= half) pos -= half;
+        viewport.scrollLeft = pos;
         updateThumb();
       }
       raf = requestAnimationFrame(tick);
@@ -137,8 +142,11 @@ const PortfolioSection = () => {
     const onPointerLeave = () => {
       hovering = false;
     };
-    const onFocusIn = () => {
-      focusing = true;
+    const onFocusIn = (e: FocusEvent) => {
+      // Only keyboard focus pauses; a mouse click leaves focus behind and
+      // would otherwise keep the roll stopped forever.
+      const t = e.target as HTMLElement | null;
+      focusing = !!t?.matches?.(":focus-visible");
     };
     const onFocusOut = () => {
       focusing = false;
