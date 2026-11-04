@@ -4,3 +4,4 @@
 - Partner brands are shown with their own official files only, mapped in src/data/brandAssets.ts and rendered through src/components/ProjectArtwork.tsx; never redraw, recolour, stretch or crop a brand mark, and keep the original project images outside presentation-specific overrides.
 - Selected Works uses a duplicated CSS reel track for seamless motion; pause on hover and keyboard focus, hide duplicate links from keyboard navigation, and disable automatic motion for reduced-motion visitors.
 - Services copy lives in src/data/services.ts and is opened through a shared drawer provider, so the nav item and the section cards always show the same services.
+- Project videos render through src/components/ProjectVideo.tsx: YouTube links stay embeds, Oscar's own files stream from the CDN with URLs built by streamUrl() in src/lib/media.ts, so both play in the pop-up and on the standalone project page.
