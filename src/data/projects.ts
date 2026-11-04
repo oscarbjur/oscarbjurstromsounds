@@ -21,6 +21,8 @@ export interface Project {
   steamLink?: string;
   websiteLink?: string;
   episodeLink?: string;
+  /** Case not yet cleared for showing — the tile is blurred behind a "Coming Soon..." note. */
+  comingSoon?: boolean;
 }
 
 const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
@@ -201,6 +203,18 @@ export const projects: Project[] = [
     year: "2026",
     imageUrl: projectImage("xellia-wordmark.png"),
     websiteLink: "https://www.xellia.com/",
+    comingSoon: true,
+  },
+  {
+    slug: "unannounced-ui",
+    title: "UNANNOUNCED PROJECT",
+    category: "UI/UX Sound Design",
+    role: "Sound Designer",
+    type: "CLIENT PROJECT - UI/UX SOUND DESIGN",
+    description: "A UI/UX sound project currently in progress. The full case will be announced soon.",
+    year: "2026",
+    imageUrl: projectImage("teaser-ux.jpg"),
+    comingSoon: true,
   },
 ];
 
