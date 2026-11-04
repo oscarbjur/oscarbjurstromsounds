@@ -27,4 +27,31 @@ describe("Selected work reel scrollbar", () => {
       expect(button.tabIndex).toBe(-1);
     });
   });
+
+  it("pauses the roll when the cursor is over the pictures or the scrollbar", () => {
+    const bound: string[] = [];
+    const original = Element.prototype.addEventListener;
+    function spy(
+      this: Element,
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions,
+    ) {
+      if (type === "pointerenter" || type === "pointerleave") {
+        bound.push(`${this.getAttribute("class") ?? ""}:${type}`);
+      }
+      original.call(this, type, listener, options);
+    }
+    Element.prototype.addEventListener =
+      spy as unknown as typeof Element.prototype.addEventListener;
+    try {
+      render(<PortfolioSection />);
+    } finally {
+      Element.prototype.addEventListener = original;
+    }
+    // Bound to the reel wrapper, which holds both the pictures and the bar,
+    // so hovering either one stops the roll.
+    expect(bound).toContain("selected-reel:pointerenter");
+    expect(bound).toContain("selected-reel:pointerleave");
+  });
 });
