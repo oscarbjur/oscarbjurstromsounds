@@ -23,6 +23,8 @@ export interface Project {
   episodeLink?: string;
   /** Case not yet cleared for showing — the tile is blurred behind a "Coming Soon..." note. */
   comingSoon?: boolean;
+  /** Neutral stand-in image used instead of the real artwork while comingSoon. */
+  teaserImage?: string;
 }
 
 const projectImage = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
@@ -204,9 +206,7 @@ export const projects: Project[] = [
     imageUrl: projectImage("xellia-wordmark.png"),
     websiteLink: "https://www.xellia.com/",
     comingSoon: true,
-  },
-  {
-    slug: "unannounced-ui",
+    teaserImage: projectImage("teaser-brand.jpg"),
     title: "UNANNOUNCED PROJECT",
     category: "UI/UX Sound Design",
     role: "Sound Designer",
