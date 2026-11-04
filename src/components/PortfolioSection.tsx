@@ -85,16 +85,33 @@ const PortfolioSection = () => {
                 <div key={project.slug} className="selected-reel-item">
                   <button
                     type="button"
-                    onClick={() => setOpenProject(project)}
-                    className="selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    onClick={() => {
+                      if (!project.comingSoon) setOpenProject(project);
+                    }}
+                    className={`selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                      project.comingSoon ? "cursor-default" : ""
+                    }`}
                     tabIndex={copy === 1 ? -1 : undefined}
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
-                      <ProjectArtwork
-                        slug={project.slug}
-                        alt={project.title}
-                        fallbackSrc={fallbackThumb(project)}
-                      />
+                      <div
+                        className={`absolute inset-0 ${
+                          project.comingSoon ? "scale-110 blur-lg" : ""
+                        }`}
+                      >
+                        <ProjectArtwork
+                          slug={project.slug}
+                          alt={project.title}
+                          fallbackSrc={fallbackThumb(project)}
+                        />
+                      </div>
+                      {project.comingSoon && (
+                        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20">
+                          <span className="font-display text-lg md:text-xl uppercase tracking-[0.25em] text-foreground">
+                            Coming Soon...
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-4 text-center">
                       <h3 className="font-display text-base md:text-lg text-foreground">
@@ -139,8 +156,12 @@ const PortfolioSection = () => {
             <button
               key={project.slug}
               type="button"
-              onClick={() => setOpenProject(project)}
-              className="block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              onClick={() => {
+                if (!project.comingSoon) setOpenProject(project);
+              }}
+              className={`block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                project.comingSoon ? "cursor-default" : ""
+              }`}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
