@@ -16,7 +16,10 @@ describe("Work categories", () => {
 
   it("puts audio logo and identity work under Sonic Branding", () => {
     expect(categoryOf("xellia")).toBe("Sonic Branding");
-    expect(categoryOf("dsb")).toBe("Sonic Branding");
+  });
+
+  it("puts DSB's audio story under Audio Post", () => {
+    expect(categoryOf("dsb")).toBe("Audio Post");
   });
 
   it("puts commercial and film work under Audio Post", () => {
