@@ -80,15 +80,7 @@ const ProjectPage = () => {
           </button>
 
           {project.videoUrl && (
-            <div className="aspect-video w-full max-w-4xl mx-auto mb-12 rounded-lg overflow-hidden border border-border">
-              <iframe
-                src={getYouTubeEmbedUrl(project.videoUrl)}
-                title={project.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
+            <ProjectVideo project={project} className="mx-auto mb-12 max-w-4xl" />
           )}
 
           {!project.videoUrl && resolvedImage && (
