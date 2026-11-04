@@ -32,6 +32,19 @@ const ProjectPage = () => {
     );
   }
 
+  if (project.comingSoon) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="min-h-[70vh] flex items-center justify-center">
+          <p className="font-display text-2xl uppercase tracking-[0.25em] text-foreground">
+            Coming Soon...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const resolvedImage = project.imageUrl ?? null;
   const pageTitle = `${project.title} | Oscar Bjurström Sound`;
   const pageDescription = project.description.slice(0, 155);
