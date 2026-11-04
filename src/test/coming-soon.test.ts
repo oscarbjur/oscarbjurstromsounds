@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { getBrandAsset } from "@/data/brandAssets";
 import { projects } from "@/data/projects";
 
 describe("Coming soon cases", () => {
