@@ -30,4 +30,19 @@ describe("Coming soon cases", () => {
       expect(project.videoUrl, project.slug).toBeUndefined();
     }
   });
+
+  it("never shows a coming soon project's real brand artwork", () => {
+    for (const project of projects.filter((p) => p.comingSoon)) {
+      const asset = getBrandAsset(project.slug);
+      if (!asset) continue;
+      expect(project.teaserImage, project.slug).toBeDefined();
+      expect(project.teaserImage, project.slug).not.toBe(asset.src);
+    }
+  });
+
+  it("keeps Xellia's name off the teaser tiles", () => {
+    const xellia = projects.find((project) => project.slug === "xellia");
+    expect(xellia?.comingSoon).toBe(true);
+    expect(xellia?.teaserImage).toContain("teaser-brand.jpg");
+  });
 });

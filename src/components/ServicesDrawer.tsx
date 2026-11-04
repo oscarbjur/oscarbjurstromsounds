@@ -181,7 +181,15 @@ const ServicesDrawer = () => {
                       Selected work
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {relatedWork.map((project) => (
+                      {relatedWork.map((project) =>
+                        project.comingSoon ? (
+                          <span
+                            key={project.slug}
+                            className="inline-flex items-center gap-2 border border-border px-4 py-2 font-body text-[11px] tracking-[0.16em] uppercase text-muted-foreground"
+                          >
+                            Coming Soon...
+                          </span>
+                        ) : (
                         <Link
                           key={project.slug}
                           to={`/project/${project.slug}`}
@@ -191,7 +199,8 @@ const ServicesDrawer = () => {
                           {project.title}
                           <ArrowRight className="w-3 h-3" />
                         </Link>
-                      ))}
+                        )
+                      )}
                     </div>
                   </>
                 )}
