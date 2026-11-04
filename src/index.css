@@ -203,10 +203,8 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .selected-reel { overflow-x: auto; }
-  .selected-reel-track { animation: none; }
-  .selected-reel-group[aria-hidden="true"] { display: none; }
-  .selected-reel-link { transition: none; }
+  /* Many Windows PCs report reduced motion by default; keep a slower, gentle roll. */
+  .selected-reel-track { animation-duration: 120s; }
 }
 
 /* Blurred previews of the other showreels, so more videos are visible at once */
