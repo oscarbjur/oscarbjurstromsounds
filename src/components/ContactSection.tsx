@@ -1,18 +1,77 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Youtube, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const CONTACT_EMAIL = "oscarbjurstromsound@gmail.com";
 
+const CONTACT_PULSE_EVENT = "obs:contact-pulse";
+
 const ContactSection = () => {
+  const headingRef = useRef<HTMLDivElement>(null);
+  const pulsePendingRef = useRef(false);
+  const pulseTimerRef = useRef<number | undefined>(undefined);
+  const [pulsing, setPulsing] = useState(false);
+
+  const startPulse = () => {
+    setPulsing(false);
+    window.requestAnimationFrame(() => {
+      setPulsing(true);
+      window.clearTimeout(pulseTimerRef.current);
+      pulseTimerRef.current = window.setTimeout(() => setPulsing(false), 1500);
+    });
+  };
+
+  const pulseIfVisible = () => {
+    const target = headingRef.current;
+    if (!target) return false;
+    const rect = target.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      startPulse();
+      return true;
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    const onRequestPulse = () => {
+      if (!pulseIfVisible()) pulsePendingRef.current = true;
+    };
+    window.addEventListener(CONTACT_PULSE_EVENT, onRequestPulse);
+    return () => window.removeEventListener(CONTACT_PULSE_EVENT, onRequestPulse);
+  }, []);
+
+  useEffect(() => {
+    const target = headingRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && pulsePendingRef.current) {
+            pulsePendingRef.current = false;
+            startPulse();
+          }
+        }
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(target);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(pulseTimerRef.current);
+    };
+  }, []);
+
+
   return (
     <section id="contact" className="py-32 bg-card">
       <div className="container mx-auto px-6">
         <motion.div
+          ref={headingRef}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className={`text-center mb-20 ${pulsing ? "contact-pulse" : ""}`}
         >
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             Let's Work Together
