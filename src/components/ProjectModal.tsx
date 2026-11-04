@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ExternalLink, X } from "lucide-react";
 import type { Project } from "@/data/projects";
@@ -18,7 +19,11 @@ interface Props {
 const linkClass =
   "btn-puffy inline-flex items-center gap-2 px-5 py-2.5 font-body text-xs tracking-[0.15em] uppercase rounded-xl";
 
-const ProjectModal = ({ project, fallbackSrc, onClose }: Props) => {
+const ProjectModal = ({ project: current, fallbackSrc, onClose }: Props) => {
+  // Keep the last project rendered while the pop-up fades out.
+  const lastRef = useRef<Project | null>(null);
+  if (current) lastRef.current = current;
+  const project = current ?? lastRef.current;
   const links = project
     ? [
         { href: project.gameLink, label: "Play the Game" },
@@ -30,11 +35,11 @@ const ProjectModal = ({ project, fallbackSrc, onClose }: Props) => {
   const image = project?.imageUrl ?? fallbackSrc ?? null;
 
   return (
-    <DialogPrimitive.Root open={Boolean(project)} onOpenChange={(open) => !open && onClose()}>
+    <DialogPrimitive.Root open={Boolean(current)} onOpenChange={(open) => !open && onClose()}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="project-modal-overlay fixed inset-0 z-50 bg-background/60 backdrop-blur-md" />
         <DialogPrimitive.Content
-          className="project-modal fixed inset-x-0 bottom-0 z-50 max-h-[92dvh] overflow-y-auto overscroll-contain rounded-t-3xl border border-border bg-card shadow-2xl focus:outline-none sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-[min(92vw,56rem)] sm:max-h-[88dvh] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-3xl"
+          className="project-modal fixed inset-x-0 bottom-0 z-50 max-h-[92dvh] overflow-y-auto overscroll-contain rounded-t-3xl border border-border bg-card shadow-2xl focus:outline-none sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-[min(92vw,56rem)] sm:max-h-[88dvh] sm:rounded-3xl"
           aria-describedby={undefined}
         >
           {project && (
