@@ -78,7 +78,7 @@ const ShowreelSection = () => {
   const rightReel = showreels[(current + 1) % total];
 
   return (
-    <section id="showreel" className="relative pt-32 pb-20 bg-background">
+    <section id="showreel" className="relative pt-20 lg:pt-32 pb-20 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
