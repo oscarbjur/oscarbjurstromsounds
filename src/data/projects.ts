@@ -168,7 +168,7 @@ export const projects: Project[] = [
     category: "UI/UX Sound Design",
     role: "Sound Designer",
     type: "NEURODIVERGENT PLANNING APP - AUDIO LOGO & UX SOUND",
-    description: "Created a bubbly, friendly and warm UX sound world for Tiimo, a planning app built for neurodivergent people. The audio carries a playful, almost game-like character to make everyday planning feel light and inviting.",
+    description: "Created a bubbly, friendly and warm UX sound world for Tiimo, a planning app built for neurodivergent people, through Sonic Minds. The audio carries a playful, almost game-like character to make everyday planning feel light and inviting.",
     year: "2026",
     imageUrl: projectImage("tiimo-icon.png"),
     websiteLink: "https://sonicmindsagency.com/work/tiimo/",
