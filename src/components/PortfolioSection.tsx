@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { categories, projects, type Category, type Project } from "@/data/projects";
 import ProjectArtwork from "@/components/ProjectArtwork";
+import ProjectModal from "@/components/ProjectModal";
 
 const tile = (fileName: string) => `${import.meta.env.BASE_URL}images/${fileName}`;
 
@@ -40,6 +40,8 @@ const PortfolioSection = () => {
     const saved = sessionStorage.getItem("portfolioCategory");
     return (saved as Category) || "Game Audio Implementation & Design";
   });
+
+  const [openProject, setOpenProject] = useState<Project | null>(null);
 
   const handleCategoryChange = (cat: Category) => {
     setActive(cat);
@@ -81,9 +83,10 @@ const PortfolioSection = () => {
             <div key={copy} className="selected-reel-group" aria-hidden={copy === 1 ? true : undefined}>
               {selected.map((project) => (
                 <div key={project.slug} className="selected-reel-item">
-                  <Link
-                    to={`/project/${project.slug}`}
-                    className="selected-reel-link group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  <button
+                    type="button"
+                    onClick={() => setOpenProject(project)}
+                    className="selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     tabIndex={copy === 1 ? -1 : undefined}
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
@@ -101,7 +104,7 @@ const PortfolioSection = () => {
                         {project.type}
                       </p>
                     </div>
-                  </Link>
+                  </button>
                 </div>
               ))}
             </div>
@@ -133,7 +136,12 @@ const PortfolioSection = () => {
         {/* Collage grid */}
         <div className="grid grid-cols-2 auto-rows-min lg:grid-cols-4 lg:auto-rows-[200px] gap-3">
           {filtered.map((project, i) => (
-            <Link key={project.slug} to={`/project/${project.slug}`} className="block">
+            <button
+              key={project.slug}
+              type="button"
+              onClick={() => setOpenProject(project)}
+              className="block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -167,10 +175,15 @@ const PortfolioSection = () => {
                   </p>
                 </div>
               </motion.div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>
+      <ProjectModal
+        project={openProject}
+        fallbackSrc={openProject ? fallbackThumb(openProject) : null}
+        onClose={() => setOpenProject(null)}
+      />
     </section>
   );
 };
