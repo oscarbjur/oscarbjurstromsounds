@@ -138,12 +138,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-5 flex flex-col items-center relative">
-        {/* Headphones in top-left corner */}
-        <div className="absolute left-6 top-5 w-10 h-10">
+        {/* Balloon in top-left corner — clicking it goes home, like the OBS. logo */}
+        <Link
+          to="/"
+          aria-label="Oscar Bjurström Sound — home"
+          className="absolute left-6 top-5 w-10 h-10 cursor-pointer"
+        >
           <Suspense fallback={null}>
             <PSXSpeakerCanvas scrollProgress={scrollProgress} />
           </Suspense>
-        </div>
+        </Link>
         {/* Menu button, phones and small tablets only */}
         <button
           type="button"
