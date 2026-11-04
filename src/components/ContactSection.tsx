@@ -9,14 +9,24 @@ const CONTACT_PULSE_EVENT = "obs:contact-pulse";
 const ContactSection = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const pulsePendingRef = useRef(false);
+  const pulseTimerRef = useRef<number | undefined>(undefined);
   const [pulsing, setPulsing] = useState(false);
+
+  const startPulse = () => {
+    setPulsing(false);
+    window.requestAnimationFrame(() => {
+      setPulsing(true);
+      window.clearTimeout(pulseTimerRef.current);
+      pulseTimerRef.current = window.setTimeout(() => setPulsing(false), 1500);
+    });
+  };
 
   const pulseIfVisible = () => {
     const target = headingRef.current;
     if (!target) return false;
     const rect = target.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setPulsing(true);
+      startPulse();
       return true;
     }
     return false;
@@ -38,15 +48,19 @@ const ContactSection = () => {
         for (const entry of entries) {
           if (entry.isIntersecting && pulsePendingRef.current) {
             pulsePendingRef.current = false;
-            setPulsing(true);
+            startPulse();
           }
         }
       },
       { threshold: 0.6 },
     );
     observer.observe(target);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(pulseTimerRef.current);
+    };
   }, []);
+
 
   return (
     <section id="contact" className="py-32 bg-card">
@@ -57,7 +71,6 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          onAnimationEnd={() => setPulsing(false)}
           className={`text-center mb-20 ${pulsing ? "contact-pulse" : ""}`}
         >
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
