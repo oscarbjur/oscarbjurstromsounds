@@ -136,9 +136,10 @@ export const projects: Project[] = [
     category: "Game Audio Implementation & Design",
     role: "Sound Designer & Audio Direction",
     type: "INDIE GAME - SOUND DESIGN AND AUDIO DIRECTION",
-    description: "Collaborated with Neckbolt on a DOOM and Metroid Prime inspired shooter, creating the sound design and helping shape the direction of the soundscape. The audio leans on old school sound, blending retro with modern sound production. Currently in development.",
+    description: "Collaborated with Neckbolt on a DOOM and Metroid Prime inspired shooter, creating the sound design and helping shape the direction of the soundscape. Also designed the sound effects and mixed the audio for the Demo trailer. The audio leans on old school sound, blending retro with modern sound production. Currently in development.",
     year: "2026",
     imageUrl: projectImage("evil-moon-capsule.jpg"),
+    videoUrl: "https://www.youtube.com/watch?v=BFgBI9dHu8I",
     steamLink: "https://store.steampowered.com/app/4861420/Evil_Moon_Unspoken/",
   },
   {
