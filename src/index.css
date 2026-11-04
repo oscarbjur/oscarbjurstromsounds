@@ -154,26 +154,26 @@ html {
   transform: scale(0.9);
 }
 
-/* Two identical tracks keep the selected artwork moving without a seam. */
-@keyframes selected-reel-roll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Two identical track copies keep the selected artwork rolling without a seam.
+   The roll itself is driven in JS (PortfolioSection) so visitors can also
+   scroll or drag the scrollbar to move through the works themselves. */
+.selected-reel {
+  padding-block: 24px;
 }
 
-.selected-reel {
-  overflow: hidden;
-  padding-block: 24px;
+.selected-reel-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* native bar hidden; the custom one sits below */
+}
+
+.selected-reel-viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .selected-reel-track {
   display: flex;
   width: max-content;
-  animation: selected-reel-roll 76s linear infinite;
-}
-
-.selected-reel:hover .selected-reel-track,
-.selected-reel:focus-within .selected-reel-track {
-  animation-play-state: paused;
 }
 
 .selected-reel-group {
@@ -202,9 +202,47 @@ html {
   .selected-reel-group { gap: 24px; padding-right: 24px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  /* Many Windows PCs report reduced motion by default; keep a slower, gentle roll. */
-  .selected-reel-track { animation-duration: 120s; }
+/* Custom scrollbar under the reel: slim dark pill on a faint track, matching
+   the site scrollbar. Dragging it pauses the roll until the visitor lets go. */
+.selected-reel-scrollbar {
+  position: relative;
+  width: min(420px, 70%);
+  height: 20px;
+  margin: 20px auto 0;
+  cursor: pointer;
+}
+
+.selected-reel-scrollbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  background: hsl(var(--muted-foreground) / 0.18);
+}
+
+.selected-reel-thumb {
+  position: absolute;
+  top: 7px; /* centers the 6px pill in the 20px bar; JS sets translateX */
+  left: 0;
+  height: 6px;
+  border-radius: 9999px;
+  background: hsl(var(--muted-foreground) / 0.45);
+  cursor: grab;
+  touch-action: none;
+  transition: background-color 200ms ease;
+}
+
+.selected-reel-thumb:hover,
+.selected-reel-thumb.is-dragging {
+  background: hsl(var(--muted-foreground) / 0.75);
+}
+
+.selected-reel-thumb.is-dragging {
+  cursor: grabbing;
 }
 
 /* Blurred previews of the other showreels, so more videos are visible at once */
