@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import oscarPhoto from "@/assets/oscar-photo.jpg";
+import portraitAsset from "@/assets/website-portrait.jpg.asset.json";
+import { streamUrl } from "@/lib/media";
 
 const AboutSection = () => {
   return (
@@ -37,7 +38,7 @@ const AboutSection = () => {
             className="flex justify-center"
           >
             <img
-              src={oscarPhoto}
+              src={streamUrl(portraitAsset)}
               alt="Oscar Bjurström"
               className="w-full max-w-md rounded-lg object-cover aspect-[3/4] border border-border"
             />
