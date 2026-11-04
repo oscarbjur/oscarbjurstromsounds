@@ -189,8 +189,8 @@ const PortfolioSection = () => {
     return () => {
       cancelAnimationFrame(raf);
       viewport.removeEventListener("scroll", onScroll);
-      viewport.removeEventListener("pointerenter", onPointerEnter);
-      viewport.removeEventListener("pointerleave", onPointerLeave);
+      reel.removeEventListener("pointerenter", onPointerEnter);
+      reel.removeEventListener("pointerleave", onPointerLeave);
       viewport.removeEventListener("focusin", onFocusIn);
       viewport.removeEventListener("focusout", onFocusOut);
       viewport.removeEventListener("wheel", onWheel);
