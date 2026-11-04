@@ -4,11 +4,7 @@ import { ExternalLink, X } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { getBrandAsset } from "@/data/brandAssets";
 import ProjectArtwork from "@/components/ProjectArtwork";
-
-const getYouTubeEmbedUrl = (url: string) => {
-  const match = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
-};
+import ProjectVideo from "@/components/ProjectVideo";
 
 interface Props {
   project: Project | null;
