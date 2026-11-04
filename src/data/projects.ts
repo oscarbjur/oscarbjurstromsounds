@@ -1,3 +1,6 @@
+import xelliaAudioLogo from "@/assets/xellia-audio-logo.mp4.asset.json";
+import { streamUrl } from "@/lib/media";
+
 export const categories = [
   "Game Audio Implementation & Design",
   "UI/UX Sound Design",

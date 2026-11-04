@@ -52,15 +52,7 @@ const ProjectModal = ({ project: current, fallbackSrc, onClose }: Props) => {
 
               <div className="px-5 pb-8 sm:px-10 sm:pb-10">
                 {project.videoUrl ? (
-                  <div className="mb-8 aspect-video w-full overflow-hidden rounded-xl border border-border">
-                    <iframe
-                      src={getYouTubeEmbedUrl(project.videoUrl)}
-                      title={project.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="h-full w-full"
-                    />
-                  </div>
+                  <ProjectVideo project={project} className="mb-8" />
                 ) : image ? (
                   <div className="mx-auto mb-8 w-full max-w-2xl">
                     {getBrandAsset(project.slug)?.kind === "logo" ? (
