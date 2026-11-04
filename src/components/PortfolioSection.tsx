@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { categories, projects, type Category, type Project } from "@/data/projects";
 import ProjectArtwork from "@/components/ProjectArtwork";
 import ProjectModal from "@/components/ProjectModal";
@@ -35,6 +35,13 @@ function fallbackThumb(project: Project): string | null {
   return null;
 }
 
+// Reel roll speed in px/s. Reduced-motion visitors get a slower roll, never a
+// stopped one — Windows often reports reduced motion by default.
+const REEL_SPEED = 64;
+const REEL_SPEED_REDUCED = 28;
+// How long the reel stays still after a visitor scrolls or drags it themselves.
+const RESUME_DELAY_MS = 2500;
+
 const PortfolioSection = () => {
   const [active, setActive] = useState<Category>(() => {
     const saved = sessionStorage.getItem("portfolioCategory");
@@ -42,6 +49,11 @@ const PortfolioSection = () => {
   });
 
   const [openProject, setOpenProject] = useState<Project | null>(null);
+
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const thumbRef = useRef<HTMLDivElement>(null);
 
   const handleCategoryChange = (cat: Category) => {
     setActive(cat);
@@ -56,6 +68,136 @@ const PortfolioSection = () => {
     .filter((p) => p.category === active)
     .slice()
     .sort((a, b) => parseInt(b.year, 10) - parseInt(a.year, 10));
+
+  // JS-driven marquee: the track is duplicated once and the viewport wraps at
+  // the halfway point, so the roll is seamless and the visitor can also scroll
+  // or drag the scrollbar to move through the works themselves.
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    let raf = 0;
+    let last = performance.now();
+    let hovering = false;
+    let focusing = false;
+    let dragging = false;
+    let resumeAt = 0;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const speed = () => (reduced.matches ? REEL_SPEED_REDUCED : REEL_SPEED);
+    const groupWidth = () => (trackRef.current ? trackRef.current.scrollWidth / 2 : 0);
+    const paused = () =>
+      hovering || focusing || dragging || performance.now() < resumeAt;
+    const bumpIdle = () => {
+      resumeAt = performance.now() + RESUME_DELAY_MS;
+    };
+
+    const updateThumb = () => {
+      const bar = barRef.current;
+      const thumb = thumbRef.current;
+      const half = groupWidth();
+      if (!bar || !thumb || half <= 0) return;
+      const barW = bar.clientWidth;
+      const thumbW = Math.min(
+        barW,
+        Math.max((viewport.clientWidth / half) * barW, 44),
+      );
+      const maxPos = barW - thumbW;
+      const pos = Math.min(1, viewport.scrollLeft / half) * maxPos;
+      thumb.style.width = `${thumbW}px`;
+      thumb.style.transform = `translateX(${pos}px)`;
+    };
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      const half = groupWidth();
+      if (half > 0) {
+        if (!paused()) viewport.scrollLeft += speed() * dt;
+        if (viewport.scrollLeft >= half) viewport.scrollLeft -= half;
+        updateThumb();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    const onScroll = () => {
+      const half = groupWidth();
+      if (half > 0 && viewport.scrollLeft >= half) viewport.scrollLeft -= half;
+      updateThumb();
+    };
+
+    const onPointerEnter = () => {
+      hovering = true;
+    };
+    const onPointerLeave = () => {
+      hovering = false;
+    };
+    const onFocusIn = () => {
+      focusing = true;
+    };
+    const onFocusOut = () => {
+      focusing = false;
+    };
+    const onWheel = () => bumpIdle();
+    const onTouchStart = () => bumpIdle();
+
+    const thumb = thumbRef.current;
+    const onThumbDown = (e: PointerEvent) => {
+      dragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = viewport.scrollLeft;
+      thumb?.setPointerCapture(e.pointerId);
+      thumb?.classList.add("is-dragging");
+    };
+    const onThumbMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      const bar = barRef.current;
+      const half = groupWidth();
+      if (!bar || half <= 0) return;
+      const scale = half / bar.clientWidth;
+      const next = dragStartScroll + (e.clientX - dragStartX) * scale;
+      // Wrap in both directions so dragging past either end keeps rolling.
+      viewport.scrollLeft = ((next % half) + half) % half;
+      updateThumb();
+    };
+    const onThumbUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      thumb?.classList.remove("is-dragging");
+      bumpIdle();
+    };
+
+    viewport.addEventListener("scroll", onScroll, { passive: true });
+    viewport.addEventListener("pointerenter", onPointerEnter);
+    viewport.addEventListener("pointerleave", onPointerLeave);
+    viewport.addEventListener("focusin", onFocusIn);
+    viewport.addEventListener("focusout", onFocusOut);
+    viewport.addEventListener("wheel", onWheel, { passive: true });
+    viewport.addEventListener("touchstart", onTouchStart, { passive: true });
+    thumb?.addEventListener("pointerdown", onThumbDown);
+    thumb?.addEventListener("pointermove", onThumbMove);
+    thumb?.addEventListener("pointerup", onThumbUp);
+    thumb?.addEventListener("pointercancel", onThumbUp);
+
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      viewport.removeEventListener("scroll", onScroll);
+      viewport.removeEventListener("pointerenter", onPointerEnter);
+      viewport.removeEventListener("pointerleave", onPointerLeave);
+      viewport.removeEventListener("focusin", onFocusIn);
+      viewport.removeEventListener("focusout", onFocusOut);
+      viewport.removeEventListener("wheel", onWheel);
+      viewport.removeEventListener("touchstart", onTouchStart);
+      thumb?.removeEventListener("pointerdown", onThumbDown);
+      thumb?.removeEventListener("pointermove", onThumbMove);
+      thumb?.removeEventListener("pointerup", onThumbUp);
+      thumb?.removeEventListener("pointercancel", onThumbUp);
+    };
+  }, []);
 
   return (
     <section id="portfolio" className="pt-44 pb-20 lg:pb-32 bg-card">
@@ -78,66 +220,77 @@ const PortfolioSection = () => {
 
       {/* Selected work reel */}
       <div className="selected-reel" aria-label="Selected work">
-        <div className="selected-reel-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="selected-reel-group" aria-hidden={copy === 1 ? true : undefined}>
-              {selected.map((project) => (
-                <div key={project.slug} className="selected-reel-item">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (!project.comingSoon) setOpenProject(project);
-                    }}
-                    className={`selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                      project.comingSoon ? "cursor-default" : ""
-                    }`}
-                    tabIndex={copy === 1 ? -1 : undefined}
-                  >
-                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
-                      <div
-                        className={`absolute inset-0 ${
-                          project.comingSoon ? "scale-110 blur-lg" : ""
-                        }`}
-                      >
-                        <ProjectArtwork
-                          slug={project.comingSoon ? `teaser-${project.slug}` : project.slug}
-                          alt={project.comingSoon ? "Coming soon" : project.title}
-                          fallbackSrc={
-                            project.comingSoon
-                              ? (project.teaserImage ?? fallbackThumb(project))
-                              : fallbackThumb(project)
-                          }
-                        />
-                      </div>
-                      {project.comingSoon && (
-                        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20">
-                          <span className="font-display text-lg md:text-xl uppercase tracking-[0.25em] text-foreground">
-                            Coming Soon...
-                          </span>
+        <div ref={viewportRef} className="selected-reel-viewport">
+          <div ref={trackRef} className="selected-reel-track">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="selected-reel-group" aria-hidden={copy === 1 ? true : undefined}>
+                {selected.map((project) => (
+                  <div key={project.slug} className="selected-reel-item">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (!project.comingSoon) setOpenProject(project);
+                      }}
+                      className={`selected-reel-link group block w-full text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                        project.comingSoon ? "cursor-default" : ""
+                      }`}
+                      tabIndex={copy === 1 ? -1 : undefined}
+                    >
+                      <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-secondary lg:aspect-[16/10]">
+                        <div
+                          className={`absolute inset-0 ${
+                            project.comingSoon ? "scale-110 blur-lg" : ""
+                          }`}
+                        >
+                          <ProjectArtwork
+                            slug={project.comingSoon ? `teaser-${project.slug}` : project.slug}
+                            alt={project.comingSoon ? "Coming soon" : project.title}
+                            fallbackSrc={
+                              project.comingSoon
+                                ? (project.teaserImage ?? fallbackThumb(project))
+                                : fallbackThumb(project)
+                            }
+                          />
                         </div>
-                      )}
-                    </div>
-                    <div className="mt-4 text-center">
-                      {project.comingSoon ? (
-                        <h3 className="font-display text-base md:text-lg text-foreground">
-                          Coming Soon...
-                        </h3>
-                      ) : (
-                        <>
+                        {project.comingSoon && (
+                          <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20">
+                            <span className="font-display text-lg md:text-xl uppercase tracking-[0.25em] text-foreground">
+                              Coming Soon...
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="mt-4 text-center">
+                        {project.comingSoon ? (
                           <h3 className="font-display text-base md:text-lg text-foreground">
-                            {project.title}
+                            Coming Soon...
                           </h3>
-                          <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
-                            {project.type}
-                          </p>
-                        </>
-                      )}
-                    </div>
-                  </button>
-                </div>
-              ))}
-            </div>
-          ))}
+                        ) : (
+                          <>
+                            <h3 className="font-display text-base md:text-lg text-foreground">
+                              {project.title}
+                            </h3>
+                            <p className="text-primary font-body text-xs tracking-[0.15em] uppercase mt-1">
+                              {project.type}
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Draggable scrollbar: grabs pause the roll, it resumes after a moment */}
+        <div ref={barRef} className="selected-reel-scrollbar">
+          <div
+            ref={thumbRef}
+            className="selected-reel-thumb"
+            role="presentation"
+          />
         </div>
       </div>
 
