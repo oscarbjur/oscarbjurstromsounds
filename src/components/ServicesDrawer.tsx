@@ -59,6 +59,9 @@ const ServicesDrawer = () => {
 
   const goToContact = () => {
     setOpen(false);
+    // Ask the contact heading to fade softly once it is on screen,
+    // so people see their click brought them here.
+    window.dispatchEvent(new CustomEvent("obs:contact-pulse"));
     const scroll = () =>
       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
     if (location.pathname !== "/") {

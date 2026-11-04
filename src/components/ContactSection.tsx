@@ -52,11 +52,13 @@ const ContactSection = () => {
     <section id="contact" className="py-32 bg-card">
       <div className="container mx-auto px-6">
         <motion.div
+          ref={headingRef}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          onAnimationEnd={() => setPulsing(false)}
+          className={`text-center mb-20 ${pulsing ? "contact-pulse" : ""}`}
         >
           <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">
             Let's Work Together
