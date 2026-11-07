@@ -19,6 +19,11 @@ const App = () => (
         <ServicesDrawerProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            {/* Shareable section links, e.g. /#/showreel lands on the showreel */}
+            <Route path="/portfolio" element={<Index />} />
+            <Route path="/showreel" element={<Index />} />
+            <Route path="/about" element={<Index />} />
+            <Route path="/contact" element={<Index />} />
             <Route path="/project/:slug" element={<ProjectPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
