@@ -122,11 +122,12 @@ const Navbar = () => {
       return;
     }
     if (!isHome) {
-      navigate("/");
+      navigate(`/${link.href}`);
       setTimeout(() => {
         document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
       }, 300);
     } else {
+      navigate(`/${link.href}`);
       document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" });
     }
   };
