@@ -6,10 +6,6 @@ export type Showreel = {
 export const showreels: Showreel[] = [
   { title: "AAA Showreel", videoId: "svi802Kilek" },
   { title: "Indie Showreel", videoId: "qTXknLtPP94" },
-  {
-    title: "Subnautica Below Zero - Fan Cinematic",
-    videoId: "wMJDjlocg3M",
-  },
 ];
 
 export const showreelEmbedUrl = (videoId: string) =>
