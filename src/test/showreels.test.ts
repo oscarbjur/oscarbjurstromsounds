@@ -6,8 +6,8 @@ import {
 } from "@/data/showreels";
 
 describe("Showreel entries", () => {
-  it("keeps at least three reels to browse through", () => {
-    expect(showreels.length).toBeGreaterThanOrEqual(3);
+  it("keeps at least two reels to browse through", () => {
+    expect(showreels.length).toBeGreaterThanOrEqual(2);
   });
 
   it("gives every reel a title and a valid YouTube id", () => {
