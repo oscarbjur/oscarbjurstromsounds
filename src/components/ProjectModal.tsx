@@ -4,6 +4,7 @@ import { ExternalLink, X } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { getBrandAsset } from "@/data/brandAssets";
 import ProjectArtwork from "@/components/ProjectArtwork";
+import ProjectAudio from "@/components/ProjectAudio";
 import ProjectVideo from "@/components/ProjectVideo";
 
 interface Props {
@@ -70,6 +71,10 @@ const ProjectModal = ({ project: current, fallbackSrc, onClose }: Props) => {
                     )}
                   </div>
                 ) : null}
+
+                {project.audioUrl && (
+                  <ProjectAudio project={project} className="mb-8" />
+                )}
 
                 <p className="mb-3 font-body text-xs uppercase tracking-[0.3em] text-primary">
                   {project.category}

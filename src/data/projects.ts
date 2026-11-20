@@ -1,3 +1,4 @@
+import betanoRadioAd from "@/assets/betano-easter-radio-ad.wav.asset.json";
 import xelliaAudioLogo from "@/assets/xellia-audio-logo.mp4.asset.json";
 import { streamUrl } from "@/lib/media";
 
@@ -19,6 +20,10 @@ export interface Project {
   description: string;
   year: string;
   videoUrl?: string;
+  /** Streams in the case pop-up through ProjectAudio; never downloadable. */
+  audioUrl?: string;
+  /** Length in seconds, shown before the file is fetched. */
+  audioDuration?: number;
   imageUrl?: string;
   gameLink?: string;
   steamLink?: string;
@@ -154,6 +159,8 @@ export const projects: Project[] = [
     description: "Mixed voice, sound designed, and mastered a radio commercial for Betano's Easter campaign, delivered through Sonic Minds.",
     year: "2026",
     imageUrl: projectImage("betano-easter.png"),
+    audioUrl: streamUrl(betanoRadioAd),
+    audioDuration: 20,
   },
   {
     slug: "svt-familjefighten",

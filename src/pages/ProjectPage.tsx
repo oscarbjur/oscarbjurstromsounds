@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import ProjectArtwork from "@/components/ProjectArtwork";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import ProjectAudio from "@/components/ProjectAudio";
 import ProjectVideo from "@/components/ProjectVideo";
 
 const SITE_URL = "https://oscarbjurstromsound.com";
@@ -99,6 +100,10 @@ const ProjectPage = () => {
                 />
               )}
             </div>
+          )}
+
+          {project.audioUrl && (
+            <ProjectAudio project={project} className="mx-auto mb-12 max-w-2xl" />
           )}
 
           <div className="max-w-4xl mx-auto">
