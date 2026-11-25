@@ -1,5 +1,6 @@
 import betanoRadioAd from "@/assets/betano-easter-radio-ad.wav.asset.json";
 import xelliaAudioLogo from "@/assets/xellia-audio-logo.mp4.asset.json";
+import ooonoFilm from "@/assets/ooono-co-driver-no3.mp4.asset.json";
 import { streamUrl } from "@/lib/media";
 
 export const categories = [
@@ -48,6 +49,18 @@ export const projects: Project[] = [
     year: "2026",
     imageUrl: projectImage("wavell-wordmark.png"),
     websiteLink: "https://sonicmindsagency.com/work/wavell/",
+  },
+  {
+    slug: "ooono",
+    title: "OOONO CO-DRIVER NO3",
+    category: "UI/UX Sound Design",
+    role: "UI Sound Designer & Audio Identity",
+    type: "DRIVING SAFETY DEVICE - UI SOUND DESIGN & AUDIO IDENTITY",
+    description: "OOONO is a Danish tech company and Europe's leading traffic assistant, making driving safer with small connected devices that warn drivers about what's ahead on the road. For their newest product, the CO-DRIVER NO3, a focus display that shows drivers what's coming and how far away at a glance, I created all of the UI sounds and helped develop OOONO's audio identity from scratch through Sonic Minds. Because drivers need to keep their eyes on the road, sound is how the product speaks to them. OOONO wanted to sound warm and safe, so the sound design is built on gentle taps, like someone tapping you on the shoulder to tell you something. Explore the full case on Sonic Minds' website.",
+    year: "2026",
+    imageUrl: projectImage("ooono.avif"),
+    videoUrl: streamUrl(ooonoFilm),
+    websiteLink: "https://sonicmindsagency.com/work/ooono/",
   },
   {
     slug: "warlock-activities",

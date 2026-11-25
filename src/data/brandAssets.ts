@@ -14,6 +14,8 @@ export const brandAssets: Record<string, BrandAsset> = {
   "evil-moon-unspoken": { kind: "artwork", src: img("evil-moon-capsule.jpg") },
   // Official case illustration published for Tiimo.
   tiimo: { kind: "artwork", src: img("tiimo-sm.webp") },
+  // Official in-car case image published for OOONO by Sonic Minds.
+  ooono: { kind: "artwork", src: img("ooono.avif") },
   // Official wordmark published by Wavell.
   wavell: { kind: "logo", src: img("wavell-wordmark.png") },
   // Official wordmark published by Betano.
